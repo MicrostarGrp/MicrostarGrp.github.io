@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://microstargrp.github.io/feed.xml" />
 <link rel="alternate" type="text/html" href="http://microstargrp.github.io" />
-<updated>2014-04-15T13:32:41+00:00</updated>
+<updated>2014-04-15T13:44:21+00:00</updated>
 <id>http://microstargrp.github.io/</id>
 <author>
   <name>Microstargrp</name>
@@ -41,14 +41,12 @@
 &lt;h3 id=&quot;team-member&quot;&gt;Team Member&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Ben Diao&lt;/li&gt;
-  &lt;li&gt;Ehanson Yi&lt;/li&gt;
-  &lt;li&gt;Tension Wang&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Ben Diao&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Ehanson Yi&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Tension Wang&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;code&quot;&gt;Code&lt;/h2&gt;
-
-&lt;p&gt;Syntax highlighting via Pygments&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;nf&quot;&gt;#int&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -58,7 +56,7 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;div&gt;&lt;a href=&quot;#&quot; class=&quot;btn&quot;&gt;RUN!&lt;/a&gt;&lt;/div&gt;
+&lt;div&gt;&lt;a href=&quot;#&quot; class=&quot;btn&quot;&gt;-RUN-&lt;/a&gt;&lt;/div&gt;
 
 &lt;p class=&quot;pull-right&quot;&gt;&lt;img src=&quot;http://microstargrp.github.io/images/Hello-World-3.png&quot; alt=&quot;Smithsonian Image&quot; /&gt;&lt;/p&gt;
 
