@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://microstargrp.github.io</loc>
+        <loc>/</loc>
     </url>
     
     
     <url>
-        <loc>http://microstargrp.github.io/404.html</loc>
+        <loc>//404.html</loc>
     </url>
     
     <url>
-        <loc>http://microstargrp.github.io/about/</loc>
+        <loc>//about/</loc>
     </url>
     
     <url>
-        <loc>http://microstargrp.github.io/articles/</loc>
+        <loc>//articles/</loc>
     </url>
     
     <url>
-        <loc>http://microstargrp.github.io/feed.xml</loc>
+        <loc>//feed.xml</loc>
     </url>
     
     <url>
-        <loc>http://microstargrp.github.io/index.html</loc>
+        <loc>//index.html</loc>
     </url>
     
     <url>
-        <loc>http://microstargrp.github.io/search.json</loc>
+        <loc>//search.json</loc>
     </url>
     
     <url>
-        <loc>http://microstargrp.github.io/sitemap.xml</loc>
+        <loc>//sitemap.xml</loc>
     </url>
     
     <url>
-        <loc>http://microstargrp.github.io/tags/</loc>
+        <loc>//tags/</loc>
     </url>
     
     <url>
-        <loc>http://microstargrp.github.io/theme-setup/</loc>
+        <loc>//theme-setup/</loc>
     </url>
     
 
     
     <url>
-        <loc>http://microstargrp.github.io/articles/First-Step/</loc>
+        <loc>//articles/First-Step/</loc>
     </url>
     
 </urlset>
