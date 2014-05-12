@@ -2,27 +2,27 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 <title type="text">MicrostarGRP</title>
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href=".//feed.xml" />
-<link rel="alternate" type="text/html" href="./" />
-<updated>2014-05-12T11:12:53+00:00</updated>
-<id>.//</id>
+<link rel="self" type="application/atom+xml" href="../feed.xml" />
+<link rel="alternate" type="text/html" href=".." />
+<updated>2014-05-12T11:22:20+00:00</updated>
+<id>../</id>
 <author>
   <name>MicrostarGRP</name>
-  <uri>.//</uri>
+  <uri>../</uri>
   <email>styleno1@live.com</email>
 </author>
 
 
 <entry>
   <title type="html"><![CDATA[Blog's Hello World!]]></title>
-  <link rel="alternate" type="text/html" href=".//articles/First-Step/"/>
-  <id>.//articles/First-Step</id>
+  <link rel="alternate" type="text/html" href="../articles/First-Step/"/>
+  <id>../articles/First-Step</id>
   <updated>2014-04-15T00:00:00-00:00</updated>
   <published>2014-04-15T00:00:00+00:00</published>
   
   <author>
     <name>MicrostarGRP</name>
-    <uri>./</uri>
+    <uri>..</uri>
     <email>styleno1@live.com</email>
   </author>
   <content type="html">&lt;p&gt;Whether you think you can or think you can’t —— you are right. (Henry Ford)&lt;/p&gt;
@@ -30,7 +30,7 @@
 &lt;u&gt;学编程就像选家具，去宜家还是从种树开始？&lt;/u&gt;
 &lt;p&gt;&lt;strong&gt;最初拥有的只是梦想和毫无根据的自信，但一切都是都这里开始的！&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p class=&quot;pull-right&quot;&gt;&lt;img src=&quot;.//images/Hello-World-2.jpg&quot; alt=&quot;Smithsonian Image&quot; /&gt;&lt;/p&gt;
+&lt;p class=&quot;pull-right&quot;&gt;&lt;img src=&quot;../images/Hello-World-2.jpg&quot; alt=&quot;Smithsonian Image&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;quotes&quot;&gt;Quotes&lt;/h3&gt;
 
@@ -58,9 +58,9 @@
 
 &lt;div&gt;&lt;a href=&quot;#&quot; class=&quot;btn&quot;&gt;-RUN-&lt;/a&gt;&lt;/div&gt;
 
-&lt;p class=&quot;pull-right&quot;&gt;&lt;img src=&quot;.//images/Hello-World-3.png&quot; alt=&quot;Smithsonian Image&quot; /&gt;&lt;/p&gt;
+&lt;p class=&quot;pull-right&quot;&gt;&lt;img src=&quot;../images/Hello-World-3.png&quot; alt=&quot;Smithsonian Image&quot; /&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;.//articles/First-Step/&quot;&gt;Blog's Hello World!&lt;/a&gt; was originally published by MicrostarGRP at &lt;a href=&quot;./&quot;&gt;MicrostarGRP&lt;/a&gt; on April 15, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;../articles/First-Step/&quot;&gt;Blog's Hello World!&lt;/a&gt; was originally published by MicrostarGRP at &lt;a href=&quot;..&quot;&gt;MicrostarGRP&lt;/a&gt; on April 15, 2014.&lt;/p&gt;</content>
 </entry>
 
 </feed>
