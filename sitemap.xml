@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>www.striverbar.com</loc>
+        <loc>striverbar.com</loc>
     </url>
     
     
     <url>
-        <loc>www.striverbar.com/404.html</loc>
+        <loc>striverbar.com/404.html</loc>
     </url>
     
     <url>
-        <loc>www.striverbar.com/about/</loc>
+        <loc>striverbar.com/about/</loc>
     </url>
     
     <url>
-        <loc>www.striverbar.com/articles/</loc>
+        <loc>striverbar.com/articles/</loc>
     </url>
     
     <url>
-        <loc>www.striverbar.com/feed.xml</loc>
+        <loc>striverbar.com/feed.xml</loc>
     </url>
     
     <url>
-        <loc>www.striverbar.com/index.html</loc>
+        <loc>striverbar.com/index.html</loc>
     </url>
     
     <url>
-        <loc>www.striverbar.com/search.json</loc>
+        <loc>striverbar.com/search.json</loc>
     </url>
     
     <url>
-        <loc>www.striverbar.com/sitemap.xml</loc>
+        <loc>striverbar.com/sitemap.xml</loc>
     </url>
     
     <url>
-        <loc>www.striverbar.com/tags/</loc>
+        <loc>striverbar.com/tags/</loc>
     </url>
     
     <url>
-        <loc>www.striverbar.com/theme-setup/</loc>
+        <loc>striverbar.com/theme-setup/</loc>
     </url>
     
 
     
     <url>
-        <loc>www.striverbar.com/articles/First-Step/</loc>
+        <loc>striverbar.com/articles/First-Step/</loc>
     </url>
     
 </urlset>
