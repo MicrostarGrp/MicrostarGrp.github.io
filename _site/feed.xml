@@ -6,8 +6,8 @@
 </description>
     <link>http://www.striverbar.com/</link>
     <atom:link href="http://www.striverbar.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 23 May 2015 15:36:27 +0800</pubDate>
-    <lastBuildDate>Sat, 23 May 2015 15:36:27 +0800</lastBuildDate>
+    <pubDate>Sat, 23 May 2015 23:23:23 +0800</pubDate>
+    <lastBuildDate>Sat, 23 May 2015 23:23:23 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -17,6 +17,8 @@
 &lt;p&gt;我们从11年毕业至今，近4年，世界给了你我很多挫折和惊喜，保持好奇心，开心地将旅行进行到底。欢迎大家跟我们沟通、分享，或推荐博文。我们邮箱是:&lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#097;&amp;#100;&amp;#109;&amp;#105;&amp;#110;&amp;#064;&amp;#115;&amp;#116;&amp;#114;&amp;#105;&amp;#118;&amp;#101;&amp;#114;&amp;#098;&amp;#097;&amp;#114;&amp;#046;&amp;#099;&amp;#111;&amp;#109;&quot;&gt;admin#striverbar.com&lt;/a&gt;。&lt;/p&gt;
 
 &lt;p&gt;就这样，开始吧。世界那么大，欢迎来看看！&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://www.striverbar.com/img/About_us.jpg&quot; alt=&quot;夜空&quot; /&gt;&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#include &amp;lt;stdio.h&amp;gt;&lt;/span&gt;
 
