@@ -1,0 +1,14 @@
+# Site settings
+title: 闪闪微星(MicroStar)
+email: admin@striverbar.com
+description: > # this means to ignore newlines until "baseurl:"
+   仰望星空，我想知道：有人正从世界的某个地方朝我走来吗？像光那样，从一颗星达到另外一颗星。
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://www.striverbar.com" # the base hostname & protocol for your site
+twitter_username: TensionWang
+github_username:  MicrostarGrp
+
+# Build settings
+markdown: kramdown
+timezone: Asia/Hong_Kong
+paginate: 5
