@@ -10,7 +10,7 @@ categories: embedded notes
 
 就这样，开始吧。世界那么大，欢迎来看看！
 
-![夜空]({{site.site_root}}/img/About_us.jpg)
+![夜空]({{site.site_root}}./img/About_us.jpg)
 
 {% highlight ruby %}
 #include <stdio.h>
