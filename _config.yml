@@ -5,6 +5,7 @@ description: > # this means to ignore newlines until "baseurl:"
    仰望星空，我想知道：有人正从世界的某个地方朝我走来吗？像光那样，从一颗星达到另外一颗星。
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://www.striverbar.com" # the base hostname & protocol for your site
+site_root: "../../../../../"    # 相对于网页的相对地址
 twitter_username: TensionWang
 github_username:  MicrostarGrp
 

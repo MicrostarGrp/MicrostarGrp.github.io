@@ -18,7 +18,7 @@ categories: personal notes
 
 我是懊恼的，在最合适的时间没有完成这些。此外，我想表达的是，还不是太晚，我们可以坦然在学校以外习惯读书，在这个股市风靡的时候，分享一句话：书就像股票，一年年地给我们分红！
 
-![人月神话]({{site.url}}/img/man_month.jpg)
+![人月神话]({{site.site_root}}/img/man_month.jpg)
 
 
 [mail]: mailto:admin@striverbar.com
