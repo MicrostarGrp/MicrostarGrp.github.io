@@ -3,7 +3,7 @@ layout: page
 title:  关于我们
 permalink: /about/
 ---
-![微星]({{site.url}}/img/self_photo.jpg)
+![微星](../img/self_photo.jpg)
 
 ###Hello，我们是微星。
 当然，这只是个称呼，碰巧有雷同很正常，欢迎你访问我们的博客。
