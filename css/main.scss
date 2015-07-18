@@ -6,16 +6,21 @@
 
 
 // Our variables
-$base-font-family: Courier, Monaco, sans-serif;
+$base-font-family: Ubuntu, Courier, Monaco, sans-serif;
 $base-font-size:   14px;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
 
 $spacing-unit:     30px;
 
-$text-color:       #000;
+$text-color:       #3d3d3d;
 $background-color: #FFF;
 $brand-color:      green;
+
+/* 我定义的变量 */
+$link-active-color:    #18a9a1;
+$foot-bg-color:        lightgrey;
+$inline-code-bg-color: #aee5e9;
 
 $grey-color:       #7c3bd2;
 $grey-color-light: lighten($grey-color, 40%);
