@@ -13,3 +13,7 @@ github_username:  MicrostarGrp
 markdown: kramdown
 timezone: Asia/Hong_Kong
 paginate: 5
+
+
+gems:
+  - jekyll-sitemap
