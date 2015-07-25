@@ -6,8 +6,8 @@
 </description>
     <link>http://www.striverbar.com/</link>
     <atom:link href="http://www.striverbar.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 25 Jul 2015 14:43:59 +0800</pubDate>
-    <lastBuildDate>Sat, 25 Jul 2015 14:43:59 +0800</lastBuildDate>
+    <pubDate>Sat, 25 Jul 2015 15:20:29 +0800</pubDate>
+    <lastBuildDate>Sat, 25 Jul 2015 15:20:29 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -141,8 +141,8 @@
 
 &lt;h4 id=&quot;pragma&quot;&gt;预处理操作符：__Pragma&lt;/h4&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# define RWDATA(X) PRAGMA(arm section rwdata=#X)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# define PRAGMA(X) _Pragma(#X)&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#define RWDATA(X) PRAGMA(arm section rwdata=#X)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#define PRAGMA(X) _Pragma(#X)&lt;/span&gt;
 &lt;span class=&quot;no&quot;&gt;RWDATA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;same&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#pragma arm section rwdata=&amp;quot;foo&amp;quot;&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;   &lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;placed&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;section&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;foo&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -161,7 +161,7 @@
 
 &lt;p&gt;注：支持以下类型：float complex/double complex/long double complex&lt;/p&gt;
 
-&lt;h4 id=&quot;section-14&quot;&gt;独有指针&lt;/h4&gt;
+&lt;h4 id=&quot;restrict&quot;&gt;[restrict]指针&lt;/h4&gt;
 &lt;p&gt;关键字：restrict&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;copy_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;restrict&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;restrict&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -176,25 +176,25 @@
     &lt;span class=&quot;n&quot;&gt;copy_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;     &lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;undefined&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;behavior&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;注：表示对象仅有函数本身可能有写操作，这允许编译器更好地优化代码。 C90/C++均支持该选项。
+&lt;p&gt;注：表示指针仅本函数访问，这允许编译器更好地优化代码。 C90/C++均支持该选项。
 &amp;lt;!&amp;gt;对于2个独有指针，不要试图传入同一参数。&lt;/p&gt;
 
-&lt;h4 id=&quot;section-15&quot;&gt;库函数&lt;/h4&gt;
+&lt;h4 id=&quot;section-14&quot;&gt;库函数&lt;/h4&gt;
 &lt;ul&gt;
   &lt;li&gt;一些UNIX标准库中C90的扩展，如snprintf()&lt;/li&gt;
   &lt;li&gt;一些新的库功能，如&amp;lt;fenv.h&amp;gt;提供的标准化浮点数运行环境&lt;/li&gt;
-  &lt;li&gt;一些C90已有的功能、宏定义与函数定义	
+  &lt;li&gt;一些C90已有的功能、宏定义与函数定义	&lt;br /&gt;
 注：由于有些功能已存在于C90/C++，必要时使用[USE_C99_ALL]和[USE_C99_MATH]指定调用。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;section-16&quot;&gt;个人体会&lt;/h3&gt;
+&lt;h3 id=&quot;section-15&quot;&gt;个人体会&lt;/h3&gt;
 &lt;p&gt;入行初期，我并不知道什么版本，就纳闷：变量定义怎么只能紧跟着大括号？
 就去读标准文档，先是国标、C99等，厘清了编译器与标准的关系。
 想想和教育背景有关联，没老师提标准文件，学校充斥着VC6.0，多数情况只是拿结果逆推语言。
-我们了解根源，可以在骨子里建立自信，也得到了自由。	
+我们了解根源，可以在骨子里建立自信，也得到了自由。	&lt;br /&gt;
 另，C++近期在新标准的推动下，表现强劲，大家也可以了解下，不过注意部分编译器还不完整支持C++11.&lt;/p&gt;
 
-&lt;h4 id=&quot;section-17&quot;&gt;声明&lt;/h4&gt;
+&lt;h4 id=&quot;section-16&quot;&gt;声明&lt;/h4&gt;
 
 &lt;table&gt;
   &lt;thead&gt;

@@ -130,8 +130,8 @@ for (int n = max - 1; n >= 0; n--)
 {% endhighlight %}
 ####预处理操作符：__Pragma
 {% highlight ruby %}
-# define RWDATA(X) PRAGMA(arm section rwdata=#X)
-# define PRAGMA(X) _Pragma(#X)
+#define RWDATA(X) PRAGMA(arm section rwdata=#X)
+#define PRAGMA(X) _Pragma(#X)
 RWDATA(foo)  // same as #pragma arm section rwdata="foo"
 int y = 1;   // y is placed in section "foo"
 {% endhighlight %}
@@ -150,7 +150,7 @@ int main(void)
 {% endhighlight %}
 注：支持以下类型：float complex/double complex/long double complex
 
-####独有指针
+####[restrict]指针
 关键字：restrict
 {% highlight ruby %}
 void copy_array(int n, int *restrict a, int *restrict b)
@@ -165,20 +165,20 @@ void test(void)
     copy_array(50, array + 1, array);     // undefined behavior
 }
 {% endhighlight %}
-注：表示对象仅有函数本身可能有写操作，这允许编译器更好地优化代码。 C90/C++均支持该选项。
+注：表示指针仅本函数访问，这允许编译器更好地优化代码。 C90/C++均支持该选项。
 <!>对于2个独有指针，不要试图传入同一参数。
 
 ####库函数
 - 一些UNIX标准库中C90的扩展，如snprintf()
 - 一些新的库功能，如\<fenv.h>提供的标准化浮点数运行环境
-- 一些C90已有的功能、宏定义与函数定义	
+- 一些C90已有的功能、宏定义与函数定义	  
 注：由于有些功能已存在于C90/C++，必要时使用[USE_C99_ALL]和[USE_C99_MATH]指定调用。
 
 ###个人体会
 入行初期，我并不知道什么版本，就纳闷：变量定义怎么只能紧跟着大括号？
 就去读标准文档，先是国标、C99等，厘清了编译器与标准的关系。
 想想和教育背景有关联，没老师提标准文件，学校充斥着VC6.0，多数情况只是拿结果逆推语言。
-我们了解根源，可以在骨子里建立自信，也得到了自由。	
+我们了解根源，可以在骨子里建立自信，也得到了自由。	  
 另，C++近期在新标准的推动下，表现强劲，大家也可以了解下，不过注意部分编译器还不完整支持C++11.
 
 ####声明
