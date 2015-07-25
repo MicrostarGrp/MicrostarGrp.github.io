@@ -174,12 +174,12 @@
     <span class="n">debug</span> <span class="p">(</span><span class="s2">&quot;a test string is printed out along with %x %x %x</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
 <span class="p">}</span></code></pre></div>
 
-<h4 id="section-12">不限定变量位置</h4>
+<h4 id="section-12">不限定变量定义的位置</h4>
 
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">void</span> <span class="n">foo</span><span class="p">(</span><span class="n">float</span> <span class="n">i</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">?</span> <span class="o">-</span> <span class="n">i</span> <span class="p">:</span> <span class="n">i</span><span class="p">;</span>
-			<span class="n">i</span><span class="o">++</span><span class="p">;</span>
+    <span class="n">i</span><span class="o">++</span><span class="p">;</span>
     <span class="n">float</span> <span class="n">j</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>    <span class="sr">//</span> <span class="n">illegal</span> <span class="k">in</span> <span class="no">C90</span>
 <span class="p">}</span></code></pre></div>
 
@@ -219,7 +219,7 @@
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">void</span> <span class="n">copy_array</span><span class="p">(</span><span class="n">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">int</span> <span class="o">*</span><span class="n">restrict</span> <span class="n">a</span><span class="p">,</span> <span class="n">int</span> <span class="o">*</span><span class="n">restrict</span> <span class="n">b</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="k">while</span> <span class="p">(</span><span class="n">n</span><span class="o">--</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="o">*</span><span class="n">a</span><span class="o">++</span> <span class="o">=</span> <span class="o">*</span><span class="n">b</span><span class="o">++</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">a</span><span class="o">++</span> <span class="o">=</span> <span class="o">*</span><span class="n">b</span><span class="o">++</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="n">void</span> <span class="nb">test</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="p">{</span>
@@ -259,6 +259,10 @@
     <tr>
       <td style="text-align: center">V0.1a</td>
       <td style="text-align: center">25 July</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">V0.1b</td>
+      <td style="text-align: center">26 July</td>
     </tr>
   </tbody>
 </table>

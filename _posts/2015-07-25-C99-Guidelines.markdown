@@ -111,12 +111,12 @@ void Variadic_Macros_0()
     debug ("a test string is printed out along with %x %x %x\n", 12, 14, 20);
 }
 {% endhighlight %}
-####不限定变量位置
+####不限定变量定义的位置
 {% highlight ruby %}
 void foo(float i)
 {
     i = (i > 0) ? - i : i;
-			i++;
+    i++;
     float j = sqrt(i);    // illegal in C90
 }
 {% endhighlight %}
@@ -156,7 +156,7 @@ int main(void)
 void copy_array(int n, int *restrict a, int *restrict b)
 {
     while (n-- > 0)
-        *a++ = *b++;
+    *a++ = *b++;
 }
 void test(void)
 {
@@ -186,3 +186,4 @@ void test(void)
 |    版本    |   日期    |
 |:---------:|:---------:|
 |   V0.1a   |  25 July  |
+|   V0.1b   |  26 July  |
