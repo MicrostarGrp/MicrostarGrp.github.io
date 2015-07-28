@@ -2,6 +2,7 @@
 layout: post
 title:  "Hello, We are the Microstar group."
 date:   2015-05-23 14:30:00
+keywords: Hello,你好世界,网站简介
 categories: embedded notes
 ---
 ###开始新的旅程，希望通过它分享一些动态、见闻。
