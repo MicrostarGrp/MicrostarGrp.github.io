@@ -13,7 +13,7 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-  font-family: Ubuntu, Courier, Monaco, sans-serif;
+  font-family: Ubuntu, Ubuntu TTF, Courier, Monaco, sans-serif;
   font-size: 14px;
   line-height: 1.5;
   font-weight: 300;
@@ -76,6 +76,7 @@ a {
   a:hover {
     color: #3d3d3d;
     text-decoration: underline;
+    text-shadow: 2px 2px 5px darkgray;
     transform: scale(1.05); }
   a:active {
     color: #18a9a1;
