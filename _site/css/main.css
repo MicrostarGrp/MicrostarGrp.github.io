@@ -13,7 +13,7 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-  font-family: Ubuntu, Ubuntu TTF, Courier, Monaco, sans-serif;
+  font-family: Ubuntu, Ubuntu-TTF, Courier, Monaco, sans-serif;
   font-size: 14px;
   line-height: 1.5;
   font-weight: 300;
