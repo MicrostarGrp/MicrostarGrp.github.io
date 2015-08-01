@@ -1,7 +1,19 @@
 <footer class="site-footer">
-
   <div class="foot-wrapper">
-
+    {% if page.comments %}
+    <div class="ds-thread" data-thread-key={{page.title}} data-limit=10 data-order="asc"></div>
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"microstar"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    {% endif %}
     <h2 class="footer-heading">{{ site.title }}</h2>
 
     <div class="footer-col-wrapper">

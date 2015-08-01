@@ -3,6 +3,7 @@ layout: page
 title:  关于我们
 permalink: /about/
 keywords: 关于,About us,简介,成员
+comments: true
 ---
 ![微星](../img/self_photo.jpg)
 

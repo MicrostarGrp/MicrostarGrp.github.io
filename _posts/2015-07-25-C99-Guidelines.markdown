@@ -4,6 +4,7 @@ title:  "C99 Guidelines"
 date:   2015-07-25 14:00:00
 keywords: C语言,C99,Guidelines,详解
 categories: embedded notes
+comments: true
 ---
 
 ###概述

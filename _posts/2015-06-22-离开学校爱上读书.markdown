@@ -4,6 +4,7 @@ title:  "离开学校爱上读书"
 date:   2015-06-22 16:00:00
 keywords: 学习,学校,时代,观念
 categories: personal notes
+comments: true
 ---
 ###当我离开了，明白了为什么读书，从来没有这样痛苦的领悟。
 
