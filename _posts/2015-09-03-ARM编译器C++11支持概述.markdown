@@ -1,0 +1,59 @@
+---
+layout: post
+title:  "ARM编译器C++11支持概述"
+date:   2015-09-03 01:00:00
+keywords: ARM,C++,ARMCC,C++11,编译器
+categories: embedded notes
+comments: true
+---
+
+####前言
+ARM编译器支持大部分C++11的新特性，本文以ARMCC V5.06为例说明。
+
+####完整支持
+- auto，不指定类型，自动推导：auto i = 5.0F
+- constexpr，主要用于声明函数是编译期常数，也可用于其他表达式
+- ->，后置返回类型
+- explicit，显式类型转换
+- for(auto i:list)，简化的遍历循环
+- int init_var[]{1,2,3}，扩展的初始化语法
+- 可变参数的模板
+- 新的字符串表示，前缀u8/u/U表示UTF-8/UTF-16/UTF-32，R表示不含转义的字符
+- using，可以用来定义类型的别名：using X = int
+- override，显式重写虚函数
+- \>/\>>，修改右移和右尖括号的解析时的优先级，优先匹配右尖括号
+- static_assert，编译期测试断言
+- enum class，强类型枚举，它不能隐式转换成整数
+- union，对成员类型不再限制的联合
+- friend，扩展的友元声明，class关键字是可选的
+- noexcept，编译时执行计算表达式，以指示是否会抛出异常
+- 支持C99的特性
+- 模版参数支持局部、匿名类型
+- extern，支持外部模板实例声明
+- final，可以用于类和函数，阻止继承和子类重写函数
+- =delete，指明禁止调用特定的成员函数
+- 移动构造和移动赋值运算符
+- inline namespace，内联命名空间，实现可控制的版本演化
+- 模版参数推导，编译器可根据实参，推导出模版函数的形参类型
+
+
+####部分支持
+- nullptr，编译器支持该关键字，但并没有定义在标准库头文件中
+- Rvalue，右值引用，编译器未包含std::move和std::forward的实现
+- Lanbda，编译器未包含std::function的实现，使用auto类型保存lambda函数
+- Initializer，未提供std::initializer_list的实现，基于范围的for循环也依赖它
+- Decltype，不包含C++11扩展N3049/N3276，因而它不能用于名称标示符、析构调用、基类继承和不完整类型函数
+- 属性语法，支持[noreturn]，忽略[carries_dependency]
+- =default，但移动构造和移动赋值操作除外
+
+
+####不支持
+- std::atomic，内存模型保证
+- auto_ptr->unique_ptr/shared_ptr/weak_ptr，智能指针
+- thread_local，线程局部存储
+- alignof/alignas
+- 继承构造函数
+- User-defined literal，用户定义字面量
+
+####其他
+- Keil µVision动态语法检查功能暂不支持C++11
