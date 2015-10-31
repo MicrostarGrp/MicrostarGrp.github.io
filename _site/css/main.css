@@ -298,6 +298,14 @@ pre {
 .page-heading {
   font-size: 20px; }
 
+.home {
+  padding: 5px 5px 5px 25px;
+  border-style: outset;
+  border-width: 1px;
+  border-color: grey;
+  box-shadow: 2px 2px 2px darkgray;
+  background: transparent url(https://git-scm.com/images/bg/isometric-grid.png) top right repeat; }
+
 .post-list {
   margin-left: 0;
   list-style: none; }

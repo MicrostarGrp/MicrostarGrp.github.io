@@ -18,7 +18,7 @@
   <link rel="stylesheet" type="text/css" href="https://dn-microstar.qbox.me/fonts/ubuntu_font.css" />
   <link rel="stylesheet" type="text/css" href="https://dn-microstar.qbox.me/fonts/ubuntu_font_ttf.css" />
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://www.striverbar.com/embedded/notes/2015/07/25/C99-Guidelines.html">
+  <link rel="canonical" href="http://www.striverbar.com/embedded/notes/2015/07/25/c99-guidelines.html">
   <link rel="alternate" type="application/rss+xml" title="闪闪微星(MicroStar)" href="http://www.striverbar.com/feed.xml" />
 </head>
 
@@ -89,8 +89,8 @@
 
 <h4 id="section-4">注释</h4>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">x</span> <span class="o">=</span> <span class="n">a</span> <span class="sr">//</span><span class="o">*</span> <span class="no">Hello</span> <span class="no">World</span> <span class="o">*/</span> <span class="n">b</span>
-    <span class="o">-</span> <span class="n">c</span><span class="p">;</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> <span class="n">x</span> <span class="o">=</span> <span class="n">a</span> <span class="sr">//</span><span class="o">*</span> <span class="no">Hello</span> <span class="no">World</span> <span class="o">*</span><span class="sr">/ b
+    - c;</span></code></pre></figure>
 
 <ul>
   <li>C90: x = a / b - c;</li>
@@ -99,140 +99,140 @@
 
 <h4 id="section-5">复合表达式</h4>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">int</span> <span class="o">*</span><span class="n">pint</span> <span class="o">=</span> <span class="p">(</span><span class="n">int</span> <span class="o">[</span><span class="mi">4</span><span class="o">]</span><span class="p">){</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
-<span class="n">struct</span> <span class="n">T</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">int</span> <span class="o">*</span><span class="n">pint</span> <span class="o">=</span> <span class="p">(</span><span class="n">int</span> <span class="p">[</span><span class="mi">4</span><span class="p">]){</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
+<span class="n">struct</span> <span class="no">T</span>
 <span class="p">{</span>
    <span class="n">int</span>  <span class="n">num</span><span class="p">;</span>
    <span class="n">char</span> <span class="o">*</span><span class="nb">name</span><span class="p">;</span>
 <span class="p">}</span> <span class="n">t2</span><span class="p">;</span>
-<span class="n">t2</span> <span class="o">=</span> <span class="p">(</span><span class="n">struct</span> <span class="n">T</span><span class="p">)</span> <span class="p">{</span><span class="mi">43</span><span class="p">,</span> <span class="s2">&quot;world&quot;</span><span class="p">};</span></code></pre></div>
+<span class="n">t2</span> <span class="o">=</span> <span class="p">(</span><span class="n">struct</span> <span class="no">T</span><span class="p">)</span> <span class="p">{</span><span class="mi">43</span><span class="p">,</span> <span class="s2">"world"</span><span class="p">};</span></code></pre></figure>
 
 <h4 id="section-6">指定初始化</h4>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">typedef</span> <span class="n">struct</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">typedef</span> <span class="n">struct</span>
 <span class="p">{</span>
     <span class="n">char</span> <span class="o">*</span><span class="nb">name</span><span class="p">;</span>
     <span class="n">int</span>  <span class="n">rank</span><span class="p">;</span>
 <span class="p">}</span> <span class="n">data</span><span class="p">;</span>
-<span class="n">data</span> <span class="n">vars</span><span class="o">[</span><span class="mi">10</span><span class="o">]</span> <span class="o">=</span> <span class="p">{</span> <span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="n">rank</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-                  <span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="n">rank</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
-                  <span class="o">[</span><span class="mi">2</span><span class="o">].</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;baz&quot;</span><span class="p">,</span> 
-                  <span class="o">[</span><span class="mi">3</span><span class="o">].</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;gazonk&quot;</span> <span class="p">};</span></code></pre></div>
+<span class="n">data</span> <span class="n">vars</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nf">name</span> <span class="o">=</span> <span class="s2">"foo"</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nf">rank</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                  <span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nf">name</span> <span class="o">=</span> <span class="s2">"bar"</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nf">rank</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+                  <span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="nf">name</span> <span class="o">=</span> <span class="s2">"baz"</span><span class="p">,</span> 
+                  <span class="p">[</span><span class="mi">3</span><span class="p">].</span><span class="nf">name</span> <span class="o">=</span> <span class="s2">"gazonk"</span> <span class="p">};</span>    </code></pre></figure>
 
 <p>注：未指定初始化的成员默认初始化为0。</p>
 
 <h4 id="section-7">16进制浮点数</h4>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="mh">0x1</span><span class="o">.</span><span class="n">fp3</span><span class="p">;</span> <span class="sr">//</span> <span class="mh">0x1</span><span class="o">.</span><span class="n">fp3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">.</span><span class="mi">9375</span><span class="o">*</span><span class="mi">8</span> <span class="o">=</span> <span class="mi">1</span><span class="o">.</span><span class="mi">55</span><span class="n">e1</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="mh">0x1</span><span class="p">.</span><span class="nf">fp3</span><span class="p">;</span> <span class="sr">//</span> <span class="mh">0x1</span><span class="p">.</span><span class="nf">fp3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">.</span><span class="mi">9375</span><span class="o">*</span><span class="mi">8</span> <span class="o">=</span> <span class="mi">1</span><span class="o">.</span><span class="mi">55</span><span class="n">e1</span></code></pre></figure>
 
 <p>注：可使用printf()以”%a”或”%A”输出该格式。</p>
 
 <h4 id="section-8">可变长度数组成员</h4>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">extern</span> <span class="n">const</span> <span class="n">int</span> <span class="n">n</span><span class="p">;</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">extern</span> <span class="n">const</span> <span class="n">int</span> <span class="n">n</span><span class="p">;</span>
 <span class="n">typedef</span> <span class="n">struct</span>
 <span class="p">{</span>
     <span class="n">int</span> <span class="n">len</span><span class="p">;</span>
-    <span class="n">char</span> <span class="nb">p</span><span class="o">[]</span><span class="p">;</span>
+    <span class="n">char</span> <span class="nb">p</span><span class="p">[];</span>
 <span class="p">}</span> <span class="n">str</span><span class="p">;</span>
 <span class="n">void</span> <span class="n">foo</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="n">size_t</span> <span class="n">str_size</span> <span class="o">=</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>  <span class="sr">//</span> <span class="n">equivalent</span> <span class="n">to</span> <span class="n">offsetoff</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="nb">p</span><span class="p">)</span>
     <span class="n">str</span> <span class="o">*</span><span class="n">s</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">str_size</span> <span class="o">+</span> <span class="p">(</span><span class="n">sizeof</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">*</span> <span class="n">n</span><span class="p">));</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
 <p>注：当结构体包含可变数组成员，结构体是不完整类型，慎用sizeof()。</p>
 
 <h4 id="func">预定义标示符 __func__</h4>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">void</span> <span class="n">foo</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">void</span> <span class="n">foo</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="nb">printf</span><span class="p">(</span><span class="s2">&quot;This function is called &#39;%s&#39;.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">__func__</span><span class="p">);</span>
-<span class="p">}</span></code></pre></div>
+    <span class="nb">printf</span><span class="p">(</span><span class="s2">"This function is called '%s'.</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">__func__</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
 
 <p>输出：This function is called ‘foo’.</p>
 
 <h4 id="section-9">内联函数</h4>
 <p>关键字：inline</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">inline</span> <span class="n">int</span> <span class="n">max</span><span class="p">(</span><span class="n">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">int</span> <span class="n">b</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">inline</span> <span class="n">int</span> <span class="n">max</span><span class="p">(</span><span class="n">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">int</span> <span class="n">b</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="p">?</span> <span class="n">a</span> <span class="p">:</span> <span class="n">b</span><span class="p">;</span>    
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
 <p>注：inline是内联函数的必要条件，C90中使用__inline，与C++中含义不同。</p>
 
 <h4 id="section-10">长整形</h4>
 <p>关键字：long long</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">long</span> <span class="n">long</span> <span class="n">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">25902068371200</span><span class="p">;</span>                <span class="sr">//</span> <span class="n">length</span> <span class="n">of</span> <span class="n">light</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">long</span> <span class="n">long</span> <span class="n">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">25902068371200</span><span class="p">;</span>                <span class="sr">//</span> <span class="n">length</span> <span class="n">of</span> <span class="n">light</span>
                                                  <span class="sr">//</span> <span class="n">day</span><span class="p">,</span> <span class="n">meters</span>
 <span class="n">unsigned</span> <span class="n">long</span> <span class="n">long</span> <span class="n">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">94607304725808000</span><span class="no">ULL</span><span class="p">;</span> <span class="sr">//</span> <span class="n">length</span> <span class="n">of</span> <span class="n">light</span>
-                                                 <span class="sr">//</span> <span class="n">year</span><span class="p">,</span> <span class="n">meters</span></code></pre></div>
+                                                 <span class="sr">//</span> <span class="n">year</span><span class="p">,</span> <span class="n">meters</span></code></pre></figure>
 
 <p>注：64bits，C90不启用选项[–strict]时也支持，__int64与long long是等价的。</p>
 
 <h4 id="section-11">宏定义允许不定长参数</h4>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#define debug(format, ...) fprintf (stderr, format, __VA_ARGS__)</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#define debug(format, ...) fprintf (stderr, format, __VA_ARGS__)</span>
 <span class="n">void</span> <span class="no">Variadic_Macros_0</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">debug</span> <span class="p">(</span><span class="s2">&quot;a test string is printed out along with %x %x %x</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
-<span class="p">}</span></code></pre></div>
+    <span class="n">debug</span> <span class="p">(</span><span class="s2">"a test string is printed out along with %x %x %x</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
 
 <h4 id="section-12">不限定变量定义的位置</h4>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">void</span> <span class="n">foo</span><span class="p">(</span><span class="n">float</span> <span class="n">i</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">void</span> <span class="n">foo</span><span class="p">(</span><span class="n">float</span> <span class="n">i</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">?</span> <span class="o">-</span> <span class="n">i</span> <span class="p">:</span> <span class="n">i</span><span class="p">;</span>
     <span class="n">i</span><span class="o">++</span><span class="p">;</span>
     <span class="n">float</span> <span class="n">j</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>    <span class="sr">//</span> <span class="n">illegal</span> <span class="k">in</span> <span class="no">C90</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
 <p>for(;;)循环：</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">extern</span> <span class="n">int</span> <span class="n">max</span><span class="p">;</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">extern</span> <span class="n">int</span> <span class="n">max</span><span class="p">;</span>
 <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">max</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">n</span><span class="o">--</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="sr">//</span> <span class="n">body</span> <span class="n">of</span> <span class="kp">loop</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
 <h4 id="pragma">预处理操作符：__Pragma</h4>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#define RWDATA(X) PRAGMA(arm section rwdata=#X)</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#define RWDATA(X) PRAGMA(arm section rwdata=#X)</span>
 <span class="c1">#define PRAGMA(X) _Pragma(#X)</span>
-<span class="no">RWDATA</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span>  <span class="sr">//</span> <span class="n">same</span> <span class="n">as</span> <span class="c1">#pragma arm section rwdata=&quot;foo&quot;</span>
-<span class="n">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>   <span class="sr">//</span> <span class="n">y</span> <span class="n">is</span> <span class="n">placed</span> <span class="k">in</span> <span class="n">section</span> <span class="s2">&quot;foo&quot;</span></code></pre></div>
+<span class="no">RWDATA</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span>  <span class="o">/</span><span class="sr">/ same as #pragma arm section rwdata="foo"
+int y = 1;   /</span><span class="o">/</span> <span class="n">y</span> <span class="n">is</span> <span class="n">placed</span> <span class="k">in</span> <span class="n">section</span> <span class="s2">"foo"</span></code></pre></figure>
 
 <p>注：它在C90未启用选项[–strict]时是可用的。</p>
 
 <h4 id="section-13">复数</h4>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#include &lt;stdio.h&gt;</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#include &lt;stdio.h&gt;</span>
 <span class="c1">#include &lt;complex.h&gt;</span>
 <span class="n">int</span> <span class="n">main</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="n">complex</span> <span class="n">float</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">64</span><span class="o">.</span><span class="mi">0</span> <span class="o">+</span> <span class="mi">64</span><span class="o">.</span><span class="mi">0</span><span class="o">*</span><span class="n">I</span><span class="p">;</span>
-    <span class="nb">printf</span><span class="p">(</span><span class="s2">&quot;z = %f + %fI</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">creal</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">cimag</span><span class="p">(</span><span class="n">z</span><span class="p">));</span>
+    <span class="n">complex</span> <span class="n">float</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">64</span><span class="o">.</span><span class="mi">0</span> <span class="o">+</span> <span class="mi">64</span><span class="o">.</span><span class="mi">0</span><span class="o">*</span><span class="no">I</span><span class="p">;</span>
+    <span class="nb">printf</span><span class="p">(</span><span class="s2">"z = %f + %fI</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">creal</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">cimag</span><span class="p">(</span><span class="n">z</span><span class="p">));</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
 <p>注：支持以下类型：float complex/double complex/long double complex</p>
 
 <h4 id="restrict">[restrict]指针</h4>
 <p>关键字：restrict</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">void</span> <span class="n">copy_array</span><span class="p">(</span><span class="n">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">int</span> <span class="o">*</span><span class="n">restrict</span> <span class="n">a</span><span class="p">,</span> <span class="n">int</span> <span class="o">*</span><span class="n">restrict</span> <span class="n">b</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">void</span> <span class="n">copy_array</span><span class="p">(</span><span class="n">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">int</span> <span class="o">*</span><span class="n">restrict</span> <span class="n">a</span><span class="p">,</span> <span class="n">int</span> <span class="o">*</span><span class="n">restrict</span> <span class="n">b</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="k">while</span> <span class="p">(</span><span class="n">n</span><span class="o">--</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
     <span class="o">*</span><span class="n">a</span><span class="o">++</span> <span class="o">=</span> <span class="o">*</span><span class="n">b</span><span class="o">++</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="n">void</span> <span class="nb">test</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="n">extern</span> <span class="n">int</span> <span class="n">array</span><span class="o">[</span><span class="mi">100</span><span class="o">]</span><span class="p">;</span>
+    <span class="n">extern</span> <span class="n">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
     <span class="n">copy_array</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">array</span> <span class="o">+</span> <span class="mi">50</span><span class="p">,</span> <span class="n">array</span><span class="p">);</span>    <span class="sr">//</span> <span class="n">valid</span>
     <span class="n">copy_array</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">array</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">array</span><span class="p">);</span>     <span class="sr">//</span> <span class="n">undefined</span> <span class="n">behavior</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
 <p>注：表示指针仅本函数访问，这允许编译器更好地优化代码。 C90/C++均支持该选项。
 &lt;!&gt;对于2个独有指针，不要试图传入同一参数。</p>

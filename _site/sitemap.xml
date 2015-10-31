@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://www.striverbar.com/embedded/notes/2015/09/03/ARM%E7%BC%96%E8%AF%91%E5%99%A8C++11%E6%94%AF%E6%8C%81%E6%A6%82%E8%BF%B0.html</loc>
+    <loc>http://www.striverbar.com/embedded/notes/2015/09/03/arm%E7%BC%96%E8%AF%91%E5%99%A8c-11%E6%94%AF%E6%8C%81%E6%A6%82%E8%BF%B0.html</loc>
     <lastmod>2015-09-03T09:00:00+08:00</lastmod>
   </url>
   <url>
-    <loc>http://www.striverbar.com/embedded/notes/2015/08/14/ARM-Cortex-M%E6%A0%88%E7%9A%84%E4%BD%BF%E7%94%A8%E6%A6%82%E8%BF%B0.html</loc>
+    <loc>http://www.striverbar.com/embedded/notes/2015/08/14/arm-cortex-m%E6%A0%88%E7%9A%84%E4%BD%BF%E7%94%A8%E6%A6%82%E8%BF%B0.html</loc>
     <lastmod>2015-08-14T03:00:00+08:00</lastmod>
   </url>
   <url>
-    <loc>http://www.striverbar.com/embedded/notes/2015/07/25/C99-Guidelines.html</loc>
+    <loc>http://www.striverbar.com/embedded/notes/2015/07/25/c99-guidelines.html</loc>
     <lastmod>2015-07-25T22:00:00+08:00</lastmod>
   </url>
   <url>
@@ -17,7 +17,7 @@
     <lastmod>2015-06-23T00:00:00+08:00</lastmod>
   </url>
   <url>
-    <loc>http://www.striverbar.com/embedded/notes/2015/05/23/Blog's-Hello-World.html</loc>
+    <loc>http://www.striverbar.com/embedded/notes/2015/05/23/blog-s-hello-world.html</loc>
     <lastmod>2015-05-23T22:30:00+08:00</lastmod>
   </url>
   <url>
@@ -26,4 +26,19 @@
   <url>
     <loc>http://www.striverbar.com/</loc>
   </url>
+    <url>
+      <loc>http://www.striverbar.com/embedded/notes/2015/05/23/blog-s-hello-world.html</loc>
+    </url>
+    <url>
+      <loc>http://www.striverbar.com/personal/notes/2015/06/23/%E7%A6%BB%E5%BC%80%E5%AD%A6%E6%A0%A1%E7%88%B1%E4%B8%8A%E8%AF%BB%E4%B9%A6.html</loc>
+    </url>
+    <url>
+      <loc>http://www.striverbar.com/embedded/notes/2015/07/25/c99-guidelines.html</loc>
+    </url>
+    <url>
+      <loc>http://www.striverbar.com/embedded/notes/2015/08/14/arm-cortex-m%E6%A0%88%E7%9A%84%E4%BD%BF%E7%94%A8%E6%A6%82%E8%BF%B0.html</loc>
+    </url>
+    <url>
+      <loc>http://www.striverbar.com/embedded/notes/2015/09/03/arm%E7%BC%96%E8%AF%91%E5%99%A8c-11%E6%94%AF%E6%8C%81%E6%A6%82%E8%BF%B0.html</loc>
+    </url>
 </urlset>
