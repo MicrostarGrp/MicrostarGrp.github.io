@@ -304,7 +304,7 @@ pre {
   border-width: 1px;
   border-color: grey;
   box-shadow: 2px 2px 2px darkgray;
-  background: transparent url(https://git-scm.com/images/bg/isometric-grid.png) top right repeat; }
+  background: transparent url(/img/isometric-grid.png) top right repeat; }
 
 .post-list {
   margin-left: 0;
@@ -317,8 +317,8 @@ pre {
   color: #7c3bd2; }
 
 .post-link {
-  display: block;
-  font-size: 24px; }
+  display: inline-block;
+  font-size: 20px; }
 
 /**
  * Posts
