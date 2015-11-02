@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.striverbar.com/embedded/notes/2015/11/02/diving-into-scatter-file.html</loc>
+    <lastmod>2015-11-02T05:30:00+08:00</lastmod>
+  </url>
+  <url>
     <loc>http://www.striverbar.com/embedded/notes/2015/09/03/arm%E7%BC%96%E8%AF%91%E5%99%A8c-11%E6%94%AF%E6%8C%81%E6%A6%82%E8%BF%B0.html</loc>
     <lastmod>2015-09-03T09:00:00+08:00</lastmod>
   </url>
@@ -40,5 +44,8 @@
     </url>
     <url>
       <loc>http://www.striverbar.com/embedded/notes/2015/09/03/arm%E7%BC%96%E8%AF%91%E5%99%A8c-11%E6%94%AF%E6%8C%81%E6%A6%82%E8%BF%B0.html</loc>
+    </url>
+    <url>
+      <loc>http://www.striverbar.com/embedded/notes/2015/11/02/diving-into-scatter-file.html</loc>
     </url>
 </urlset>

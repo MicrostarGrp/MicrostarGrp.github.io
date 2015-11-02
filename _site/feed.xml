@@ -6,9 +6,303 @@
 </description>
     <link>http://www.striverbar.com/</link>
     <atom:link href="http://www.striverbar.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 01 Nov 2015 16:06:48 +0800</pubDate>
-    <lastBuildDate>Sun, 01 Nov 2015 16:06:48 +0800</lastBuildDate>
+    <pubDate>Mon, 02 Nov 2015 23:21:10 +0800</pubDate>
+    <lastBuildDate>Mon, 02 Nov 2015 23:21:10 +0800</lastBuildDate>
     <generator>Jekyll v3.0.0</generator>
+    
+      <item>
+        <title>Diving into Scatter file</title>
+        <description>&lt;h1 id=&quot;section&quot;&gt;深入浅出分散加载描述文件&lt;/h1&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;概述&lt;/h2&gt;
+&lt;p&gt;分散加载文件，即[scatter-loading description file]，用来配置链接工具实现镜像的存储分布，镜像由区和输出段组成，区包含不同的加载和执行地址。  &lt;br /&gt;
+镜像的存储结构组成：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;输出段和区的输入段分组信息&lt;/li&gt;
+  &lt;li&gt;指定区域分配的地址信息&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;当链接器通过调用分散文件创建镜像文件，它根据代码的应用建立特定的区域代号。 &lt;br /&gt;
+注：本文基于ARM Compiler V5.06&lt;/p&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;适用场景&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;复杂的存储分配：代码和数据需要置于多个独立的存储区域&lt;/li&gt;
+  &lt;li&gt;多样的存储类型：如SRAM、ROM、SDRAM、Flash等，他们的具有不同的性能及特征&lt;/li&gt;
+  &lt;li&gt;外设地址映射：以指定地址的方式映射外设存储空间&lt;/li&gt;
+  &lt;li&gt;函数固定地址：将函数指定在同一位置即使其余的代码被修改或重新编译&lt;/li&gt;
+  &lt;li&gt;堆栈标识：建立堆栈标示符，从而指定它们的位置&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;详细内容&lt;/h2&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;范式标记&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;“，引号表示使用字符的字面值，不记入语法，如：B”+”C只等价于B+C&lt;/li&gt;
+  &lt;li&gt;A ::= B，定义B用A表示，如A::=B”+” | C，表示A等于B+或C&lt;/li&gt;
+  &lt;li&gt;[A]，A是可选的，如B[C]D表示BD或BCD&lt;/li&gt;
+  &lt;li&gt;A+，表示1个及以上，如B+可表示B/BB/BBB…&lt;/li&gt;
+  &lt;li&gt;A*，表示0个及以上&lt;/li&gt;
+  &lt;li&gt;A | B，或逻辑，二选一&lt;/li&gt;
+  &lt;li&gt;(A B)，与逻辑，两个均包含&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-5&quot;&gt;语法&lt;/h3&gt;
+&lt;p&gt;分散加载文件可以包含一个及以上的加载区，加载区可包含一个及以上的执行区。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-6&quot;&gt;加载区&lt;/h4&gt;
+&lt;p&gt;成员：名称、地址/偏移地址、属性、最大长度&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;load_region_description ::=
+  load_region_name (base_address | (&quot;+&quot; offset)) [attribute_list] [max_size]
+       &quot;{&quot;
+          execution_region_description+ 
+       &quot;}&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;名称区分大小写&lt;/li&gt;
+  &lt;li&gt;地址应匹配对齐方式&lt;/li&gt;
+  &lt;li&gt;长度单位是字节&lt;/li&gt;
+  &lt;li&gt;属性选项：ABSOLUTE/ALIGN alignment/NOCOMPRESS/OVERLAY/PI/PROTECTED/RELOC&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;section-7&quot;&gt;执行区&lt;/h4&gt;
+&lt;p&gt;成员：名称、地址、属性、最大长度&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;execution_region_description ::= 
+  exec_region_name (base_address | &quot;+&quot; offset) [attribute_list] [max_size | length]
+        &quot;{&quot; 
+            input_section_description* 
+        &quot;}&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;执行区对齐属性，加载区和执行区地址都应满足&lt;/li&gt;
+  &lt;li&gt;长度值为负数时，地址表示加载区结束地址&lt;/li&gt;
+  &lt;li&gt;属性选项（增加的）：ALIGNALL value/ANY_SIZE max_size/FILL value/FIXED/PADVALUE value/UNINIT/ZEROPAD/EMPTY [-]length&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;例：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;LOAD_ROM 0x0000     ; 加载区
+{
+    EXEC_ROM        ; 执行区
+    {
+        program.o(+RO)  ; 输入段及匹配模式
+    }
+    DRAM 0x18000 0x8000 ; 执行区
+    {
+        program.o(+RW,+ZI)  ; 输入段及匹配模式
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;section-8&quot;&gt;输入段&lt;/h4&gt;
+&lt;p&gt;成员：目标文件、段选择、标示符名&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;input_section_description ::= 
+  module_select_pattern 
+        [ &quot;(&quot; input_section_selector ( &quot;,&quot; input_section_selector )* &quot;)&quot; ]  input_section_selector ::= 
+        (&quot;+&quot; input_section_attr | input_section_pattern | input_symbol_pattern | section_properties)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;*表示任意字符，?表示任意单字符，如*.o表示所有目标文件&lt;/li&gt;
+  &lt;li&gt;段名匹配，不区分大小写&lt;/li&gt;
+  &lt;li&gt;属性：+FIRST/+LAST/OVERALIGN value&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;选择关键词&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;RO-CODE，同义词：CODE&lt;/li&gt;
+  &lt;li&gt;RO-DATA，同义词：CONST&lt;/li&gt;
+  &lt;li&gt;RO，表示RO-DATA和RO-CODE，同义词：TEXT&lt;/li&gt;
+  &lt;li&gt;RW-DATA&lt;/li&gt;
+  &lt;li&gt;RW-CODE&lt;/li&gt;
+  &lt;li&gt;RW，表示RW-DATA和RW-CODE，同义词：DATA&lt;/li&gt;
+  &lt;li&gt;XO&lt;/li&gt;
+  &lt;li&gt;ZI，同义词：BSS&lt;/li&gt;
+  &lt;li&gt;ENTRY&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;全局前缀&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;:gdef:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;例1：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;LoadRegion 0x8000
+{
+    ExecReg1 +0
+    {
+        *(:gdef:mysym1)     ; 全局量mysym1、mysym2
+        *(:gdef:mysym2)
+    }
+        ; 其他加载描述内容
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;伪属性&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;FIRST&lt;/li&gt;
+  &lt;li&gt;LAST&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;例2：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;*匹配目标文件或库文件&lt;/li&gt;
+  &lt;li&gt;*.o匹配目标文件&lt;/li&gt;
+  &lt;li&gt;math.o匹配只该目标文件&lt;/li&gt;
+  &lt;li&gt;“file 1.o”匹配目标文件file 1.o&lt;/li&gt;
+  &lt;li&gt;*arm*匹配包含arm的文件&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-9&quot;&gt;表达式&lt;/h4&gt;
+&lt;p&gt;分散加载文件包含的数值，它可以是具体的值，也可以是表达式的值。暂不提及，自行了解。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-10&quot;&gt;对齐方式&lt;/h4&gt;
+
+&lt;h4 id=&quot;section-11&quot;&gt;源文件&lt;/h4&gt;
+&lt;p&gt;通过关键字__align(n)关键字限定对齐方式&lt;/p&gt;
+
+&lt;h4 id=&quot;section-12&quot;&gt;分散加载&lt;/h4&gt;
+&lt;p&gt;使用ALIGNALL/OVERALIGN指定对齐方式  &lt;br /&gt;
+例1：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ER_DATA … ALIGNALL 8
+{
+   …
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;例2&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ER_DATA …
+{
+   *.o(.bar, OVERALIGN 8)
+   …
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;section-13&quot;&gt;引导执行区&lt;/h4&gt;
+&lt;p&gt;镜像的初始入口必须位于引导区，否则链接器会给出错误信息。  &lt;br /&gt;
+例1：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;LR_1 0x040000          ; 加载区开始地址 0x40000
+{                      ; 执行区描述起始
+    ER_RO 0x040000     ; 地址相等
+    {
+        * (+RO)        ; 所有RO段 (包含初始入口)
+    }
+    …                  ; 其余分散加载信息
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;例2：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;LR_1 0x040000
+{
+    ER_RO 0x040000
+    {
+        * (+RO)
+    }
+    ER_INIT 0x080000 FIXED ; 指定该执行区加载地址和执行地址 0x80000
+    {
+        init.o(+RO)        ; init.o的所有RO段
+    }
+    …
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;section-14&quot;&gt;函数与数据&lt;/h4&gt;
+&lt;p&gt;将函数或数据置于指定的地址有以下途径：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;使用__attribute__((at(address)))指定变量于指定的地址&lt;/li&gt;
+  &lt;li&gt;使用__attribute__((section(“name”)))指定函数或变量于指定名称的段&lt;/li&gt;
+  &lt;li&gt;使用AERA控制汇编代码中的存储分配&lt;/li&gt;
+  &lt;li&gt;使用编译器选项–split_sections为每个函数生成独立的段&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;例：  &lt;br /&gt;
+源代码：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;int variable __attribute__((section(&quot;foo&quot;))) = 10;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;分散加载文件：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;FLASH 0x24000000 0x4000000
+{
+    …                                ; 其他分配信息
+    ADDER 0x08000000
+    {
+        file.o (foo)                 ; 选择file.o中的foo段
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;section-15&quot;&gt;空区&lt;/h4&gt;
+&lt;p&gt;设置无内容的存储块，保留指定区域另有用途，如堆/栈，使用EMPTY标示符。
+例：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;LR_1 0x80000   
+{
+    STACK 0x800000 EMPTY -0x10000   ; 结束于0x800000，长度0x10000
+    {
+    
+    }
+    HEAP +0 EMPTY 0x10000           ; 始于前区末尾，长度0x10000
+    {
+    
+    }
+    …
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;注：EMPTY执行区的ZI区将不会被运行库初始化为零。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-16&quot;&gt;自定义堆栈&lt;/h4&gt;
+&lt;p&gt;定义2个EMPTY执行区，名为ARM_LIB_HEAP、ARM_LIB_STACK，这时运行库会调用__user_setup_stackheap()选择非默认的实现而使用以下标识符：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Image$$ARM\_LIB\_STACK$$Base
+Image$$ARM\_LIB\_STACK$$Limit
+Image$$ARM\_LIB\_HEAP$$Base
+Image$$ARM\_LIB\_HEAP$$Limit
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;当然，我们可以重定义该函数，覆盖运行库的实现。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-17&quot;&gt;缺省未定义的标识符&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;Image$$RO$$Base
+Image$$RO$$Limit
+Image$$RW$$Base
+Image$$RW$$Limit
+Image$$XO$$Base
+Image$$XO$$Limit
+Image$$ZI$$Base
+Image$$ZI$$Limit
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        <pubDate>Mon, 02 Nov 2015 05:30:00 +0800</pubDate>
+        <link>http://www.striverbar.com/embedded/notes/2015/11/02/diving-into-scatter-file.html</link>
+        <guid isPermaLink="true">http://www.striverbar.com/embedded/notes/2015/11/02/diving-into-scatter-file.html</guid>
+        
+        
+        <category>embedded</category>
+        
+        <category>notes</category>
+        
+      </item>
     
       <item>
         <title>ARM编译器C++11支持概述</title>

@@ -12,8 +12,8 @@ github_username:  MicrostarGrp
 # Build settings
 markdown: kramdown
 timezone: Asia/Hong_Kong
-paginate: 5
-
+encoding:     "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
 gems:
   - jekyll-sitemap
