@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-  <title>闪闪微星(MicroStar)</title>
-  <meta name="description" content="仰望星空，我想知道：有人正从世界的某个地方朝我走来吗？像光那样，从一颗星达到另外一颗星。
-">
+  <title>盘点适合微控制器(MCU)的网络协议</title>
+  <meta name="description" content="概述">
   
-  <meta name="keywords" content="闪闪微星, 嵌入式, Microstar, Embedded, Software, Sharing" />
+  <meta name="keywords" content="网络,Cortex,MCU,嵌入式" />
   
   <link rel='icon' href='/img/favicon.ico'/>
   <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-touch-icon-120x120.png">
@@ -19,7 +18,7 @@
   <link rel="stylesheet" type="text/css" href="https://dn-microstar.qbox.me/fonts/ubuntu_font.css" />
   <link rel="stylesheet" type="text/css" href="https://dn-microstar.qbox.me/fonts/ubuntu_font_ttf.css" />
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://www.striverbar.com/">
+  <link rel="canonical" href="http://www.striverbar.com/embedded/notes/2015/11/03/%E7%9B%98%E7%82%B9%E9%80%82%E7%94%A8%E4%BA%8E%E5%BE%AE%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE.html">
   <link rel="alternate" type="application/rss+xml" title="闪闪微星(MicroStar)" href="http://www.striverbar.com/feed.xml" />
 </head>
 
@@ -63,71 +62,115 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <div class="post">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title">盘点适合微控制器(MCU)的网络协议</h1>
+    <p class="post-meta">Nov 3, 2015</p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Nov 3, 2015</span>
+  <article class="post-content">
+    <h4 id="section">概述</h4>
 
-        <h2>
-          <a class="post-link" href="/embedded/notes/2015/11/03/%E7%9B%98%E7%82%B9%E9%80%82%E7%94%A8%E4%BA%8E%E5%BE%AE%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE.html">盘点适合微控制器(MCU)的网络协议</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 1, 2015</span>
+<p>受限于有限的资源，Cortex-M等嵌入式设备（后文简称“嵌入式”设备）大多不接入网络，少数支持的对网络协议的支持也很大程度不同于常规，它们不具备支持浏览器、多媒体及APP的能力。</p>
 
-        <h2>
-          <a class="post-link" href="/embedded/notes/2015/11/01/diving-into-scatter-file.html">Diving into Scatter file</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Sep 3, 2015</span>
+<h4 id="tcpip">TCP/IP简述</h4>
+<p>TCP/IP协议是网络的核心，如图所示：</p>
 
-        <h2>
-          <a class="post-link" href="/embedded/notes/2015/09/03/arm%E7%BC%96%E8%AF%91%E5%99%A8c-11%E6%94%AF%E6%8C%81%E6%A6%82%E8%BF%B0.html">ARM编译器C++11支持概述</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Aug 13, 2015</span>
+<p><img src="../../../../.././img/OSI-Seven-Layer-Model.png" alt="TCP/IP" /></p>
 
-        <h2>
-          <a class="post-link" href="/embedded/notes/2015/08/13/arm-cortex-m%E6%A0%88%E7%9A%84%E4%BD%BF%E7%94%A8%E6%A6%82%E8%BF%B0.html">ARM Cortex-M栈的使用概述</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jul 25, 2015</span>
+<h4 id="section-1">常见的物理层协议</h4>
 
-        <h2>
-          <a class="post-link" href="/embedded/notes/2015/07/25/c99-guidelines.html">C99 Guidelines</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jun 22, 2015</span>
+<ul>
+  <li>以太网(10/100/1G)</li>
+  <li>WiFi(802.11b,g,n)</li>
+  <li>GSM/3G/LTE/4G</li>
+  <li>点对点协议(PPP:Point to Point Protocol)</li>
+</ul>
 
-        <h2>
-          <a class="post-link" href="/personal/notes/2015/06/22/%E7%A6%BB%E5%BC%80%E5%AD%A6%E6%A0%A1%E7%88%B1%E4%B8%8A%E8%AF%BB%E4%B9%A6.html">离开学校爱上读书</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">May 23, 2015</span>
+<h4 id="tcpudp">TCP/UDP</h4>
+<p>TCP是Web中最常用的协议，如邮件、网页等，具备连接、响应、重传及流控制。
+UDP适合实时数据应用如音频和视频，还有网络服务，如DNS、DHCP等。</p>
 
-        <h2>
-          <a class="post-link" href="/embedded/notes/2015/05/23/blog-s-hello-world.html">Hello, We are the Microstar group.</a>
-        </h2>
-      </li>
-    
-  </ul>
+<h4 id="https">HTTP(S)</h4>
+<p>HTTP是网络客户端-服务器模式的基础，使用XML或JSON作为载荷，而且设备作为客户端时，它负责发起连接，这样的设计更安全。</p>
 
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+<h4 id="websocket">WebSocket</h4>
+<p>WebSocket是基于TCP连接实现全双工的协议，它隶属于HTML5标准，可以简化双向网络通信和连接管理的复杂程度。</p>
+
+<h4 id="xmpp">XMPP</h4>
+<p>XMPP(Extensible Messaging and Presence Protocol)面向即时消息和状态信息，它后来被扩展用于网络电话，可用于消费类电器如洗衣机、冰箱等的大规模管理。</p>
+
+<h4 id="coap">COAP</h4>
+<p>CoAP(Constrained Application Protocol)用于低功耗和硬件性能有限的网络，符合RESTful规范，语义与HTTP相同，非常适合用于电池或能量收集供电的设备。</p>
+
+<p>特性：</p>
+
+<ul>
+  <li>使用UDP协议</li>
+  <li>请求和响应是异步的</li>
+  <li>报头、状态等使用2进制编码，以减少协议的开销</li>
+  <li>支持固定连接</li>
+</ul>
+
+<h4 id="mqtt">MQTT</h4>
+<p>MQTT(MQ Telemetry Transport)是1个开源的适用于低带宽、高延时网络的轻量级网络协议，采用订阅/发布消息机制，可用于大规模的小型设备集群，配合后端服务器使用。</p>
+
+<h4 id="section-2">技术比较</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">协议</th>
+      <th style="text-align: center">COAP</th>
+      <th style="text-align: center">XMPP</th>
+      <th style="text-align: center">RESTful HTTP</th>
+      <th style="text-align: center">MQTT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">传输层</td>
+      <td style="text-align: center">UDP</td>
+      <td style="text-align: center">TCP</td>
+      <td style="text-align: center">TCP</td>
+      <td style="text-align: center">TCP</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">消息机制</td>
+      <td style="text-align: center">请求/响应</td>
+      <td style="text-align: center">请求/响应 订阅/发布</td>
+      <td style="text-align: center">请求/响应</td>
+      <td style="text-align: center">请求/响应 订阅/发布</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2G,3G,4G</td>
+      <td style="text-align: center">适合</td>
+      <td style="text-align: center">适合</td>
+      <td style="text-align: center">适合</td>
+      <td style="text-align: center">适合</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">低功耗松散网络</td>
+      <td style="text-align: center">适合</td>
+      <td style="text-align: center">普通</td>
+      <td style="text-align: center">普通</td>
+      <td style="text-align: center">普通</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">资源</td>
+      <td style="text-align: center">10Ks RAM/Flash</td>
+      <td style="text-align: center">10Ks RAM/Flash</td>
+      <td style="text-align: center">10Ks RAM/Flash</td>
+      <td style="text-align: center">10Ks RAM/Flash</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="section-3">网络与物联网比较</h4>
+<p><img src="../../../../.././img/Web-and-IoT-Stacks.png" alt="IoT" /></p>
+
+  </article>
 
 </div>
 
@@ -137,6 +180,19 @@
     <hr style="height:5px;border:none;border-top:5px double #7c3bd2;"/>
 <footer class="site-footer">
   <div class="foot-wrapper">
+    
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'talklink';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
     
     <h2 class="footer-heading">闪闪微星(MicroStar)</h2>
     <div class="footer-col-wrapper">

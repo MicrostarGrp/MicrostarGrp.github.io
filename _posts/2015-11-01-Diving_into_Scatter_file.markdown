@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Diving into Scatter file"
-date:   2015-11-01 21:30:00
+date:   November 1, 2015
 keywords: Diving,Scatter,file,分散,加载
 categories: embedded notes
 comments: true

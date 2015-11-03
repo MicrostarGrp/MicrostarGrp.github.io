@@ -6,9 +6,122 @@
 </description>
     <link>http://www.striverbar.com/</link>
     <atom:link href="http://www.striverbar.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 02 Nov 2015 23:21:10 +0800</pubDate>
-    <lastBuildDate>Mon, 02 Nov 2015 23:21:10 +0800</lastBuildDate>
+    <pubDate>Tue, 03 Nov 2015 19:16:15 +0800</pubDate>
+    <lastBuildDate>Tue, 03 Nov 2015 19:16:15 +0800</lastBuildDate>
     <generator>Jekyll v3.0.0</generator>
+    
+      <item>
+        <title>盘点适合微控制器(MCU)的网络协议</title>
+        <description>&lt;h4 id=&quot;section&quot;&gt;概述&lt;/h4&gt;
+
+&lt;p&gt;受限于有限的资源，Cortex-M等嵌入式设备（后文简称“嵌入式”设备）大多不接入网络，少数支持的对网络协议的支持也很大程度不同于常规，它们不具备支持浏览器、多媒体及APP的能力。&lt;/p&gt;
+
+&lt;h4 id=&quot;tcpip&quot;&gt;TCP/IP简述&lt;/h4&gt;
+&lt;p&gt;TCP/IP协议是网络的核心，如图所示：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../../../.././img/OSI-Seven-Layer-Model.png&quot; alt=&quot;TCP/IP&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;常见的物理层协议&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;以太网(10/100/1G)&lt;/li&gt;
+  &lt;li&gt;WiFi(802.11b,g,n)&lt;/li&gt;
+  &lt;li&gt;GSM/3G/LTE/4G&lt;/li&gt;
+  &lt;li&gt;点对点协议(PPP:Point to Point Protocol)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;tcpudp&quot;&gt;TCP/UDP&lt;/h4&gt;
+&lt;p&gt;TCP是Web中最常用的协议，如邮件、网页等，具备连接、响应、重传及流控制。
+UDP适合实时数据应用如音频和视频，还有网络服务，如DNS、DHCP等。&lt;/p&gt;
+
+&lt;h4 id=&quot;https&quot;&gt;HTTP(S)&lt;/h4&gt;
+&lt;p&gt;HTTP是网络客户端-服务器模式的基础，使用XML或JSON作为载荷，而且设备作为客户端时，它负责发起连接，这样的设计更安全。&lt;/p&gt;
+
+&lt;h4 id=&quot;websocket&quot;&gt;WebSocket&lt;/h4&gt;
+&lt;p&gt;WebSocket是基于TCP连接实现全双工的协议，它隶属于HTML5标准，可以简化双向网络通信和连接管理的复杂程度。&lt;/p&gt;
+
+&lt;h4 id=&quot;xmpp&quot;&gt;XMPP&lt;/h4&gt;
+&lt;p&gt;XMPP(Extensible Messaging and Presence Protocol)面向即时消息和状态信息，它后来被扩展用于网络电话，可用于消费类电器如洗衣机、冰箱等的大规模管理。&lt;/p&gt;
+
+&lt;h4 id=&quot;coap&quot;&gt;COAP&lt;/h4&gt;
+&lt;p&gt;CoAP(Constrained Application Protocol)用于低功耗和硬件性能有限的网络，符合RESTful规范，语义与HTTP相同，非常适合用于电池或能量收集供电的设备。&lt;/p&gt;
+
+&lt;p&gt;特性：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;使用UDP协议&lt;/li&gt;
+  &lt;li&gt;请求和响应是异步的&lt;/li&gt;
+  &lt;li&gt;报头、状态等使用2进制编码，以减少协议的开销&lt;/li&gt;
+  &lt;li&gt;支持固定连接&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;mqtt&quot;&gt;MQTT&lt;/h4&gt;
+&lt;p&gt;MQTT(MQ Telemetry Transport)是1个开源的适用于低带宽、高延时网络的轻量级网络协议，采用订阅/发布消息机制，可用于大规模的小型设备集群，配合后端服务器使用。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;技术比较&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;协议&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;COAP&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;XMPP&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;RESTful HTTP&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;MQTT&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;传输层&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;UDP&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TCP&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TCP&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TCP&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;消息机制&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;请求/响应&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;请求/响应 订阅/发布&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;请求/响应&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;请求/响应 订阅/发布&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2G,3G,4G&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;适合&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;适合&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;适合&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;适合&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;低功耗松散网络&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;适合&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;普通&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;普通&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;普通&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;资源&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;10Ks RAM/Flash&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;10Ks RAM/Flash&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;10Ks RAM/Flash&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;10Ks RAM/Flash&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&quot;section-3&quot;&gt;网络与物联网比较&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;../../../../.././img/Web-and-IoT-Stacks.png&quot; alt=&quot;IoT&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 03 Nov 2015 00:00:00 +0800</pubDate>
+        <link>http://www.striverbar.com/embedded/notes/2015/11/03/%E7%9B%98%E7%82%B9%E9%80%82%E7%94%A8%E4%BA%8E%E5%BE%AE%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE.html</link>
+        <guid isPermaLink="true">http://www.striverbar.com/embedded/notes/2015/11/03/%E7%9B%98%E7%82%B9%E9%80%82%E7%94%A8%E4%BA%8E%E5%BE%AE%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE.html</guid>
+        
+        
+        <category>embedded</category>
+        
+        <category>notes</category>
+        
+      </item>
     
       <item>
         <title>Diving into Scatter file</title>
@@ -293,9 +406,9 @@ Image$$ZI$$Base
 Image$$ZI$$Limit
 &lt;/code&gt;&lt;/pre&gt;
 </description>
-        <pubDate>Mon, 02 Nov 2015 05:30:00 +0800</pubDate>
-        <link>http://www.striverbar.com/embedded/notes/2015/11/02/diving-into-scatter-file.html</link>
-        <guid isPermaLink="true">http://www.striverbar.com/embedded/notes/2015/11/02/diving-into-scatter-file.html</guid>
+        <pubDate>Sun, 01 Nov 2015 00:00:00 +0800</pubDate>
+        <link>http://www.striverbar.com/embedded/notes/2015/11/01/diving-into-scatter-file.html</link>
+        <guid isPermaLink="true">http://www.striverbar.com/embedded/notes/2015/11/01/diving-into-scatter-file.html</guid>
         
         
         <category>embedded</category>
@@ -363,7 +476,7 @@ Image$$ZI$$Limit
   &lt;li&gt;Keil µVision动态语法检查功能暂不支持C++11&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Thu, 03 Sep 2015 09:00:00 +0800</pubDate>
+        <pubDate>Thu, 03 Sep 2015 00:00:00 +0800</pubDate>
         <link>http://www.striverbar.com/embedded/notes/2015/09/03/arm%E7%BC%96%E8%AF%91%E5%99%A8c-11%E6%94%AF%E6%8C%81%E6%A6%82%E8%BF%B0.html</link>
         <guid isPermaLink="true">http://www.striverbar.com/embedded/notes/2015/09/03/arm%E7%BC%96%E8%AF%91%E5%99%A8c-11%E6%94%AF%E6%8C%81%E6%A6%82%E8%BF%B0.html</guid>
         
@@ -446,9 +559,9 @@ Image$$ZI$$Limit
 
 &lt;p&gt;当然，也可以携带参数，通过R0-R3间接传递，也是提取栈帧的数据；返回参数使用R0。&lt;/p&gt;
 </description>
-        <pubDate>Fri, 14 Aug 2015 03:00:00 +0800</pubDate>
-        <link>http://www.striverbar.com/embedded/notes/2015/08/14/arm-cortex-m%E6%A0%88%E7%9A%84%E4%BD%BF%E7%94%A8%E6%A6%82%E8%BF%B0.html</link>
-        <guid isPermaLink="true">http://www.striverbar.com/embedded/notes/2015/08/14/arm-cortex-m%E6%A0%88%E7%9A%84%E4%BD%BF%E7%94%A8%E6%A6%82%E8%BF%B0.html</guid>
+        <pubDate>Thu, 13 Aug 2015 00:00:00 +0800</pubDate>
+        <link>http://www.striverbar.com/embedded/notes/2015/08/13/arm-cortex-m%E6%A0%88%E7%9A%84%E4%BD%BF%E7%94%A8%E6%A6%82%E8%BF%B0.html</link>
+        <guid isPermaLink="true">http://www.striverbar.com/embedded/notes/2015/08/13/arm-cortex-m%E6%A0%88%E7%9A%84%E4%BD%BF%E7%94%A8%E6%A6%82%E8%BF%B0.html</guid>
         
         
         <category>embedded</category>
@@ -662,7 +775,7 @@ int y = 1;   /&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;sp
   &lt;/tbody&gt;
 &lt;/table&gt;
 </description>
-        <pubDate>Sat, 25 Jul 2015 22:00:00 +0800</pubDate>
+        <pubDate>Sat, 25 Jul 2015 00:00:00 +0800</pubDate>
         <link>http://www.striverbar.com/embedded/notes/2015/07/25/c99-guidelines.html</link>
         <guid isPermaLink="true">http://www.striverbar.com/embedded/notes/2015/07/25/c99-guidelines.html</guid>
         
@@ -692,9 +805,9 @@ int y = 1;   /&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;sp
 &lt;p&gt;&lt;img src=&quot;../../../../.././img/man_month.jpg&quot; alt=&quot;人月神话&quot; /&gt;&lt;/p&gt;
 
 </description>
-        <pubDate>Tue, 23 Jun 2015 00:00:00 +0800</pubDate>
-        <link>http://www.striverbar.com/personal/notes/2015/06/23/%E7%A6%BB%E5%BC%80%E5%AD%A6%E6%A0%A1%E7%88%B1%E4%B8%8A%E8%AF%BB%E4%B9%A6.html</link>
-        <guid isPermaLink="true">http://www.striverbar.com/personal/notes/2015/06/23/%E7%A6%BB%E5%BC%80%E5%AD%A6%E6%A0%A1%E7%88%B1%E4%B8%8A%E8%AF%BB%E4%B9%A6.html</guid>
+        <pubDate>Mon, 22 Jun 2015 00:00:00 +0800</pubDate>
+        <link>http://www.striverbar.com/personal/notes/2015/06/22/%E7%A6%BB%E5%BC%80%E5%AD%A6%E6%A0%A1%E7%88%B1%E4%B8%8A%E8%AF%BB%E4%B9%A6.html</link>
+        <guid isPermaLink="true">http://www.striverbar.com/personal/notes/2015/06/22/%E7%A6%BB%E5%BC%80%E5%AD%A6%E6%A0%A1%E7%88%B1%E4%B8%8A%E8%AF%BB%E4%B9%A6.html</guid>
         
         
         <category>personal</category>
@@ -728,7 +841,7 @@ int y = 1;   /&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;sp
 正确的方向、清晰的思路、持续的坚持 、永恒的梦想。&lt;/p&gt;
 
 </description>
-        <pubDate>Sat, 23 May 2015 22:30:00 +0800</pubDate>
+        <pubDate>Sat, 23 May 2015 00:00:00 +0800</pubDate>
         <link>http://www.striverbar.com/embedded/notes/2015/05/23/blog-s-hello-world.html</link>
         <guid isPermaLink="true">http://www.striverbar.com/embedded/notes/2015/05/23/blog-s-hello-world.html</guid>
         

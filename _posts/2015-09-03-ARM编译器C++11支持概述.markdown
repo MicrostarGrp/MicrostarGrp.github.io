@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "ARM编译器C++11支持概述"
-date:   2015-09-03 01:00:00
+date:   September 3, 2015
 keywords: ARM,C++,ARMCC,C++11,编译器
 categories: embedded notes
 comments: true
