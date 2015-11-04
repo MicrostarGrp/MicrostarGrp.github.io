@@ -237,6 +237,11 @@ pre {
         display: block;
         padding: 5px 10px; } }
 
+.top {
+  display: block;
+  float: center;
+  text-align: center; }
+
 /**
  * Site footer
  */
