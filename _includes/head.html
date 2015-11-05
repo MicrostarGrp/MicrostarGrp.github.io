@@ -19,4 +19,18 @@
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
+  <script type="text/javascript">
+    var count = 0;
+    function NextString()
+    {
+      var list = ['☆', '★'];
+      var elem = document.getElementById("divElem");
+      elem.textContent = list[count];
+      count++;
+      if (count >= list.length){
+        count = 0;
+      }
+      window.setTimeout("NextString();", 1000);
+    }
+  </script>
 </head>

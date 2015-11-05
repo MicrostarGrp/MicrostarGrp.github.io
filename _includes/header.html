@@ -1,9 +1,11 @@
 <header class="site-header">
-
   <div class="wrapper">
-
-    <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
-
+    <a class="site-title" draggable="false" href="{{ site.baseurl }}/">{{ site.title }}</a>
+    <span id="divElem" draggable="false">
+      <script type="text/javascript">
+        NextString();
+      </script>
+    </span>
     <nav class="site-nav">
       <a href="#" class="menu-icon">
         <svg viewBox="0 0 18 15">
@@ -16,12 +18,10 @@
       <div class="trigger">
         {% for page in site.pages %}
           {% if page.title %}
-          <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+          <a class="page-link" draggable="false" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
           {% endif %}
         {% endfor %}
       </div>
     </nav>
-
   </div>
-
 </header>

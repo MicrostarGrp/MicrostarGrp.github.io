@@ -20,17 +20,33 @@
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://www.striverbar.com/embedded/notes/2015/11/01/diving-into-scatter-file.html">
   <link rel="alternate" type="application/rss+xml" title="闪闪微星(MicroStar)" href="http://www.striverbar.com/feed.xml" />
+  <script type="text/javascript">
+    var count = 0;
+    function NextString()
+    {
+      var list = ['☆', '★'];
+      var elem = document.getElementById("divElem");
+      elem.textContent = list[count];
+      count++;
+      if (count >= list.length){
+        count = 0;
+      }
+      window.setTimeout("NextString();", 1000);
+    }
+  </script>
 </head>
 
 
   <body>
 
     <header class="site-header">
-
   <div class="wrapper">
-
-    <a class="site-title" href="/">闪闪微星(MicroStar)</a>
-
+    <a class="site-title" draggable="false" href="/">闪闪微星(MicroStar)</a>
+    <span id="divElem" draggable="false">
+      <script type="text/javascript">
+        NextString();
+      </script>
+    </span>
     <nav class="site-nav">
       <a href="#" class="menu-icon">
         <svg viewBox="0 0 18 15">
@@ -43,7 +59,7 @@
       <div class="trigger">
         
           
-          <a class="page-link" href="/about/">关于我们</a>
+          <a class="page-link" draggable="false" href="/about/">关于我们</a>
           
         
           
@@ -54,9 +70,7 @@
         
       </div>
     </nav>
-
   </div>
-
 </header>
 
 
