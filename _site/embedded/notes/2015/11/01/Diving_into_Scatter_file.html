@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+  <title>Diving into Scatter file</title>
+  <meta name="description" content="深入浅出分散加载描述文件">
+  
+  <meta name="keywords" content="Diving,Scatter,file,分散,加载" />
+  
+  <link rel='icon' href='/img/favicon.ico'/>
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-touch-icon-120x120.png">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/img/apple-touch-icon-120x120.png">
+  <link rel="stylesheet" type="text/css" href="https://dn-microstar.qbox.me/fonts/ubuntu_font.css" />
+  <link rel="stylesheet" type="text/css" href="https://dn-microstar.qbox.me/fonts/ubuntu_font_ttf.css" />
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://www.striverbar.com/embedded/notes/2015/11/01/Diving_into_Scatter_file.html">
+  <link rel="alternate" type="application/rss+xml" title="闪闪微星(MicroStar)" href="http://www.striverbar.com/feed.xml" />
+  <script type="text/javascript">
+    var count = 0;
+    function NextString()
+    {
+      var list = ['☆', '★'];
+      var elem = document.getElementById("divElem");
+      elem.textContent = list[count];
+      count++;
+      if (count >= list.length){
+        count = 0;
+      }
+      window.setTimeout("NextString();", 1000);
+    }
+  </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+  <div class="wrapper">
+    <a class="site-title" draggable="false" href="/">闪闪微星(MicroStar)</a>
+    <span id="divElem" draggable="false">
+      <script type="text/javascript">
+        NextString();
+      </script>
+    </span>
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" draggable="false" href="/about/">关于我们</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Diving into Scatter file</h1>
+    <p class="post-meta">Nov 1, 2015</p>
+  </header>
+
+  <article class="post-content">
+    <h1 id="section">深入浅出分散加载描述文件</h1>
+
+<h2 id="section-1">概述</h2>
+<p>分散加载文件，即[scatter-loading description file]，用来配置链接工具实现镜像的存储分布，镜像由区和输出段组成，区包含不同的加载和执行地址。  <br />
+镜像的存储结构组成：</p>
+
+<ol>
+  <li>输出段和区的输入段分组信息</li>
+  <li>指定区域分配的地址信息</li>
+</ol>
+
+<p>当链接器通过调用分散文件创建镜像文件，它根据代码的应用建立特定的区域代号。 <br />
+注：本文基于ARM Compiler V5.06</p>
+
+<h2 id="section-2">适用场景</h2>
+<ol>
+  <li>复杂的存储分配：代码和数据需要置于多个独立的存储区域</li>
+  <li>多样的存储类型：如SRAM、ROM、SDRAM、Flash等，他们的具有不同的性能及特征</li>
+  <li>外设地址映射：以指定地址的方式映射外设存储空间</li>
+  <li>函数固定地址：将函数指定在同一位置即使其余的代码被修改或重新编译</li>
+  <li>堆栈标识：建立堆栈标示符，从而指定它们的位置</li>
+</ol>
+
+<h2 id="section-3">详细内容</h2>
+
+<h3 id="section-4">范式标记</h3>
+
+<ul>
+  <li>“，引号表示使用字符的字面值，不记入语法，如：B”+”C只等价于B+C</li>
+  <li>A ::= B，定义B用A表示，如A::=B”+” | C，表示A等于B+或C</li>
+  <li>[A]，A是可选的，如B[C]D表示BD或BCD</li>
+  <li>A+，表示1个及以上，如B+可表示B/BB/BBB…</li>
+  <li>A*，表示0个及以上</li>
+  <li>A | B，或逻辑，二选一</li>
+  <li>(A B)，与逻辑，两个均包含</li>
+</ul>
+
+<h3 id="section-5">语法</h3>
+<p>分散加载文件可以包含一个及以上的加载区，加载区可包含一个及以上的执行区。</p>
+
+<h4 id="section-6">加载区</h4>
+<p>成员：名称、地址/偏移地址、属性、最大长度</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>load_region_description ::=
+  load_region_name (base_address | ("+" offset)) [attribute_list] [max_size]
+       "{"
+          execution_region_description+ 
+       "}"
+</code></pre>
+</div>
+
+<ol>
+  <li>名称区分大小写</li>
+  <li>地址应匹配对齐方式</li>
+  <li>长度单位是字节</li>
+  <li>属性选项：ABSOLUTE/ALIGN alignment/NOCOMPRESS/OVERLAY/PI/PROTECTED/RELOC</li>
+</ol>
+
+<h4 id="section-7">执行区</h4>
+<p>成员：名称、地址、属性、最大长度</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>execution_region_description ::= 
+  exec_region_name (base_address | "+" offset) [attribute_list] [max_size | length]
+        "{" 
+            input_section_description* 
+        "}"
+</code></pre>
+</div>
+
+<ol>
+  <li>执行区对齐属性，加载区和执行区地址都应满足</li>
+  <li>长度值为负数时，地址表示加载区结束地址</li>
+  <li>属性选项（增加的）：ALIGNALL value/ANY_SIZE max_size/FILL value/FIXED/PADVALUE value/UNINIT/ZEROPAD/EMPTY [-]length</li>
+</ol>
+
+<p>例：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>LOAD_ROM 0x0000     ; 加载区
+{
+    EXEC_ROM        ; 执行区
+    {
+        program.o(+RO)  ; 输入段及匹配模式
+    }
+    DRAM 0x18000 0x8000 ; 执行区
+    {
+        program.o(+RW,+ZI)  ; 输入段及匹配模式
+    }
+}
+</code></pre>
+</div>
+
+<h4 id="section-8">输入段</h4>
+<p>成员：目标文件、段选择、标示符名</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>input_section_description ::= 
+  module_select_pattern 
+        [ "(" input_section_selector ( "," input_section_selector )* ")" ]  input_section_selector ::= 
+        ("+" input_section_attr | input_section_pattern | input_symbol_pattern | section_properties)
+</code></pre>
+</div>
+
+<ol>
+  <li>*表示任意字符，?表示任意单字符，如*.o表示所有目标文件</li>
+  <li>段名匹配，不区分大小写</li>
+  <li>属性：+FIRST/+LAST/OVERALIGN value</li>
+</ol>
+
+<p>选择关键词</p>
+
+<ul>
+  <li>RO-CODE，同义词：CODE</li>
+  <li>RO-DATA，同义词：CONST</li>
+  <li>RO，表示RO-DATA和RO-CODE，同义词：TEXT</li>
+  <li>RW-DATA</li>
+  <li>RW-CODE</li>
+  <li>RW，表示RW-DATA和RW-CODE，同义词：DATA</li>
+  <li>XO</li>
+  <li>ZI，同义词：BSS</li>
+  <li>ENTRY</li>
+</ul>
+
+<p>全局前缀</p>
+
+<ul>
+  <li>:gdef:</li>
+</ul>
+
+<p>例1：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>LoadRegion 0x8000
+{
+    ExecReg1 +0
+    {
+        *(:gdef:mysym1)     ; 全局量mysym1、mysym2
+        *(:gdef:mysym2)
+    }
+        ; 其他加载描述内容
+}
+</code></pre>
+</div>
+
+<p>伪属性</p>
+
+<ul>
+  <li>FIRST</li>
+  <li>LAST</li>
+</ul>
+
+<p>例2：</p>
+
+<ul>
+  <li>*匹配目标文件或库文件</li>
+  <li>*.o匹配目标文件</li>
+  <li>math.o匹配只该目标文件</li>
+  <li>“file 1.o”匹配目标文件file 1.o</li>
+  <li>*arm*匹配包含arm的文件</li>
+</ul>
+
+<h4 id="section-9">表达式</h4>
+<p>分散加载文件包含的数值，它可以是具体的值，也可以是表达式的值。暂不提及，自行了解。</p>
+
+<h4 id="section-10">对齐方式</h4>
+
+<h4 id="section-11">源文件</h4>
+<p>通过关键字__align(n)关键字限定对齐方式</p>
+
+<h4 id="section-12">分散加载</h4>
+<p>使用ALIGNALL/OVERALIGN指定对齐方式  <br />
+例1：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ER_DATA … ALIGNALL 8
+{
+   …
+}
+</code></pre>
+</div>
+
+<p>例2</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ER_DATA …
+{
+   *.o(.bar, OVERALIGN 8)
+   …
+}
+</code></pre>
+</div>
+
+<h4 id="section-13">引导执行区</h4>
+<p>镜像的初始入口必须位于引导区，否则链接器会给出错误信息。  <br />
+例1：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>LR_1 0x040000          ; 加载区开始地址 0x40000
+{                      ; 执行区描述起始
+    ER_RO 0x040000     ; 地址相等
+    {
+        * (+RO)        ; 所有RO段 (包含初始入口)
+    }
+    …                  ; 其余分散加载信息
+}
+</code></pre>
+</div>
+
+<p>例2：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>LR_1 0x040000
+{
+    ER_RO 0x040000
+    {
+        * (+RO)
+    }
+    ER_INIT 0x080000 FIXED ; 指定该执行区加载地址和执行地址 0x80000
+    {
+        init.o(+RO)        ; init.o的所有RO段
+    }
+    …
+}
+</code></pre>
+</div>
+
+<h4 id="section-14">函数与数据</h4>
+<p>将函数或数据置于指定的地址有以下途径：</p>
+
+<ul>
+  <li>使用__attribute__((at(address)))指定变量于指定的地址</li>
+  <li>使用__attribute__((section(“name”)))指定函数或变量于指定名称的段</li>
+  <li>使用AERA控制汇编代码中的存储分配</li>
+  <li>使用编译器选项–split_sections为每个函数生成独立的段</li>
+</ul>
+
+<p>例：  <br />
+源代码：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>int variable __attribute__((section("foo"))) = 10;
+</code></pre>
+</div>
+
+<p>分散加载文件：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>FLASH 0x24000000 0x4000000
+{
+    …                                ; 其他分配信息
+    ADDER 0x08000000
+    {
+        file.o (foo)                 ; 选择file.o中的foo段
+    }
+}
+</code></pre>
+</div>
+
+<h4 id="section-15">空区</h4>
+<p>设置无内容的存储块，保留指定区域另有用途，如堆/栈，使用EMPTY标示符。
+例：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>LR_1 0x80000   
+{
+    STACK 0x800000 EMPTY -0x10000   ; 结束于0x800000，长度0x10000
+    {
+    
+    }
+    HEAP +0 EMPTY 0x10000           ; 始于前区末尾，长度0x10000
+    {
+    
+    }
+    …
+}
+</code></pre>
+</div>
+
+<p>注：EMPTY执行区的ZI区将不会被运行库初始化为零。</p>
+
+<h4 id="section-16">自定义堆栈</h4>
+<p>定义2个EMPTY执行区，名为ARM_LIB_HEAP、ARM_LIB_STACK，这时运行库会调用__user_setup_stackheap()选择非默认的实现而使用以下标识符：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Image$$ARM\_LIB\_STACK$$Base
+Image$$ARM\_LIB\_STACK$$Limit
+Image$$ARM\_LIB\_HEAP$$Base
+Image$$ARM\_LIB\_HEAP$$Limit
+</code></pre>
+</div>
+
+<p>当然，我们可以重定义该函数，覆盖运行库的实现。</p>
+
+<h4 id="section-17">缺省未定义的标识符</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Image$$RO$$Base
+Image$$RO$$Limit
+Image$$RW$$Base
+Image$$RW$$Limit
+Image$$XO$$Base
+Image$$XO$$Limit
+Image$$ZI$$Base
+Image$$ZI$$Limit
+</code></pre>
+</div>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <a href="#top" class="top">回到顶部</a>
+<hr style="height:5px;border:none;border-top:5px double #7c3bd2;"/>
+<footer class="site-footer">
+  <div class="foot-wrapper">
+    
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'talklink';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    
+    <h2 class="footer-heading">闪闪微星(MicroStar)</h2>
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>闪闪微星(MicroStar)</li>
+          <li><a href="mailto:admin@striverbar.com">admin@striverbar.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/MicrostarGrp">
+              <span class="icon  icon--github">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+                </svg>
+              </span>
+
+              <span class="username">MicrostarGrp</span>
+            </a>
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/TensionWang">
+              <span class="icon  icon--twitter">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                  c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+                </svg>
+              </span>
+
+              <span class="username">TensionWang</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text">仰望星空，我想知道：有人正从世界的某个地方朝我走来吗？像光那样，从一颗星达到另外一颗星。
+</p>
+      </div>
+    </div>
+    <script type="text/javascript">
+    var str = document.domain;
+  	if(str.indexOf("xn--rht732k.wang") != -1) {
+    	 document.write('<div class="text" style="text-align:right;color:blue;padding:0px 0px 10px;">粤ICP备15067143号</div>');
+    }
+    </script>
+  </div>
+</footer>
+
+
+  </body>
+
+</html>
