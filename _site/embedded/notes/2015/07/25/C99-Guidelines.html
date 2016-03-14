@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
   <title>C99 Guidelines</title>
-  <meta name="description" content="概述在嵌入式开发中，编译器已经支持C99，本文简要介绍C99的实用功能。要说明的是，很多编译器在标准化前，自行实现了部分，这并不矛盾。		版本：ISO/IEC 9899:1999.The 1999 International Standard for C.">
+  <meta name="description" content="###概述在嵌入式开发中，编译器已经支持C99，本文简要介绍C99的实用功能。要说明的是，很多编译器在标准化前，自行实现了部分，这并不矛盾。		版本：ISO/IEC 9899:1999.The 1999 International Standard for C.">
   
   <meta name="keywords" content="C语言,C99,Guidelines,详解" />
   
@@ -84,24 +84,22 @@
   </header>
 
   <article class="post-content">
-    <h3 id="section">概述</h3>
-<p>在嵌入式开发中，编译器已经支持C99，本文简要介绍C99的实用功能。要说明的是，很多编译器在标准化前，自行实现了部分，这并不矛盾。		
+    <p>###概述
+在嵌入式开发中，编译器已经支持C99，本文简要介绍C99的实用功能。要说明的是，很多编译器在标准化前，自行实现了部分，这并不矛盾。		
 版本：ISO/IEC 9899:1999.The 1999 International Standard for C.</p>
 
-<h3 id="section-1">新特性</h3>
-<ul>
-  <li>一些来自GNU在C90提供的扩展</li>
-  <li>一些来自C++特性</li>
-  <li>一些新的特性，如复数、初始化等</li>
-  <li>一些已有C90语法扩展</li>
-</ul>
+<p>###新特性
+- 一些来自GNU在C90提供的扩展
+- 一些来自C++特性
+- 一些新的特性，如复数、初始化等
+- 一些已有C90语法扩展</p>
 
-<h3 id="section-2">其他</h3>
-<p>由于新特性的引入，C99与C++不再完全兼容。</p>
+<p>###其他
+由于新特性的引入，C99与C++不再完全兼容。</p>
 
-<h3 id="section-3">举例</h3>
+<p>###举例</p>
 
-<h4 id="section-4">注释</h4>
+<p>####注释</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> <span class="n">x</span> <span class="o">=</span> <span class="n">a</span> <span class="sr">//</span><span class="o">*</span> <span class="no">Hello</span> <span class="no">World</span> <span class="o">*</span><span class="sr">/ b
     - c;</span></code></pre></figure>
@@ -111,7 +109,7 @@
   <li>C99: x = a - c;</li>
 </ul>
 
-<h4 id="section-5">复合表达式</h4>
+<p>####复合表达式</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">int</span> <span class="o">*</span><span class="n">pint</span> <span class="o">=</span> <span class="p">(</span><span class="n">int</span> <span class="p">[</span><span class="mi">4</span><span class="p">]){</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
 <span class="n">struct</span> <span class="no">T</span>
@@ -121,7 +119,7 @@
 <span class="p">}</span> <span class="n">t2</span><span class="p">;</span>
 <span class="n">t2</span> <span class="o">=</span> <span class="p">(</span><span class="n">struct</span> <span class="no">T</span><span class="p">)</span> <span class="p">{</span><span class="mi">43</span><span class="p">,</span> <span class="s2">"world"</span><span class="p">};</span></code></pre></figure>
 
-<h4 id="section-6">指定初始化</h4>
+<p>####指定初始化</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">typedef</span> <span class="n">struct</span>
 <span class="p">{</span>
@@ -135,13 +133,13 @@
 
 <p>注：未指定初始化的成员默认初始化为0。</p>
 
-<h4 id="section-7">16进制浮点数</h4>
+<p>####16进制浮点数</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="mh">0x1</span><span class="p">.</span><span class="nf">fp3</span><span class="p">;</span> <span class="sr">//</span> <span class="mh">0x1</span><span class="p">.</span><span class="nf">fp3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">.</span><span class="mi">9375</span><span class="o">*</span><span class="mi">8</span> <span class="o">=</span> <span class="mi">1</span><span class="o">.</span><span class="mi">55</span><span class="n">e1</span></code></pre></figure>
 
 <p>注：可使用printf()以”%a”或”%A”输出该格式。</p>
 
-<h4 id="section-8">可变长度数组成员</h4>
+<p>####可变长度数组成员</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">extern</span> <span class="n">const</span> <span class="n">int</span> <span class="n">n</span><span class="p">;</span>
 <span class="n">typedef</span> <span class="n">struct</span>
@@ -157,7 +155,7 @@
 
 <p>注：当结构体包含可变数组成员，结构体是不完整类型，慎用sizeof()。</p>
 
-<h4 id="func">预定义标示符 __func__</h4>
+<p>####预定义标示符 __func__</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">void</span> <span class="n">foo</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="p">{</span>
@@ -166,8 +164,8 @@
 
 <p>输出：This function is called ‘foo’.</p>
 
-<h4 id="section-9">内联函数</h4>
-<p>关键字：inline</p>
+<p>####内联函数
+关键字：inline</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">inline</span> <span class="n">int</span> <span class="n">max</span><span class="p">(</span><span class="n">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">int</span> <span class="n">b</span><span class="p">)</span>
 <span class="p">{</span>
@@ -176,8 +174,8 @@
 
 <p>注：inline是内联函数的必要条件，C90中使用__inline，与C++中含义不同。</p>
 
-<h4 id="section-10">长整形</h4>
-<p>关键字：long long</p>
+<p>####长整形
+关键字：long long</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">long</span> <span class="n">long</span> <span class="n">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">25902068371200</span><span class="p">;</span>                <span class="sr">//</span> <span class="n">length</span> <span class="n">of</span> <span class="n">light</span>
                                                  <span class="sr">//</span> <span class="n">day</span><span class="p">,</span> <span class="n">meters</span>
@@ -186,7 +184,7 @@
 
 <p>注：64bits，C90不启用选项[–strict]时也支持，__int64与long long是等价的。</p>
 
-<h4 id="section-11">宏定义允许不定长参数</h4>
+<p>####宏定义允许不定长参数</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#define debug(format, ...) fprintf (stderr, format, __VA_ARGS__)</span>
 <span class="n">void</span> <span class="no">Variadic_Macros_0</span><span class="p">()</span>
@@ -194,7 +192,7 @@
     <span class="n">debug</span> <span class="p">(</span><span class="s2">"a test string is printed out along with %x %x %x</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
 <span class="p">}</span></code></pre></figure>
 
-<h4 id="section-12">不限定变量定义的位置</h4>
+<p>####不限定变量定义的位置</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">void</span> <span class="n">foo</span><span class="p">(</span><span class="n">float</span> <span class="n">i</span><span class="p">)</span>
 <span class="p">{</span>
@@ -211,7 +209,7 @@
     <span class="sr">//</span> <span class="n">body</span> <span class="n">of</span> <span class="kp">loop</span>
 <span class="p">}</span></code></pre></figure>
 
-<h4 id="pragma">预处理操作符：__Pragma</h4>
+<p>####预处理操作符：__Pragma</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#define RWDATA(X) PRAGMA(arm section rwdata=#X)</span>
 <span class="c1">#define PRAGMA(X) _Pragma(#X)</span>
@@ -220,7 +218,7 @@ int y = 1;   /</span><span class="o">/</span> <span class="n">y</span> <span cla
 
 <p>注：它在C90未启用选项[–strict]时是可用的。</p>
 
-<h4 id="section-13">复数</h4>
+<p>####复数</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#include &lt;stdio.h&gt;</span>
 <span class="c1">#include &lt;complex.h&gt;</span>
@@ -233,8 +231,8 @@ int y = 1;   /</span><span class="o">/</span> <span class="n">y</span> <span cla
 
 <p>注：支持以下类型：float complex/double complex/long double complex</p>
 
-<h4 id="restrict">[restrict]指针</h4>
-<p>关键字：restrict</p>
+<p>####[restrict]指针
+关键字：restrict</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">void</span> <span class="n">copy_array</span><span class="p">(</span><span class="n">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">int</span> <span class="o">*</span><span class="n">restrict</span> <span class="n">a</span><span class="p">,</span> <span class="n">int</span> <span class="o">*</span><span class="n">restrict</span> <span class="n">b</span><span class="p">)</span>
 <span class="p">{</span>
@@ -251,22 +249,20 @@ int y = 1;   /</span><span class="o">/</span> <span class="n">y</span> <span cla
 <p>注：表示指针仅本函数访问，这允许编译器更好地优化代码。 C90/C++均支持该选项。
 &lt;!&gt;对于2个独有指针，不要试图传入同一参数。</p>
 
-<h4 id="section-14">库函数</h4>
-<ul>
-  <li>一些UNIX标准库中C90的扩展，如snprintf()</li>
-  <li>一些新的库功能，如&lt;fenv.h&gt;提供的标准化浮点数运行环境</li>
-  <li>一些C90已有的功能、宏定义与函数定义	<br />
-注：由于有些功能已存在于C90/C++，必要时使用[USE_C99_ALL]和[USE_C99_MATH]指定调用。</li>
-</ul>
+<p>####库函数
+- 一些UNIX标准库中C90的扩展，如snprintf()
+- 一些新的库功能，如&lt;fenv.h&gt;提供的标准化浮点数运行环境
+- 一些C90已有的功能、宏定义与函数定义	<br />
+注：由于有些功能已存在于C90/C++，必要时使用[USE_C99_ALL]和[USE_C99_MATH]指定调用。</p>
 
-<h3 id="section-15">个人体会</h3>
-<p>入行初期，我并不知道什么版本，就纳闷：变量定义怎么只能紧跟着大括号？
+<p>###个人体会
+入行初期，我并不知道什么版本，就纳闷：变量定义怎么只能紧跟着大括号？
 就去读标准文档，先是国标、C99等，厘清了编译器与标准的关系。
 想想和教育背景有关联，没老师提标准文件，学校充斥着VC6.0，多数情况只是拿结果逆推语言。
 我们了解根源，可以在骨子里建立自信，也得到了自由。	<br />
 另，C++近期在新标准的推动下，表现强劲，大家也可以了解下，不过注意部分编译器还不完整支持C++11.</p>
 
-<h4 id="section-16">声明</h4>
+<p>####声明</p>
 
 <table>
   <thead>

@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
   <title>盘点适合微控制器(MCU)的网络协议</title>
-  <meta name="description" content="概述">
+  <meta name="description" content="####概述">
   
   <meta name="keywords" content="网络,Cortex,MCU,嵌入式" />
   
@@ -84,16 +84,16 @@
   </header>
 
   <article class="post-content">
-    <h4 id="section">概述</h4>
+    <p>####概述</p>
 
 <p>受限于有限的资源，Cortex-M等嵌入式设备（后文简称“嵌入式”设备）大多不接入网络，少数支持的对网络协议的支持也很大程度不同于常规，它们不具备支持浏览器、多媒体及APP的能力。</p>
 
-<h4 id="tcpip">TCP/IP简述</h4>
-<p>TCP/IP协议是网络的核心，如图所示：</p>
+<p>####TCP/IP简述
+TCP/IP协议是网络的核心，如图所示：</p>
 
 <p><img src="../../../../.././img/OSI-Seven-Layer-Model.png" alt="TCP/IP" /></p>
 
-<h4 id="section-1">常见的物理层协议</h4>
+<p>####常见的物理层协议</p>
 
 <ul>
   <li>以太网(10/100/1G)</li>
@@ -102,21 +102,21 @@
   <li>点对点协议(PPP:Point to Point Protocol)</li>
 </ul>
 
-<h4 id="tcpudp">TCP/UDP</h4>
-<p>TCP是Web中最常用的协议，如邮件、网页等，具备连接、响应、重传及流控制。
+<p>####TCP/UDP
+TCP是Web中最常用的协议，如邮件、网页等，具备连接、响应、重传及流控制。
 UDP适合实时数据应用如音频和视频，还有网络服务，如DNS、DHCP等。</p>
 
-<h4 id="https">HTTP(S)</h4>
-<p>HTTP是网络客户端-服务器模式的基础，使用XML或JSON作为载荷，而且设备作为客户端时，它负责发起连接，这样的设计更安全。</p>
+<p>####HTTP(S)
+HTTP是网络客户端-服务器模式的基础，使用XML或JSON作为载荷，而且设备作为客户端时，它负责发起连接，这样的设计更安全。</p>
 
-<h4 id="websocket">WebSocket</h4>
-<p>WebSocket是基于TCP连接实现全双工的协议，它隶属于HTML5标准，可以简化双向网络通信和连接管理的复杂程度。</p>
+<p>####WebSocket
+WebSocket是基于TCP连接实现全双工的协议，它隶属于HTML5标准，可以简化双向网络通信和连接管理的复杂程度。</p>
 
-<h4 id="xmpp">XMPP</h4>
-<p>XMPP(Extensible Messaging and Presence Protocol)面向即时消息和状态信息，它后来被扩展用于网络电话，可用于消费类电器如洗衣机、冰箱等的大规模管理。</p>
+<p>####XMPP
+XMPP(Extensible Messaging and Presence Protocol)面向即时消息和状态信息，它后来被扩展用于网络电话，可用于消费类电器如洗衣机、冰箱等的大规模管理。</p>
 
-<h4 id="coap">COAP</h4>
-<p>CoAP(Constrained Application Protocol)用于低功耗和硬件性能有限的网络，符合RESTful规范，语义与HTTP相同，非常适合用于电池或能量收集供电的设备。</p>
+<p>####COAP
+CoAP(Constrained Application Protocol)用于低功耗和硬件性能有限的网络，符合RESTful规范，语义与HTTP相同，非常适合用于电池或能量收集供电的设备。</p>
 
 <p>特性：</p>
 
@@ -127,10 +127,10 @@ UDP适合实时数据应用如音频和视频，还有网络服务，如DNS、DH
   <li>支持固定连接</li>
 </ul>
 
-<h4 id="mqtt">MQTT</h4>
-<p>MQTT(MQ Telemetry Transport)是1个开源的适用于低带宽、高延时网络的轻量级网络协议，采用订阅/发布消息机制，可用于大规模的小型设备集群，配合后端服务器使用。</p>
+<p>####MQTT
+MQTT(MQ Telemetry Transport)是1个开源的适用于低带宽、高延时网络的轻量级网络协议，采用订阅/发布消息机制，可用于大规模的小型设备集群，配合后端服务器使用。</p>
 
-<h4 id="section-2">技术比较</h4>
+<p>####技术比较</p>
 
 <table>
   <thead>
@@ -181,8 +181,8 @@ UDP适合实时数据应用如音频和视频，还有网络服务，如DNS、DH
   </tbody>
 </table>
 
-<h4 id="section-3">网络与物联网比较</h4>
-<p><img src="../../../../.././img/Web-and-IoT-Stacks.png" alt="IoT" /></p>
+<p>####网络与物联网比较
+<img src="../../../../.././img/Web-and-IoT-Stacks.png" alt="IoT" /></p>
 
   </article>
 

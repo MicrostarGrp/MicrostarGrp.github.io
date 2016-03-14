@@ -1,58 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>http://www.striverbar.com/embedded/notes/2015/11/03/%E7%9B%98%E7%82%B9%E9%80%82%E7%94%A8%E4%BA%8E%E5%BE%AE%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE.html</loc>
-    <lastmod>2015-11-03T00:00:00+08:00</lastmod>
-  </url>
-  <url>
-    <loc>http://www.striverbar.com/embedded/notes/2015/11/01/Diving_into_Scatter_file.html</loc>
-    <lastmod>2015-11-01T00:00:00+08:00</lastmod>
-  </url>
-  <url>
-    <loc>http://www.striverbar.com/embedded/notes/2015/09/03/ARM%E7%BC%96%E8%AF%91%E5%99%A8C++11%E6%94%AF%E6%8C%81%E6%A6%82%E8%BF%B0.html</loc>
-    <lastmod>2015-09-03T00:00:00+08:00</lastmod>
-  </url>
-  <url>
-    <loc>http://www.striverbar.com/embedded/notes/2015/08/13/ARM-Cortex-M%E6%A0%88%E7%9A%84%E4%BD%BF%E7%94%A8%E6%A6%82%E8%BF%B0.html</loc>
-    <lastmod>2015-08-13T00:00:00+08:00</lastmod>
-  </url>
-  <url>
-    <loc>http://www.striverbar.com/embedded/notes/2015/07/25/C99-Guidelines.html</loc>
-    <lastmod>2015-07-25T00:00:00+08:00</lastmod>
-  </url>
-  <url>
-    <loc>http://www.striverbar.com/personal/notes/2015/06/22/%E7%A6%BB%E5%BC%80%E5%AD%A6%E6%A0%A1%E7%88%B1%E4%B8%8A%E8%AF%BB%E4%B9%A6.html</loc>
-    <lastmod>2015-06-22T00:00:00+08:00</lastmod>
-  </url>
-  <url>
-    <loc>http://www.striverbar.com/embedded/notes/2015/05/23/Blog's-Hello-World.html</loc>
-    <lastmod>2015-05-23T00:00:00+08:00</lastmod>
-  </url>
-  <url>
-    <loc>http://www.striverbar.com/about/</loc>
-  </url>
-  <url>
-    <loc>http://www.striverbar.com/</loc>
-  </url>
-    <url>
-      <loc>http://www.striverbar.com/embedded/notes/2015/05/23/Blog's-Hello-World.html</loc>
-    </url>
-    <url>
-      <loc>http://www.striverbar.com/personal/notes/2015/06/22/%E7%A6%BB%E5%BC%80%E5%AD%A6%E6%A0%A1%E7%88%B1%E4%B8%8A%E8%AF%BB%E4%B9%A6.html</loc>
-    </url>
-    <url>
-      <loc>http://www.striverbar.com/embedded/notes/2015/07/25/C99-Guidelines.html</loc>
-    </url>
-    <url>
-      <loc>http://www.striverbar.com/embedded/notes/2015/08/13/ARM-Cortex-M%E6%A0%88%E7%9A%84%E4%BD%BF%E7%94%A8%E6%A6%82%E8%BF%B0.html</loc>
-    </url>
-    <url>
-      <loc>http://www.striverbar.com/embedded/notes/2015/09/03/ARM%E7%BC%96%E8%AF%91%E5%99%A8C++11%E6%94%AF%E6%8C%81%E6%A6%82%E8%BF%B0.html</loc>
-    </url>
-    <url>
-      <loc>http://www.striverbar.com/embedded/notes/2015/11/01/Diving_into_Scatter_file.html</loc>
-    </url>
-    <url>
-      <loc>http://www.striverbar.com/embedded/notes/2015/11/03/%E7%9B%98%E7%82%B9%E9%80%82%E7%94%A8%E4%BA%8E%E5%BE%AE%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE.html</loc>
-    </url>
+<url>
+<loc>http://www.striverbar.com/embedded/notes/2015/11/03/%25E7%259B%2598%25E7%2582%25B9%25E9%2580%2582%25E7%2594%25A8%25E4%25BA%258E%25E5%25BE%25AE%25E6%258E%25A7%25E5%2588%25B6%25E5%2599%25A8%25E7%259A%2584%25E7%25BD%2591%25E7%25BB%259C%25E5%258D%258F%25E8%25AE%25AE.html</loc>
+<lastmod>2015-11-03T00:00:00+08:00</lastmod>
+</url>
+<url>
+<loc>http://www.striverbar.com/embedded/notes/2015/11/01/Diving_into_Scatter_file.html</loc>
+<lastmod>2015-11-01T00:00:00+08:00</lastmod>
+</url>
+<url>
+<loc>http://www.striverbar.com/embedded/notes/2015/09/03/ARM%25E7%25BC%2596%25E8%25AF%2591%25E5%2599%25A8C++11%25E6%2594%25AF%25E6%258C%2581%25E6%25A6%2582%25E8%25BF%25B0.html</loc>
+<lastmod>2015-09-03T00:00:00+08:00</lastmod>
+</url>
+<url>
+<loc>http://www.striverbar.com/embedded/notes/2015/08/13/ARM-Cortex-M%25E6%25A0%2588%25E7%259A%2584%25E4%25BD%25BF%25E7%2594%25A8%25E6%25A6%2582%25E8%25BF%25B0.html</loc>
+<lastmod>2015-08-13T00:00:00+08:00</lastmod>
+</url>
+<url>
+<loc>http://www.striverbar.com/embedded/notes/2015/07/25/C99-Guidelines.html</loc>
+<lastmod>2015-07-25T00:00:00+08:00</lastmod>
+</url>
+<url>
+<loc>http://www.striverbar.com/personal/notes/2015/06/22/%25E7%25A6%25BB%25E5%25BC%2580%25E5%25AD%25A6%25E6%25A0%25A1%25E7%2588%25B1%25E4%25B8%258A%25E8%25AF%25BB%25E4%25B9%25A6.html</loc>
+<lastmod>2015-06-22T00:00:00+08:00</lastmod>
+</url>
+<url>
+<loc>http://www.striverbar.com/embedded/notes/2015/05/23/Blog's-Hello-World.html</loc>
+<lastmod>2015-05-23T00:00:00+08:00</lastmod>
+</url>
+<url>
+<loc>http://www.striverbar.com/about/</loc>
+</url>
+<url>
+<loc>http://www.striverbar.com/</loc>
+</url>
 </urlset>
