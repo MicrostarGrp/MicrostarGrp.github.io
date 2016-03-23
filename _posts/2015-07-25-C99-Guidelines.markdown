@@ -8,25 +8,26 @@ comments: true
 ---
 
 概述
-------------------------------------
+========
 在嵌入式开发中，编译器已经支持C99，本文简要介绍C99的实用功能。要说明的是，很多编译器在标准化前，自行实现了部分，这并不矛盾。		
 版本：ISO/IEC 9899:1999.The 1999 International Standard for C.
 
 新特性
-------------------------------------
+========
 - 一些来自GNU在C90提供的扩展
 - 一些来自C++特性
 - 一些新的特性，如复数、初始化等
 - 一些已有C90语法扩展
 
 其他
-------------------------------------
+========
 由于新特性的引入，C99与C++不再完全兼容。
 
 举例
-------------------------------------
+--------
+
 注释
-------------------------------------
+========
 {% highlight ruby %}
  x = a //* Hello World */ b
     - c;
@@ -35,7 +36,7 @@ comments: true
 * C99: x = a - c;
 
 复合表达式
-------------------------------------
+========
 {% highlight ruby %}
 int *pint = (int [4]){1, 2 ,3, 0};
 struct T
@@ -45,7 +46,8 @@ struct T
 } t2;
 t2 = (struct T) {43, "world"};
 {% endhighlight %}
-####指定初始化
+指定初始化
+========
 {% highlight ruby %}
 typedef struct
 {
@@ -60,14 +62,14 @@ data vars[10] = { [0].name = "foo", [0].rank = 1,
 注：未指定初始化的成员默认初始化为0。
 
 16进制浮点数
-------------------------------------
+========
 {% highlight ruby %}
 0x1.fp3; // 0x1.fp3 = 1.9375*8 = 1.55e1
 {% endhighlight %}
 注：可使用printf()以"%a"或"%A"输出该格式。
 
 可变长度数组成员
-------------------------------------
+========
 {% highlight ruby %}
 extern const int n;
 typedef struct
@@ -84,7 +86,7 @@ void foo(void)
 注：当结构体包含可变数组成员，结构体是不完整类型，慎用sizeof()。
 
 预定义标示符 \__func__
-------------------------------------
+========
 {% highlight ruby %}
 void foo(void)
 {
@@ -94,7 +96,7 @@ void foo(void)
 输出：This function is called 'foo'.
 
 内联函数
-------------------------------------
+========
 关键字：inline	
 {% highlight ruby %}
 inline int max(int a, int b)
@@ -105,7 +107,7 @@ inline int max(int a, int b)
 注：inline是内联函数的必要条件，C90中使用__inline，与C++中含义不同。
 
 长整形
-------------------------------------
+========
 关键字：long long
 {% highlight ruby %}
 long long int j = 25902068371200;                // length of light
@@ -116,7 +118,7 @@ unsigned long long int i = 94607304725808000ULL; // length of light
 注：64bits，C90不启用选项[--strict]时也支持，__int64与long long是等价的。
 
 宏定义允许不定长参数
-------------------------------------
+========
 {% highlight ruby %}
 #define debug(format, ...) fprintf (stderr, format, __VA_ARGS__)
 void Variadic_Macros_0()
@@ -125,7 +127,7 @@ void Variadic_Macros_0()
 }
 {% endhighlight %}
 不限定变量定义的位置
-------------------------------------
+========
 {% highlight ruby %}
 void foo(float i)
 {
@@ -143,7 +145,7 @@ for (int n = max - 1; n >= 0; n--)
 }
 {% endhighlight %}
 预处理操作符：__Pragma
-------------------------------------
+========
 
 {% highlight ruby %}
 #define RWDATA(X) PRAGMA(arm section rwdata=#X)
@@ -154,7 +156,7 @@ int y = 1;   // y is placed in section "foo"
 注：它在C90未启用选项[--strict]时是可用的。
 
 复数
-------------------------------------
+========
 {% highlight ruby %}
 #include <stdio.h>
 #include <complex.h>
@@ -168,7 +170,7 @@ int main(void)
 注：支持以下类型：float complex/double complex/long double complex
 
 [restrict]指针
-------------------------------------
+========
 关键字：restrict
 {% highlight ruby %}
 void copy_array(int n, int *restrict a, int *restrict b)
@@ -187,14 +189,14 @@ void test(void)
 <!>对于2个独有指针，不要试图传入同一参数。
 
 库函数
-------------------------------------
+========
 - 一些UNIX标准库中C90的扩展，如snprintf()
 - 一些新的库功能，如\<fenv.h>提供的标准化浮点数运行环境
 - 一些C90已有的功能、宏定义与函数定义	  
 注：由于有些功能已存在于C90/C++，必要时使用[USE_C99_ALL]和[USE_C99_MATH]指定调用。
 
 个人体会
-------------------------------------
+========
 入行初期，我并不知道什么版本，就纳闷：变量定义怎么只能紧跟着大括号？
 就去读标准文档，先是国标、C99等，厘清了编译器与标准的关系。
 想想和教育背景有关联，没老师提标准文件，学校充斥着VC6.0，多数情况只是拿结果逆推语言。
@@ -202,7 +204,7 @@ void test(void)
 另，C++近期在新标准的推动下，表现强劲，大家也可以了解下，不过注意部分编译器还不完整支持C++11.
 
 声明
-------------------------------------
+========
 
 |    版本    |   日期    |
 |:---------:|:---------:|

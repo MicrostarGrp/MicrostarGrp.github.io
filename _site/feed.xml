@@ -6,8 +6,8 @@
 </description>
     <link>http://www.striverbar.com/</link>
     <atom:link href="http://www.striverbar.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 23 Mar 2016 21:27:17 +0800</pubDate>
-    <lastBuildDate>Wed, 23 Mar 2016 21:27:17 +0800</lastBuildDate>
+    <pubDate>Wed, 23 Mar 2016 21:40:25 +0800</pubDate>
+    <lastBuildDate>Wed, 23 Mar 2016 21:40:25 +0800</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
@@ -125,10 +125,10 @@ UDP适合实时数据应用如音频和视频，还有网络服务，如DNS、DH
     
       <item>
         <title>Diving into Scatter file</title>
-        <description>&lt;h1 id=&quot;section&quot;&gt;深入浅出分散加载描述文件&lt;/h1&gt;
-&lt;p&gt;概述
-————
-分散加载文件，即[scatter-loading description file]，用来配置链接工具实现镜像的存储分布，镜像由区和输出段组成，区包含不同的加载和执行地址。  &lt;br /&gt;
+        <description>&lt;h2 id=&quot;section&quot;&gt;深入浅出分散加载描述文件&lt;/h2&gt;
+
+&lt;h1 id=&quot;section-1&quot;&gt;概述&lt;/h1&gt;
+&lt;p&gt;分散加载文件，即[scatter-loading description file]，用来配置链接工具实现镜像的存储分布，镜像由区和输出段组成，区包含不同的加载和执行地址。  &lt;br /&gt;
 镜像的存储结构组成：&lt;/p&gt;
 
 &lt;ol&gt;
@@ -139,7 +139,7 @@ UDP适合实时数据应用如音频和视频，还有网络服务，如DNS、DH
 &lt;p&gt;当链接器通过调用分散文件创建镜像文件，它根据代码的应用建立特定的区域代号。 &lt;br /&gt;
 注：本文基于ARM Compiler V5.06&lt;/p&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;适用场景&lt;/h2&gt;
+&lt;h1 id=&quot;section-2&quot;&gt;适用场景&lt;/h1&gt;
 &lt;ol&gt;
   &lt;li&gt;复杂的存储分配：代码和数据需要置于多个独立的存储区域&lt;/li&gt;
   &lt;li&gt;多样的存储类型：如SRAM、ROM、SDRAM、Flash等，他们的具有不同的性能及特征&lt;/li&gt;
@@ -148,9 +148,9 @@ UDP适合实时数据应用如音频和视频，还有网络服务，如DNS、DH
   &lt;li&gt;堆栈标识：建立堆栈标示符，从而指定它们的位置&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;section-2&quot;&gt;详细内容&lt;/h2&gt;
+&lt;h1 id=&quot;section-3&quot;&gt;详细内容&lt;/h1&gt;
 
-&lt;h1 id=&quot;section-3&quot;&gt;范式标记&lt;/h1&gt;
+&lt;h1 id=&quot;section-4&quot;&gt;范式标记&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li&gt;“，引号表示使用字符的字面值，不记入语法，如：B”+”C只等价于B+C&lt;/li&gt;
   &lt;li&gt;A ::= B，定义B用A表示，如A::=B”+” | C，表示A等于B+或C&lt;/li&gt;
@@ -161,10 +161,10 @@ UDP适合实时数据应用如音频和视频，还有网络服务，如DNS、DH
   &lt;li&gt;(A B)，与逻辑，两个均包含&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;section-4&quot;&gt;语法&lt;/h1&gt;
+&lt;h1 id=&quot;section-5&quot;&gt;语法&lt;/h1&gt;
 &lt;p&gt;分散加载文件可以包含一个及以上的加载区，加载区可包含一个及以上的执行区。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-5&quot;&gt;加载区&lt;/h2&gt;
+&lt;h1 id=&quot;section-6&quot;&gt;加载区&lt;/h1&gt;
 &lt;p&gt;成员：名称、地址/偏移地址、属性、最大长度&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;load_region_description ::=
@@ -181,7 +181,7 @@ UDP适合实时数据应用如音频和视频，还有网络服务，如DNS、DH
   &lt;li&gt;属性选项：ABSOLUTE/ALIGN alignment/NOCOMPRESS/OVERLAY/PI/PROTECTED/RELOC&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;section-6&quot;&gt;执行区&lt;/h2&gt;
+&lt;h1 id=&quot;section-7&quot;&gt;执行区&lt;/h1&gt;
 &lt;p&gt;成员：名称、地址、属性、最大长度&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;execution_region_description ::= 
@@ -212,7 +212,7 @@ UDP适合实时数据应用如音频和视频，还有网络服务，如DNS、DH
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;section-7&quot;&gt;输入段&lt;/h2&gt;
+&lt;h1 id=&quot;section-8&quot;&gt;输入段&lt;/h1&gt;
 &lt;p&gt;成员：目标文件、段选择、标示符名&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;input_section_description ::= 
@@ -277,15 +277,15 @@ UDP适合实时数据应用如音频和视频，还有网络服务，如DNS、DH
   &lt;li&gt;*arm*匹配包含arm的文件&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;section-8&quot;&gt;表达式&lt;/h2&gt;
+&lt;h1 id=&quot;section-9&quot;&gt;表达式&lt;/h1&gt;
 &lt;p&gt;分散加载文件包含的数值，它可以是具体的值，也可以是表达式的值。暂不提及，自行了解。&lt;/p&gt;
 
-&lt;h1 id=&quot;section-9&quot;&gt;对齐方式&lt;/h1&gt;
+&lt;h1 id=&quot;section-10&quot;&gt;对齐方式&lt;/h1&gt;
 
-&lt;h2 id=&quot;section-10&quot;&gt;源文件&lt;/h2&gt;
+&lt;h1 id=&quot;section-11&quot;&gt;源文件&lt;/h1&gt;
 &lt;p&gt;通过关键字__align(n)关键字限定对齐方式&lt;/p&gt;
 
-&lt;h2 id=&quot;section-11&quot;&gt;分散加载&lt;/h2&gt;
+&lt;h1 id=&quot;section-12&quot;&gt;分散加载&lt;/h1&gt;
 &lt;p&gt;使用ALIGNALL/OVERALIGN指定对齐方式  &lt;br /&gt;
 例1：&lt;/p&gt;
 
@@ -304,7 +304,7 @@ UDP适合实时数据应用如音频和视频，还有网络服务，如DNS、DH
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;section-12&quot;&gt;引导执行区&lt;/h2&gt;
+&lt;h1 id=&quot;section-13&quot;&gt;引导执行区&lt;/h1&gt;
 &lt;p&gt;镜像的初始入口必须位于引导区，否则链接器会给出错误信息。  &lt;br /&gt;
 例1：&lt;/p&gt;
 
@@ -334,7 +334,7 @@ UDP适合实时数据应用如音频和视频，还有网络服务，如DNS、DH
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;section-13&quot;&gt;函数与数据&lt;/h2&gt;
+&lt;h1 id=&quot;section-14&quot;&gt;函数与数据&lt;/h1&gt;
 &lt;p&gt;将函数或数据置于指定的地址有以下途径：&lt;/p&gt;
 
 &lt;ul&gt;
@@ -362,7 +362,7 @@ UDP适合实时数据应用如音频和视频，还有网络服务，如DNS、DH
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;section-14&quot;&gt;空区&lt;/h2&gt;
+&lt;h1 id=&quot;section-15&quot;&gt;空区&lt;/h1&gt;
 &lt;p&gt;设置无内容的存储块，保留指定区域另有用途，如堆/栈，使用EMPTY标示符。
 例：&lt;/p&gt;
 
@@ -382,7 +382,7 @@ UDP适合实时数据应用如音频和视频，还有网络服务，如DNS、DH
 
 &lt;p&gt;注：EMPTY执行区的ZI区将不会被运行库初始化为零。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-15&quot;&gt;自定义堆栈&lt;/h2&gt;
+&lt;h1 id=&quot;section-16&quot;&gt;自定义堆栈&lt;/h1&gt;
 &lt;p&gt;定义2个EMPTY执行区，名为ARM_LIB_HEAP、ARM_LIB_STACK，这时运行库会调用__user_setup_stackheap()选择非默认的实现而使用以下标识符：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;Image$$ARM\_LIB\_STACK$$Base
@@ -393,7 +393,7 @@ Image$$ARM\_LIB\_HEAP$$Limit
 
 &lt;p&gt;当然，我们可以重定义该函数，覆盖运行库的实现。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-16&quot;&gt;缺省未定义的标识符&lt;/h2&gt;
+&lt;h1 id=&quot;section-17&quot;&gt;缺省未定义的标识符&lt;/h1&gt;
 
 &lt;pre&gt;&lt;code&gt;Image$$RO$$Base
 Image$$RO$$Limit
@@ -488,15 +488,15 @@ Image$$ZI$$Limit
     
       <item>
         <title>ARM Cortex-M栈的使用概述</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;概要&lt;/h2&gt;
+        <description>&lt;h1 id=&quot;section&quot;&gt;概要&lt;/h1&gt;
 &lt;p&gt;面向Cortex-M核，通过阅读代码，理解栈的操作。&lt;/p&gt;
 
 &lt;h1 id=&quot;section-1&quot;&gt;详细内容&lt;/h1&gt;
 &lt;p&gt;预备知识
-————
+=======
 了解复位后的启动时序，了解uC/OS的使用，汇编指令基础。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-2&quot;&gt;栈的简介&lt;/h2&gt;
+&lt;h1 id=&quot;section-2&quot;&gt;栈的简介&lt;/h1&gt;
 &lt;p&gt;以Cortex-M3为例，M3处理器使用递减的栈，栈指针指向最后压栈的对象，当处理器执行压栈操作时，SP指针减小，然后写入要压栈的对象值至新的栈内存，M3处理器有2个栈，MSP/PSP。&lt;/p&gt;
 
 &lt;h1 id=&quot;section-3&quot;&gt;启动代码对栈的操作&lt;/h1&gt;
@@ -568,11 +568,11 @@ Image$$ZI$$Limit
     
       <item>
         <title>C99 Guidelines</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;概述&lt;/h2&gt;
+        <description>&lt;h1 id=&quot;section&quot;&gt;概述&lt;/h1&gt;
 &lt;p&gt;在嵌入式开发中，编译器已经支持C99，本文简要介绍C99的实用功能。要说明的是，很多编译器在标准化前，自行实现了部分，这并不矛盾。		
 版本：ISO/IEC 9899:1999.The 1999 International Standard for C.&lt;/p&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;新特性&lt;/h2&gt;
+&lt;h1 id=&quot;section-1&quot;&gt;新特性&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li&gt;一些来自GNU在C90提供的扩展&lt;/li&gt;
   &lt;li&gt;一些来自C++特性&lt;/li&gt;
@@ -580,12 +580,12 @@ Image$$ZI$$Limit
   &lt;li&gt;一些已有C90语法扩展&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;section-2&quot;&gt;其他&lt;/h2&gt;
+&lt;h1 id=&quot;section-2&quot;&gt;其他&lt;/h1&gt;
 &lt;p&gt;由于新特性的引入，C99与C++不再完全兼容。&lt;/p&gt;
 
 &lt;h2 id=&quot;section-3&quot;&gt;举例&lt;/h2&gt;
-&lt;p&gt;注释
-————————————&lt;/p&gt;
+
+&lt;h1 id=&quot;section-4&quot;&gt;注释&lt;/h1&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Hello&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;World&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
@@ -595,7 +595,7 @@ Image$$ZI$$Limit
   &lt;li&gt;C99: x = a - c;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;section-4&quot;&gt;复合表达式&lt;/h2&gt;
+&lt;h1 id=&quot;section-5&quot;&gt;复合表达式&lt;/h1&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pint&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;
@@ -605,7 +605,7 @@ Image$$ZI$$Limit
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;t2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;43&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;world&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;####指定初始化&lt;/p&gt;
+&lt;h1 id=&quot;section-6&quot;&gt;指定初始化&lt;/h1&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;typedef&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;struct&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -619,13 +619,13 @@ Image$$ZI$$Limit
 
 &lt;p&gt;注：未指定初始化的成员默认初始化为0。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-5&quot;&gt;16进制浮点数&lt;/h2&gt;
+&lt;h1 id=&quot;section-7&quot;&gt;16进制浮点数&lt;/h1&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;mh&quot;&gt;0x1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fp3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fp3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9375&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;55&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;注：可使用printf()以”%a”或”%A”输出该格式。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-6&quot;&gt;可变长度数组成员&lt;/h2&gt;
+&lt;h1 id=&quot;section-8&quot;&gt;可变长度数组成员&lt;/h1&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;extern&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;typedef&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;struct&lt;/span&gt;
@@ -641,7 +641,7 @@ Image$$ZI$$Limit
 
 &lt;p&gt;注：当结构体包含可变数组成员，结构体是不完整类型，慎用sizeof()。&lt;/p&gt;
 
-&lt;h2 id=&quot;func&quot;&gt;预定义标示符 __func__&lt;/h2&gt;
+&lt;h1 id=&quot;func&quot;&gt;预定义标示符 __func__&lt;/h1&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -650,7 +650,7 @@ Image$$ZI$$Limit
 
 &lt;p&gt;输出：This function is called ‘foo’.&lt;/p&gt;
 
-&lt;h2 id=&quot;section-7&quot;&gt;内联函数&lt;/h2&gt;
+&lt;h1 id=&quot;section-9&quot;&gt;内联函数&lt;/h1&gt;
 &lt;p&gt;关键字：inline&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;inline&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -660,7 +660,7 @@ Image$$ZI$$Limit
 
 &lt;p&gt;注：inline是内联函数的必要条件，C90中使用__inline，与C++中含义不同。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-8&quot;&gt;长整形&lt;/h2&gt;
+&lt;h1 id=&quot;section-10&quot;&gt;长整形&lt;/h1&gt;
 &lt;p&gt;关键字：long long&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;25902068371200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;                &lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;light&lt;/span&gt;
@@ -670,7 +670,7 @@ Image$$ZI$$Limit
 
 &lt;p&gt;注：64bits，C90不启用选项[–strict]时也支持，__int64与long long是等价的。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-9&quot;&gt;宏定义允许不定长参数&lt;/h2&gt;
+&lt;h1 id=&quot;section-11&quot;&gt;宏定义允许不定长参数&lt;/h1&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#define debug(format, ...) fprintf (stderr, format, __VA_ARGS__)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Variadic_Macros_0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
@@ -678,7 +678,7 @@ Image$$ZI$$Limit
     &lt;span class=&quot;n&quot;&gt;debug&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;a test string is printed out along with %x %x %x&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;14&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h2 id=&quot;section-10&quot;&gt;不限定变量定义的位置&lt;/h2&gt;
+&lt;h1 id=&quot;section-12&quot;&gt;不限定变量定义的位置&lt;/h1&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -695,7 +695,7 @@ Image$$ZI$$Limit
     &lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;loop&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h2 id=&quot;pragma&quot;&gt;预处理操作符：__Pragma&lt;/h2&gt;
+&lt;h1 id=&quot;pragma&quot;&gt;预处理操作符：__Pragma&lt;/h1&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#define RWDATA(X) PRAGMA(arm section rwdata=#X)&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#define PRAGMA(X) _Pragma(#X)&lt;/span&gt;
@@ -704,7 +704,7 @@ Image$$ZI$$Limit
 
 &lt;p&gt;注：它在C90未启用选项[–strict]时是可用的。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-11&quot;&gt;复数&lt;/h2&gt;
+&lt;h1 id=&quot;section-13&quot;&gt;复数&lt;/h1&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#include &amp;lt;stdio.h&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#include &amp;lt;complex.h&amp;gt;&lt;/span&gt;
@@ -717,7 +717,7 @@ Image$$ZI$$Limit
 
 &lt;p&gt;注：支持以下类型：float complex/double complex/long double complex&lt;/p&gt;
 
-&lt;h2 id=&quot;restrict&quot;&gt;[restrict]指针&lt;/h2&gt;
+&lt;h1 id=&quot;restrict&quot;&gt;[restrict]指针&lt;/h1&gt;
 &lt;p&gt;关键字：restrict&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;copy_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;restrict&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;restrict&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -735,7 +735,7 @@ Image$$ZI$$Limit
 &lt;p&gt;注：表示指针仅本函数访问，这允许编译器更好地优化代码。 C90/C++均支持该选项。
 &amp;lt;!&amp;gt;对于2个独有指针，不要试图传入同一参数。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-12&quot;&gt;库函数&lt;/h2&gt;
+&lt;h1 id=&quot;section-14&quot;&gt;库函数&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li&gt;一些UNIX标准库中C90的扩展，如snprintf()&lt;/li&gt;
   &lt;li&gt;一些新的库功能，如&amp;lt;fenv.h&amp;gt;提供的标准化浮点数运行环境&lt;/li&gt;
@@ -743,14 +743,14 @@ Image$$ZI$$Limit
 注：由于有些功能已存在于C90/C++，必要时使用[USE_C99_ALL]和[USE_C99_MATH]指定调用。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;section-13&quot;&gt;个人体会&lt;/h2&gt;
+&lt;h1 id=&quot;section-15&quot;&gt;个人体会&lt;/h1&gt;
 &lt;p&gt;入行初期，我并不知道什么版本，就纳闷：变量定义怎么只能紧跟着大括号？
 就去读标准文档，先是国标、C99等，厘清了编译器与标准的关系。
 想想和教育背景有关联，没老师提标准文件，学校充斥着VC6.0，多数情况只是拿结果逆推语言。
 我们了解根源，可以在骨子里建立自信，也得到了自由。	&lt;br /&gt;
 另，C++近期在新标准的推动下，表现强劲，大家也可以了解下，不过注意部分编译器还不完整支持C++11.&lt;/p&gt;
 
-&lt;h2 id=&quot;section-14&quot;&gt;声明&lt;/h2&gt;
+&lt;h1 id=&quot;section-16&quot;&gt;声明&lt;/h1&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -784,7 +784,7 @@ Image$$ZI$$Limit
     
       <item>
         <title>离开学校爱上读书</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;当我离开了，明白了为什么读书，从来没有这样痛苦的领悟。&lt;/h2&gt;
+        <description>&lt;h1 id=&quot;section&quot;&gt;当我离开了，明白了为什么读书，从来没有这样痛苦的领悟。&lt;/h1&gt;
 &lt;p&gt;情况多是这样，在80-90年代，多数长辈们对这个时代的变化的了解很有限，似乎他们的共识就是，读书是最有效的路径。我想说那些年，一群对世界所知甚少的人们，积极地指导着晚辈们的方向。这样的现象在90/00后的就没有那么明显了，他们变得没有那样全身心的压力吧。&lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#097;&amp;#100;&amp;#109;&amp;#105;&amp;#110;&amp;#064;&amp;#115;&amp;#116;&amp;#114;&amp;#105;&amp;#118;&amp;#101;&amp;#114;&amp;#098;&amp;#097;&amp;#114;&amp;#046;&amp;#099;&amp;#111;&amp;#109;&quot;&gt;admin#striverbar.com&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;而且，年轻人总这样，越是周围期待的事情，越容易适得其反。但大家成功地将观念统一了，比如“到大学就可以享受自由自在了”，“女生不适合理科”。我不知道自己算不算努力，并没有多少感觉，更多地觉得是当时是认真的，毕竟是全职的学生。因此我领会了一点，学习不差才能有时间玩，到现在也还适用吧。&lt;/p&gt;

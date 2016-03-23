@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
   <title>Diving into Scatter file</title>
-  <meta name="description" content="深入浅出分散加载描述文件概述————分散加载文件，即[scatter-loading description file]，用来配置链接工具实现镜像的存储分布，镜像由区和输出段组成，区包含不同的加载和执行地址。  镜像的存储结构组成：">
+  <meta name="description" content="深入浅出分散加载描述文件">
   
   <meta name="keywords" content="Diving,Scatter,file,分散,加载" />
   
@@ -84,10 +84,10 @@
   </header>
 
   <article class="post-content">
-    <h1 id="section">深入浅出分散加载描述文件</h1>
-<p>概述
-————
-分散加载文件，即[scatter-loading description file]，用来配置链接工具实现镜像的存储分布，镜像由区和输出段组成，区包含不同的加载和执行地址。  <br />
+    <h2 id="section">深入浅出分散加载描述文件</h2>
+
+<h1 id="section-1">概述</h1>
+<p>分散加载文件，即[scatter-loading description file]，用来配置链接工具实现镜像的存储分布，镜像由区和输出段组成，区包含不同的加载和执行地址。  <br />
 镜像的存储结构组成：</p>
 
 <ol>
@@ -98,7 +98,7 @@
 <p>当链接器通过调用分散文件创建镜像文件，它根据代码的应用建立特定的区域代号。 <br />
 注：本文基于ARM Compiler V5.06</p>
 
-<h2 id="section-1">适用场景</h2>
+<h1 id="section-2">适用场景</h1>
 <ol>
   <li>复杂的存储分配：代码和数据需要置于多个独立的存储区域</li>
   <li>多样的存储类型：如SRAM、ROM、SDRAM、Flash等，他们的具有不同的性能及特征</li>
@@ -107,9 +107,9 @@
   <li>堆栈标识：建立堆栈标示符，从而指定它们的位置</li>
 </ol>
 
-<h2 id="section-2">详细内容</h2>
+<h1 id="section-3">详细内容</h1>
 
-<h1 id="section-3">范式标记</h1>
+<h1 id="section-4">范式标记</h1>
 <ul>
   <li>“，引号表示使用字符的字面值，不记入语法，如：B”+”C只等价于B+C</li>
   <li>A ::= B，定义B用A表示，如A::=B”+” | C，表示A等于B+或C</li>
@@ -120,10 +120,10 @@
   <li>(A B)，与逻辑，两个均包含</li>
 </ul>
 
-<h1 id="section-4">语法</h1>
+<h1 id="section-5">语法</h1>
 <p>分散加载文件可以包含一个及以上的加载区，加载区可包含一个及以上的执行区。</p>
 
-<h2 id="section-5">加载区</h2>
+<h1 id="section-6">加载区</h1>
 <p>成员：名称、地址/偏移地址、属性、最大长度</p>
 
 <pre><code>load_region_description ::=
@@ -140,7 +140,7 @@
   <li>属性选项：ABSOLUTE/ALIGN alignment/NOCOMPRESS/OVERLAY/PI/PROTECTED/RELOC</li>
 </ol>
 
-<h2 id="section-6">执行区</h2>
+<h1 id="section-7">执行区</h1>
 <p>成员：名称、地址、属性、最大长度</p>
 
 <pre><code>execution_region_description ::= 
@@ -171,7 +171,7 @@
 }
 </code></pre>
 
-<h2 id="section-7">输入段</h2>
+<h1 id="section-8">输入段</h1>
 <p>成员：目标文件、段选择、标示符名</p>
 
 <pre><code>input_section_description ::= 
@@ -236,15 +236,15 @@
   <li>*arm*匹配包含arm的文件</li>
 </ul>
 
-<h2 id="section-8">表达式</h2>
+<h1 id="section-9">表达式</h1>
 <p>分散加载文件包含的数值，它可以是具体的值，也可以是表达式的值。暂不提及，自行了解。</p>
 
-<h1 id="section-9">对齐方式</h1>
+<h1 id="section-10">对齐方式</h1>
 
-<h2 id="section-10">源文件</h2>
+<h1 id="section-11">源文件</h1>
 <p>通过关键字__align(n)关键字限定对齐方式</p>
 
-<h2 id="section-11">分散加载</h2>
+<h1 id="section-12">分散加载</h1>
 <p>使用ALIGNALL/OVERALIGN指定对齐方式  <br />
 例1：</p>
 
@@ -263,7 +263,7 @@
 }
 </code></pre>
 
-<h2 id="section-12">引导执行区</h2>
+<h1 id="section-13">引导执行区</h1>
 <p>镜像的初始入口必须位于引导区，否则链接器会给出错误信息。  <br />
 例1：</p>
 
@@ -293,7 +293,7 @@
 }
 </code></pre>
 
-<h2 id="section-13">函数与数据</h2>
+<h1 id="section-14">函数与数据</h1>
 <p>将函数或数据置于指定的地址有以下途径：</p>
 
 <ul>
@@ -321,7 +321,7 @@
 }
 </code></pre>
 
-<h2 id="section-14">空区</h2>
+<h1 id="section-15">空区</h1>
 <p>设置无内容的存储块，保留指定区域另有用途，如堆/栈，使用EMPTY标示符。
 例：</p>
 
@@ -341,7 +341,7 @@
 
 <p>注：EMPTY执行区的ZI区将不会被运行库初始化为零。</p>
 
-<h2 id="section-15">自定义堆栈</h2>
+<h1 id="section-16">自定义堆栈</h1>
 <p>定义2个EMPTY执行区，名为ARM_LIB_HEAP、ARM_LIB_STACK，这时运行库会调用__user_setup_stackheap()选择非默认的实现而使用以下标识符：</p>
 
 <pre><code>Image$$ARM\_LIB\_STACK$$Base
@@ -352,7 +352,7 @@ Image$$ARM\_LIB\_HEAP$$Limit
 
 <p>当然，我们可以重定义该函数，覆盖运行库的实现。</p>
 
-<h2 id="section-16">缺省未定义的标识符</h2>
+<h1 id="section-17">缺省未定义的标识符</h1>
 
 <pre><code>Image$$RO$$Base
 Image$$RO$$Limit
