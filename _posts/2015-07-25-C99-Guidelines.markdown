@@ -24,7 +24,7 @@ comments: true
 由于新特性的引入，C99与C++不再完全兼容。
 
 举例
---------
+========
 
 注释
 ========
@@ -136,7 +136,9 @@ void foo(float i)
     float j = sqrt(i);    // illegal in C90
 }
 {% endhighlight %}
+
 for(;;)循环：
+========
 {% highlight ruby %}
 extern int max;
 for (int n = max - 1; n >= 0; n--)
