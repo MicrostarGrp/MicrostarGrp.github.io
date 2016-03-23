@@ -7,18 +7,22 @@ categories: embedded notes
 comments: true
 ---
 
-##概要
+概要
+------------------------------------
 面向Cortex-M核，通过阅读代码，理解栈的操作。
 
-##详细内容
-
-###预备知识
+详细内容
+============
+预备知识
+------------
 了解复位后的启动时序，了解uC/OS的使用，汇编指令基础。
 
-###栈的简介
+栈的简介
+------------
 以Cortex-M3为例，M3处理器使用递减的栈，栈指针指向最后压栈的对象，当处理器执行压栈操作时，SP指针减小，然后写入要压栈的对象值至新的栈内存，M3处理器有2个栈，MSP/PSP。
 
-###启动代码对栈的操作
+启动代码对栈的操作
+============
 由代码可见，假定分配为[0x20000000 - 0x2000031F]的内存范围，可知复位后MSP的值为0x20000320，事实的CPU栈顶指针。
 {% highlight ruby %}
 Stack_Size      EQU     0x00000320
@@ -29,7 +33,8 @@ __initial_sp
 __Vectors       DCD     __initial_sp     ; Top of Stack
 {% endhighlight %}
 
-###uC/OS-II对栈的操作
+uC/OS-II对栈的操作
+============
 OSTaskCreate()创建任务时，传入栈地址（准确地说，末尾32bits的低地址）：
 {% highlight ruby %}
 __align(8) OS_STK RS485TaskStack[200];
@@ -61,7 +66,8 @@ OSTaskCreate(&RS485Task, (void*)0, &RS485TaskStack[199], RS485Task_PRIO);
 
 可以看出来，它心中的“栈顶”也是0x20000320，它需要的是直接可用的内存，而栈顶是不属于分配的内存范围的。希望大家细细揣摩下其中的区别。
 
-###使用SVC时对栈的操作
+使用SVC时对栈的操作
+============
 SVC全称[supervisor call]，俗称系统调用，常用来间接调用内核函数或者驱动代码。SVC中断优先级是可配置的，它属于系统中断。指令格式：
 {% highlight ruby %}
 SVC{cond} #imm	; 'cond'为可选的条件码 'imm'为范围为0-255的整数

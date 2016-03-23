@@ -6,22 +6,22 @@
 </description>
     <link>http://www.striverbar.com/</link>
     <atom:link href="http://www.striverbar.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 14 Mar 2016 22:44:56 +0800</pubDate>
-    <lastBuildDate>Mon, 14 Mar 2016 22:44:56 +0800</lastBuildDate>
+    <pubDate>Wed, 23 Mar 2016 21:27:17 +0800</pubDate>
+    <lastBuildDate>Wed, 23 Mar 2016 21:27:17 +0800</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
         <title>盘点适合微控制器(MCU)的网络协议</title>
-        <description>&lt;p&gt;####概述&lt;/p&gt;
+        <description>&lt;h1 id=&quot;section&quot;&gt;概述&lt;/h1&gt;
 
 &lt;p&gt;受限于有限的资源，Cortex-M等嵌入式设备（后文简称“嵌入式”设备）大多不接入网络，少数支持的对网络协议的支持也很大程度不同于常规，它们不具备支持浏览器、多媒体及APP的能力。&lt;/p&gt;
 
-&lt;p&gt;####TCP/IP简述
-TCP/IP协议是网络的核心，如图所示：&lt;/p&gt;
+&lt;h1 id=&quot;tcpip&quot;&gt;TCP/IP简述&lt;/h1&gt;
+&lt;p&gt;TCP/IP协议是网络的核心，如图所示：&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;../../../../.././img/OSI-Seven-Layer-Model.png&quot; alt=&quot;TCP/IP&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;####常见的物理层协议&lt;/p&gt;
+&lt;h1 id=&quot;section-1&quot;&gt;常见的物理层协议&lt;/h1&gt;
 
 &lt;ul&gt;
   &lt;li&gt;以太网(10/100/1G)&lt;/li&gt;
@@ -30,21 +30,21 @@ TCP/IP协议是网络的核心，如图所示：&lt;/p&gt;
   &lt;li&gt;点对点协议(PPP:Point to Point Protocol)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;####TCP/UDP
-TCP是Web中最常用的协议，如邮件、网页等，具备连接、响应、重传及流控制。
+&lt;h1 id=&quot;tcpudp&quot;&gt;TCP/UDP&lt;/h1&gt;
+&lt;p&gt;TCP是Web中最常用的协议，如邮件、网页等，具备连接、响应、重传及流控制。
 UDP适合实时数据应用如音频和视频，还有网络服务，如DNS、DHCP等。&lt;/p&gt;
 
-&lt;p&gt;####HTTP(S)
-HTTP是网络客户端-服务器模式的基础，使用XML或JSON作为载荷，而且设备作为客户端时，它负责发起连接，这样的设计更安全。&lt;/p&gt;
+&lt;h1 id=&quot;https&quot;&gt;HTTP(S)&lt;/h1&gt;
+&lt;p&gt;HTTP是网络客户端-服务器模式的基础，使用XML或JSON作为载荷，而且设备作为客户端时，它负责发起连接，这样的设计更安全。&lt;/p&gt;
 
-&lt;p&gt;####WebSocket
-WebSocket是基于TCP连接实现全双工的协议，它隶属于HTML5标准，可以简化双向网络通信和连接管理的复杂程度。&lt;/p&gt;
+&lt;h1 id=&quot;websocket&quot;&gt;WebSocket&lt;/h1&gt;
+&lt;p&gt;WebSocket是基于TCP连接实现全双工的协议，它隶属于HTML5标准，可以简化双向网络通信和连接管理的复杂程度。&lt;/p&gt;
 
-&lt;p&gt;####XMPP
-XMPP(Extensible Messaging and Presence Protocol)面向即时消息和状态信息，它后来被扩展用于网络电话，可用于消费类电器如洗衣机、冰箱等的大规模管理。&lt;/p&gt;
+&lt;h1 id=&quot;xmpp&quot;&gt;XMPP&lt;/h1&gt;
+&lt;p&gt;XMPP(Extensible Messaging and Presence Protocol)面向即时消息和状态信息，它后来被扩展用于网络电话，可用于消费类电器如洗衣机、冰箱等的大规模管理。&lt;/p&gt;
 
-&lt;p&gt;####COAP
-CoAP(Constrained Application Protocol)用于低功耗和硬件性能有限的网络，符合RESTful规范，语义与HTTP相同，非常适合用于电池或能量收集供电的设备。&lt;/p&gt;
+&lt;h1 id=&quot;coap&quot;&gt;COAP&lt;/h1&gt;
+&lt;p&gt;CoAP(Constrained Application Protocol)用于低功耗和硬件性能有限的网络，符合RESTful规范，语义与HTTP相同，非常适合用于电池或能量收集供电的设备。&lt;/p&gt;
 
 &lt;p&gt;特性：&lt;/p&gt;
 
@@ -55,10 +55,10 @@ CoAP(Constrained Application Protocol)用于低功耗和硬件性能有限的网
   &lt;li&gt;支持固定连接&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;####MQTT
-MQTT(MQ Telemetry Transport)是1个开源的适用于低带宽、高延时网络的轻量级网络协议，采用订阅/发布消息机制，可用于大规模的小型设备集群，配合后端服务器使用。&lt;/p&gt;
+&lt;h1 id=&quot;mqtt&quot;&gt;MQTT&lt;/h1&gt;
+&lt;p&gt;MQTT(MQ Telemetry Transport)是1个开源的适用于低带宽、高延时网络的轻量级网络协议，采用订阅/发布消息机制，可用于大规模的小型设备集群，配合后端服务器使用。&lt;/p&gt;
 
-&lt;p&gt;####技术比较&lt;/p&gt;
+&lt;h1 id=&quot;section-2&quot;&gt;技术比较&lt;/h1&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -109,8 +109,8 @@ MQTT(MQ Telemetry Transport)是1个开源的适用于低带宽、高延时网络
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;####网络与物联网比较
-&lt;img src=&quot;../../../../.././img/Web-and-IoT-Stacks.png&quot; alt=&quot;IoT&quot; /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;section-3&quot;&gt;网络与物联网比较&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&quot;../../../../.././img/Web-and-IoT-Stacks.png&quot; alt=&quot;IoT&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 03 Nov 2015 00:00:00 +0800</pubDate>
         <link>http://www.striverbar.com/embedded/notes/2015/11/03/%E7%9B%98%E7%82%B9%E9%80%82%E7%94%A8%E4%BA%8E%E5%BE%AE%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE.html</link>
@@ -125,9 +125,9 @@ MQTT(MQ Telemetry Transport)是1个开源的适用于低带宽、高延时网络
     
       <item>
         <title>Diving into Scatter file</title>
-        <description>&lt;p&gt;#深入浅出分散加载描述文件&lt;/p&gt;
-
-&lt;p&gt;##概述
+        <description>&lt;h1 id=&quot;section&quot;&gt;深入浅出分散加载描述文件&lt;/h1&gt;
+&lt;p&gt;概述
+————
 分散加载文件，即[scatter-loading description file]，用来配置链接工具实现镜像的存储分布，镜像由区和输出段组成，区包含不同的加载和执行地址。  &lt;br /&gt;
 镜像的存储结构组成：&lt;/p&gt;
 
@@ -139,17 +139,18 @@ MQTT(MQ Telemetry Transport)是1个开源的适用于低带宽、高延时网络
 &lt;p&gt;当链接器通过调用分散文件创建镜像文件，它根据代码的应用建立特定的区域代号。 &lt;br /&gt;
 注：本文基于ARM Compiler V5.06&lt;/p&gt;
 
-&lt;p&gt;##适用场景
-1. 复杂的存储分配：代码和数据需要置于多个独立的存储区域
-2. 多样的存储类型：如SRAM、ROM、SDRAM、Flash等，他们的具有不同的性能及特征
-3. 外设地址映射：以指定地址的方式映射外设存储空间
-4. 函数固定地址：将函数指定在同一位置即使其余的代码被修改或重新编译
-5. 堆栈标识：建立堆栈标示符，从而指定它们的位置&lt;/p&gt;
+&lt;h2 id=&quot;section-1&quot;&gt;适用场景&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;复杂的存储分配：代码和数据需要置于多个独立的存储区域&lt;/li&gt;
+  &lt;li&gt;多样的存储类型：如SRAM、ROM、SDRAM、Flash等，他们的具有不同的性能及特征&lt;/li&gt;
+  &lt;li&gt;外设地址映射：以指定地址的方式映射外设存储空间&lt;/li&gt;
+  &lt;li&gt;函数固定地址：将函数指定在同一位置即使其余的代码被修改或重新编译&lt;/li&gt;
+  &lt;li&gt;堆栈标识：建立堆栈标示符，从而指定它们的位置&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;p&gt;##详细内容&lt;/p&gt;
+&lt;h2 id=&quot;section-2&quot;&gt;详细内容&lt;/h2&gt;
 
-&lt;p&gt;###范式标记&lt;/p&gt;
-
+&lt;h1 id=&quot;section-3&quot;&gt;范式标记&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li&gt;“，引号表示使用字符的字面值，不记入语法，如：B”+”C只等价于B+C&lt;/li&gt;
   &lt;li&gt;A ::= B，定义B用A表示，如A::=B”+” | C，表示A等于B+或C&lt;/li&gt;
@@ -160,19 +161,18 @@ MQTT(MQ Telemetry Transport)是1个开源的适用于低带宽、高延时网络
   &lt;li&gt;(A B)，与逻辑，两个均包含&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;###语法
-分散加载文件可以包含一个及以上的加载区，加载区可包含一个及以上的执行区。&lt;/p&gt;
+&lt;h1 id=&quot;section-4&quot;&gt;语法&lt;/h1&gt;
+&lt;p&gt;分散加载文件可以包含一个及以上的加载区，加载区可包含一个及以上的执行区。&lt;/p&gt;
 
-&lt;p&gt;####加载区
-成员：名称、地址/偏移地址、属性、最大长度&lt;/p&gt;
+&lt;h2 id=&quot;section-5&quot;&gt;加载区&lt;/h2&gt;
+&lt;p&gt;成员：名称、地址/偏移地址、属性、最大长度&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;load_region_description ::=
+&lt;pre&gt;&lt;code&gt;load_region_description ::=
   load_region_name (base_address | (&quot;+&quot; offset)) [attribute_list] [max_size]
        &quot;{&quot;
           execution_region_description+ 
        &quot;}&quot;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
 &lt;ol&gt;
   &lt;li&gt;名称区分大小写&lt;/li&gt;
@@ -181,16 +181,15 @@ MQTT(MQ Telemetry Transport)是1个开源的适用于低带宽、高延时网络
   &lt;li&gt;属性选项：ABSOLUTE/ALIGN alignment/NOCOMPRESS/OVERLAY/PI/PROTECTED/RELOC&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;####执行区
-成员：名称、地址、属性、最大长度&lt;/p&gt;
+&lt;h2 id=&quot;section-6&quot;&gt;执行区&lt;/h2&gt;
+&lt;p&gt;成员：名称、地址、属性、最大长度&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;execution_region_description ::= 
+&lt;pre&gt;&lt;code&gt;execution_region_description ::= 
   exec_region_name (base_address | &quot;+&quot; offset) [attribute_list] [max_size | length]
         &quot;{&quot; 
             input_section_description* 
         &quot;}&quot;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
 &lt;ol&gt;
   &lt;li&gt;执行区对齐属性，加载区和执行区地址都应满足&lt;/li&gt;
@@ -200,7 +199,7 @@ MQTT(MQ Telemetry Transport)是1个开源的适用于低带宽、高延时网络
 
 &lt;p&gt;例：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;LOAD_ROM 0x0000     ; 加载区
+&lt;pre&gt;&lt;code&gt;LOAD_ROM 0x0000     ; 加载区
 {
     EXEC_ROM        ; 执行区
     {
@@ -212,17 +211,15 @@ MQTT(MQ Telemetry Transport)是1个开源的适用于低带宽、高延时网络
     }
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;p&gt;####输入段
-成员：目标文件、段选择、标示符名&lt;/p&gt;
+&lt;h2 id=&quot;section-7&quot;&gt;输入段&lt;/h2&gt;
+&lt;p&gt;成员：目标文件、段选择、标示符名&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;input_section_description ::= 
+&lt;pre&gt;&lt;code&gt;input_section_description ::= 
   module_select_pattern 
         [ &quot;(&quot; input_section_selector ( &quot;,&quot; input_section_selector )* &quot;)&quot; ]  input_section_selector ::= 
         (&quot;+&quot; input_section_attr | input_section_pattern | input_symbol_pattern | section_properties)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
 &lt;ol&gt;
   &lt;li&gt;*表示任意字符，?表示任意单字符，如*.o表示所有目标文件&lt;/li&gt;
@@ -252,7 +249,7 @@ MQTT(MQ Telemetry Transport)是1个开源的适用于低带宽、高延时网络
 
 &lt;p&gt;例1：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;LoadRegion 0x8000
+&lt;pre&gt;&lt;code&gt;LoadRegion 0x8000
 {
     ExecReg1 +0
     {
@@ -262,7 +259,6 @@ MQTT(MQ Telemetry Transport)是1个开源的适用于低带宽、高延时网络
         ; 其他加载描述内容
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
 &lt;p&gt;伪属性&lt;/p&gt;
 
@@ -281,40 +277,38 @@ MQTT(MQ Telemetry Transport)是1个开源的适用于低带宽、高延时网络
   &lt;li&gt;*arm*匹配包含arm的文件&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;####表达式
-分散加载文件包含的数值，它可以是具体的值，也可以是表达式的值。暂不提及，自行了解。&lt;/p&gt;
+&lt;h2 id=&quot;section-8&quot;&gt;表达式&lt;/h2&gt;
+&lt;p&gt;分散加载文件包含的数值，它可以是具体的值，也可以是表达式的值。暂不提及，自行了解。&lt;/p&gt;
 
-&lt;p&gt;####对齐方式&lt;/p&gt;
+&lt;h1 id=&quot;section-9&quot;&gt;对齐方式&lt;/h1&gt;
 
-&lt;p&gt;####源文件
-通过关键字__align(n)关键字限定对齐方式&lt;/p&gt;
+&lt;h2 id=&quot;section-10&quot;&gt;源文件&lt;/h2&gt;
+&lt;p&gt;通过关键字__align(n)关键字限定对齐方式&lt;/p&gt;
 
-&lt;p&gt;####分散加载
-使用ALIGNALL/OVERALIGN指定对齐方式  &lt;br /&gt;
+&lt;h2 id=&quot;section-11&quot;&gt;分散加载&lt;/h2&gt;
+&lt;p&gt;使用ALIGNALL/OVERALIGN指定对齐方式  &lt;br /&gt;
 例1：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ER_DATA … ALIGNALL 8
+&lt;pre&gt;&lt;code&gt;ER_DATA … ALIGNALL 8
 {
    …
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
 &lt;p&gt;例2&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ER_DATA …
+&lt;pre&gt;&lt;code&gt;ER_DATA …
 {
    *.o(.bar, OVERALIGN 8)
    …
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;p&gt;####引导执行区
-镜像的初始入口必须位于引导区，否则链接器会给出错误信息。  &lt;br /&gt;
+&lt;h2 id=&quot;section-12&quot;&gt;引导执行区&lt;/h2&gt;
+&lt;p&gt;镜像的初始入口必须位于引导区，否则链接器会给出错误信息。  &lt;br /&gt;
 例1：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;LR_1 0x040000          ; 加载区开始地址 0x40000
+&lt;pre&gt;&lt;code&gt;LR_1 0x040000          ; 加载区开始地址 0x40000
 {                      ; 执行区描述起始
     ER_RO 0x040000     ; 地址相等
     {
@@ -323,11 +317,10 @@ MQTT(MQ Telemetry Transport)是1个开源的适用于低带宽、高延时网络
     …                  ; 其余分散加载信息
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
 &lt;p&gt;例2：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;LR_1 0x040000
+&lt;pre&gt;&lt;code&gt;LR_1 0x040000
 {
     ER_RO 0x040000
     {
@@ -340,10 +333,9 @@ MQTT(MQ Telemetry Transport)是1个开源的适用于低带宽、高延时网络
     …
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;p&gt;####函数与数据
-将函数或数据置于指定的地址有以下途径：&lt;/p&gt;
+&lt;h2 id=&quot;section-13&quot;&gt;函数与数据&lt;/h2&gt;
+&lt;p&gt;将函数或数据置于指定的地址有以下途径：&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;使用__attribute__((at(address)))指定变量于指定的地址&lt;/li&gt;
@@ -355,13 +347,12 @@ MQTT(MQ Telemetry Transport)是1个开源的适用于低带宽、高延时网络
 &lt;p&gt;例：  &lt;br /&gt;
 源代码：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;int variable __attribute__((section(&quot;foo&quot;))) = 10;
+&lt;pre&gt;&lt;code&gt;int variable __attribute__((section(&quot;foo&quot;))) = 10;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
 &lt;p&gt;分散加载文件：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;FLASH 0x24000000 0x4000000
+&lt;pre&gt;&lt;code&gt;FLASH 0x24000000 0x4000000
 {
     …                                ; 其他分配信息
     ADDER 0x08000000
@@ -370,13 +361,12 @@ MQTT(MQ Telemetry Transport)是1个开源的适用于低带宽、高延时网络
     }
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;p&gt;####空区
-设置无内容的存储块，保留指定区域另有用途，如堆/栈，使用EMPTY标示符。
+&lt;h2 id=&quot;section-14&quot;&gt;空区&lt;/h2&gt;
+&lt;p&gt;设置无内容的存储块，保留指定区域另有用途，如堆/栈，使用EMPTY标示符。
 例：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;LR_1 0x80000   
+&lt;pre&gt;&lt;code&gt;LR_1 0x80000   
 {
     STACK 0x800000 EMPTY -0x10000   ; 结束于0x800000，长度0x10000
     {
@@ -389,25 +379,23 @@ MQTT(MQ Telemetry Transport)是1个开源的适用于低带宽、高延时网络
     …
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
 &lt;p&gt;注：EMPTY执行区的ZI区将不会被运行库初始化为零。&lt;/p&gt;
 
-&lt;p&gt;####自定义堆栈
-定义2个EMPTY执行区，名为ARM_LIB_HEAP、ARM_LIB_STACK，这时运行库会调用__user_setup_stackheap()选择非默认的实现而使用以下标识符：&lt;/p&gt;
+&lt;h2 id=&quot;section-15&quot;&gt;自定义堆栈&lt;/h2&gt;
+&lt;p&gt;定义2个EMPTY执行区，名为ARM_LIB_HEAP、ARM_LIB_STACK，这时运行库会调用__user_setup_stackheap()选择非默认的实现而使用以下标识符：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Image$$ARM\_LIB\_STACK$$Base
+&lt;pre&gt;&lt;code&gt;Image$$ARM\_LIB\_STACK$$Base
 Image$$ARM\_LIB\_STACK$$Limit
 Image$$ARM\_LIB\_HEAP$$Base
 Image$$ARM\_LIB\_HEAP$$Limit
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
 &lt;p&gt;当然，我们可以重定义该函数，覆盖运行库的实现。&lt;/p&gt;
 
-&lt;p&gt;####缺省未定义的标识符&lt;/p&gt;
+&lt;h2 id=&quot;section-16&quot;&gt;缺省未定义的标识符&lt;/h2&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Image$$RO$$Base
+&lt;pre&gt;&lt;code&gt;Image$$RO$$Base
 Image$$RO$$Limit
 Image$$RW$$Base
 Image$$RW$$Limit
@@ -416,7 +404,6 @@ Image$$XO$$Limit
 Image$$ZI$$Base
 Image$$ZI$$Limit
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 </description>
         <pubDate>Sun, 01 Nov 2015 00:00:00 +0800</pubDate>
         <link>http://www.striverbar.com/embedded/notes/2015/11/01/Diving_into_Scatter_file.html</link>
@@ -431,54 +418,62 @@ Image$$ZI$$Limit
     
       <item>
         <title>ARM编译器C++11支持概述</title>
-        <description>&lt;p&gt;####前言
-ARM编译器支持大部分C++11的新特性，本文以ARMCC V5.06为例说明。&lt;/p&gt;
+        <description>&lt;h1 id=&quot;section&quot;&gt;前言&lt;/h1&gt;
+&lt;p&gt;ARM编译器支持大部分C++11的新特性，本文以ARMCC V5.06为例说明。&lt;/p&gt;
 
-&lt;p&gt;####完整支持
-- auto，不指定类型，自动推导：auto i = 5.0F
-- constexpr，主要用于声明函数是编译期常数，也可用于其他表达式
-- -&amp;gt;，后置返回类型
-- explicit，显式类型转换
-- for(auto i:list)，简化的遍历循环
-- int init_var[]{1,2,3}，扩展的初始化语法
-- 可变参数的模板
-- 新的字符串表示，前缀u8/u/U表示UTF-8/UTF-16/UTF-32，R表示不含转义的字符
-- using，可以用来定义类型的别名：using X = int
-- override，显式重写虚函数
-- &amp;gt;/&amp;gt;&amp;gt;，修改右移和右尖括号的解析时的优先级，优先匹配右尖括号
-- static_assert，编译期测试断言
-- enum class，强类型枚举，它不能隐式转换成整数
-- union，对成员类型不再限制的联合
-- friend，扩展的友元声明，class关键字是可选的
-- noexcept，编译时执行计算表达式，以指示是否会抛出异常
-- 支持C99的特性
-- 模版参数支持局部、匿名类型
-- extern，支持外部模板实例声明
-- final，可以用于类和函数，阻止继承和子类重写函数
-- =delete，指明禁止调用特定的成员函数
-- 移动构造和移动赋值运算符
-- inline namespace，内联命名空间，实现可控制的版本演化
-- 模版参数推导，编译器可根据实参，推导出模版函数的形参类型&lt;/p&gt;
+&lt;h1 id=&quot;section-1&quot;&gt;完整支持&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;auto，不指定类型，自动推导：auto i = 5.0F&lt;/li&gt;
+  &lt;li&gt;constexpr，主要用于声明函数是编译期常数，也可用于其他表达式&lt;/li&gt;
+  &lt;li&gt;-&amp;gt;，后置返回类型&lt;/li&gt;
+  &lt;li&gt;explicit，显式类型转换&lt;/li&gt;
+  &lt;li&gt;for(auto i:list)，简化的遍历循环&lt;/li&gt;
+  &lt;li&gt;int init_var[]{1,2,3}，扩展的初始化语法&lt;/li&gt;
+  &lt;li&gt;可变参数的模板&lt;/li&gt;
+  &lt;li&gt;新的字符串表示，前缀u8/u/U表示UTF-8/UTF-16/UTF-32，R表示不含转义的字符&lt;/li&gt;
+  &lt;li&gt;using，可以用来定义类型的别名：using X = int&lt;/li&gt;
+  &lt;li&gt;override，显式重写虚函数&lt;/li&gt;
+  &lt;li&gt;&amp;gt;/&amp;gt;&amp;gt;，修改右移和右尖括号的解析时的优先级，优先匹配右尖括号&lt;/li&gt;
+  &lt;li&gt;static_assert，编译期测试断言&lt;/li&gt;
+  &lt;li&gt;enum class，强类型枚举，它不能隐式转换成整数&lt;/li&gt;
+  &lt;li&gt;union，对成员类型不再限制的联合&lt;/li&gt;
+  &lt;li&gt;friend，扩展的友元声明，class关键字是可选的&lt;/li&gt;
+  &lt;li&gt;noexcept，编译时执行计算表达式，以指示是否会抛出异常&lt;/li&gt;
+  &lt;li&gt;支持C99的特性&lt;/li&gt;
+  &lt;li&gt;模版参数支持局部、匿名类型&lt;/li&gt;
+  &lt;li&gt;extern，支持外部模板实例声明&lt;/li&gt;
+  &lt;li&gt;final，可以用于类和函数，阻止继承和子类重写函数&lt;/li&gt;
+  &lt;li&gt;=delete，指明禁止调用特定的成员函数&lt;/li&gt;
+  &lt;li&gt;移动构造和移动赋值运算符&lt;/li&gt;
+  &lt;li&gt;inline namespace，内联命名空间，实现可控制的版本演化&lt;/li&gt;
+  &lt;li&gt;模版参数推导，编译器可根据实参，推导出模版函数的形参类型&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;####部分支持
-- nullptr，编译器支持该关键字，但并没有定义在标准库头文件中
-- Rvalue，右值引用，编译器未包含std::move和std::forward的实现
-- Lanbda，编译器未包含std::function的实现，使用auto类型保存lambda函数
-- Initializer，未提供std::initializer_list的实现，基于范围的for循环也依赖它
-- Decltype，不包含C++11扩展N3049/N3276，因而它不能用于名称标示符、析构调用、基类继承和不完整类型函数
-- 属性语法，支持[noreturn]，忽略[carries_dependency]
-- =default，但移动构造和移动赋值操作除外&lt;/p&gt;
+&lt;h1 id=&quot;section-2&quot;&gt;部分支持&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;nullptr，编译器支持该关键字，但并没有定义在标准库头文件中&lt;/li&gt;
+  &lt;li&gt;Rvalue，右值引用，编译器未包含std::move和std::forward的实现&lt;/li&gt;
+  &lt;li&gt;Lanbda，编译器未包含std::function的实现，使用auto类型保存lambda函数&lt;/li&gt;
+  &lt;li&gt;Initializer，未提供std::initializer_list的实现，基于范围的for循环也依赖它&lt;/li&gt;
+  &lt;li&gt;Decltype，不包含C++11扩展N3049/N3276，因而它不能用于名称标示符、析构调用、基类继承和不完整类型函数&lt;/li&gt;
+  &lt;li&gt;属性语法，支持[noreturn]，忽略[carries_dependency]&lt;/li&gt;
+  &lt;li&gt;=default，但移动构造和移动赋值操作除外&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;####不支持
-- std::atomic，内存模型保证
-- auto_ptr-&amp;gt;unique_ptr/shared_ptr/weak_ptr，智能指针
-- thread_local，线程局部存储
-- alignof/alignas
-- 继承构造函数
-- User-defined literal，用户定义字面量&lt;/p&gt;
+&lt;h1 id=&quot;section-3&quot;&gt;不支持&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;std::atomic，内存模型保证&lt;/li&gt;
+  &lt;li&gt;auto_ptr-&amp;gt;unique_ptr/shared_ptr/weak_ptr，智能指针&lt;/li&gt;
+  &lt;li&gt;thread_local，线程局部存储&lt;/li&gt;
+  &lt;li&gt;alignof/alignas&lt;/li&gt;
+  &lt;li&gt;继承构造函数&lt;/li&gt;
+  &lt;li&gt;User-defined literal，用户定义字面量&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;####其他
-- Keil µVision动态语法检查功能暂不支持C++11&lt;/p&gt;
+&lt;h1 id=&quot;section-4&quot;&gt;其他&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Keil µVision动态语法检查功能暂不支持C++11&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         <pubDate>Thu, 03 Sep 2015 00:00:00 +0800</pubDate>
         <link>http://www.striverbar.com/embedded/notes/2015/09/03/ARM%E7%BC%96%E8%AF%91%E5%99%A8C++11%E6%94%AF%E6%8C%81%E6%A6%82%E8%BF%B0.html</link>
@@ -493,19 +488,19 @@ ARM编译器支持大部分C++11的新特性，本文以ARMCC V5.06为例说明�
     
       <item>
         <title>ARM Cortex-M栈的使用概述</title>
-        <description>&lt;p&gt;##概要
-面向Cortex-M核，通过阅读代码，理解栈的操作。&lt;/p&gt;
+        <description>&lt;h2 id=&quot;section&quot;&gt;概要&lt;/h2&gt;
+&lt;p&gt;面向Cortex-M核，通过阅读代码，理解栈的操作。&lt;/p&gt;
 
-&lt;p&gt;##详细内容&lt;/p&gt;
-
-&lt;p&gt;###预备知识
+&lt;h1 id=&quot;section-1&quot;&gt;详细内容&lt;/h1&gt;
+&lt;p&gt;预备知识
+————
 了解复位后的启动时序，了解uC/OS的使用，汇编指令基础。&lt;/p&gt;
 
-&lt;p&gt;###栈的简介
-以Cortex-M3为例，M3处理器使用递减的栈，栈指针指向最后压栈的对象，当处理器执行压栈操作时，SP指针减小，然后写入要压栈的对象值至新的栈内存，M3处理器有2个栈，MSP/PSP。&lt;/p&gt;
+&lt;h2 id=&quot;section-2&quot;&gt;栈的简介&lt;/h2&gt;
+&lt;p&gt;以Cortex-M3为例，M3处理器使用递减的栈，栈指针指向最后压栈的对象，当处理器执行压栈操作时，SP指针减小，然后写入要压栈的对象值至新的栈内存，M3处理器有2个栈，MSP/PSP。&lt;/p&gt;
 
-&lt;p&gt;###启动代码对栈的操作
-由代码可见，假定分配为[0x20000000 - 0x2000031F]的内存范围，可知复位后MSP的值为0x20000320，事实的CPU栈顶指针。&lt;/p&gt;
+&lt;h1 id=&quot;section-3&quot;&gt;启动代码对栈的操作&lt;/h1&gt;
+&lt;p&gt;由代码可见，假定分配为[0x20000000 - 0x2000031F]的内存范围，可知复位后MSP的值为0x20000320，事实的CPU栈顶指针。&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;Stack_Size&lt;/span&gt;      &lt;span class=&quot;no&quot;&gt;EQU&lt;/span&gt;     &lt;span class=&quot;mh&quot;&gt;0x00000320&lt;/span&gt;
                 &lt;span class=&quot;no&quot;&gt;AREA&lt;/span&gt;    &lt;span class=&quot;no&quot;&gt;STACK&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;NOINIT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;READWRITE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ALIGN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
@@ -514,51 +509,48 @@ ARM编译器支持大部分C++11的新特性，本文以ARMCC V5.06为例说明�
 
 &lt;span class=&quot;n&quot;&gt;__Vectors&lt;/span&gt;       &lt;span class=&quot;no&quot;&gt;DCD&lt;/span&gt;     &lt;span class=&quot;n&quot;&gt;__initial_sp&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Top&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Stack&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;###uC/OS-II对栈的操作
-OSTaskCreate()创建任务时，传入栈地址（准确地说，末尾32bits的低地址）：&lt;/p&gt;
+&lt;h1 id=&quot;ucos-ii&quot;&gt;uC/OS-II对栈的操作&lt;/h1&gt;
+&lt;p&gt;OSTaskCreate()创建任务时，传入栈地址（准确地说，末尾32bits的低地址）：&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;__align&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;OS_STK&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;RS485TaskStack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;OSTaskCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;RS485Task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;RS485TaskStack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;199&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;RS485Task_PRIO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;__align&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;OS_STK&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;RS485TaskStack&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;OSTaskCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;RS485Task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;RS485TaskStack&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;199&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;RS485Task_PRIO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;那么传入OSTaskCreate()的地址为0x2000031C，该值似乎不是预期的值，实际上它内部调用OSTaskStkInit()，进行了以下操作：&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;sr&quot;&gt;/* Registers stacked as if auto-saved on exception   */&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x01000000&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/* xPSR          */&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x01000000&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/* xPSR          */&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;        &lt;span class=&quot;sr&quot;&gt;/* Entry Point   */&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0xFFFFFFFE&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/* R14 (LR) (init value will cause fault if ever used)*/&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x12121212&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/* R12           */&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x03030303&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/* R3            */&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x02020202&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/* R2            */&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x01010101&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/* R1            */&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0xFFFFFFFE&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/* R14 (LR) (init value will cause fault if ever used)*/&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x12121212&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/* R12           */&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x03030303&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/* R3            */&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x02020202&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/* R2            */&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x01010101&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/* R1            */&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p_arg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;       &lt;span class=&quot;sr&quot;&gt;/* R0 : argument */&lt;/span&gt;
 
 &lt;span class=&quot;sr&quot;&gt;/* Remaining registers saved on process stack */&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x11111111&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;    &lt;span class=&quot;sr&quot;&gt;/* R11 */&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x10101010&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;    &lt;span class=&quot;sr&quot;&gt;/* R10 */&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x09090909&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;    &lt;span class=&quot;sr&quot;&gt;/* R9  */&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x08080808&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;    &lt;span class=&quot;sr&quot;&gt;/* R8  */&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x07070707&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;    &lt;span class=&quot;sr&quot;&gt;/* R7  */&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x06060606&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;    &lt;span class=&quot;sr&quot;&gt;/* R6  */&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x05050505&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;    &lt;span class=&quot;sr&quot;&gt;/* R5  */&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x04040404&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;    &lt;span class=&quot;sr&quot;&gt;/* R4  */&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x11111111&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;    &lt;span class=&quot;sr&quot;&gt;/* R11 */&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x10101010&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;    &lt;span class=&quot;sr&quot;&gt;/* R10 */&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x09090909&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;    &lt;span class=&quot;sr&quot;&gt;/* R9  */&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x08080808&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;    &lt;span class=&quot;sr&quot;&gt;/* R8  */&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x07070707&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;    &lt;span class=&quot;sr&quot;&gt;/* R7  */&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x06060606&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;    &lt;span class=&quot;sr&quot;&gt;/* R6  */&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x05050505&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;    &lt;span class=&quot;sr&quot;&gt;/* R5  */&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INT32U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x04040404&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;    &lt;span class=&quot;sr&quot;&gt;/* R4  */&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;可以看出来，它心中的“栈顶”也是0x20000320，它需要的是直接可用的内存，而栈顶是不属于分配的内存范围的。希望大家细细揣摩下其中的区别。&lt;/p&gt;
 
-&lt;p&gt;###使用SVC时对栈的操作
-SVC全称[supervisor call]，俗称系统调用，常用来间接调用内核函数或者驱动代码。SVC中断优先级是可配置的，它属于系统中断。指令格式：&lt;/p&gt;
+&lt;h1 id=&quot;svc&quot;&gt;使用SVC时对栈的操作&lt;/h1&gt;
+&lt;p&gt;SVC全称[supervisor call]，俗称系统调用，常用来间接调用内核函数或者驱动代码。SVC中断优先级是可配置的，它属于系统中断。指令格式：&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;SVC&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cond&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#imm	; &#39;cond&#39;为可选的条件码 &#39;imm&#39;为范围为0-255的整数&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;SVC&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cond&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#imm	; &amp;#39;cond&amp;#39;为可选的条件码 &amp;#39;imm&amp;#39;为范围为0-255的整数&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;调用它所传递的数值是被处理器忽略的，通过被压栈的PC（即二进制码）取得SVC调用时的参数。&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;TST&lt;/span&gt;     &lt;span class=&quot;no&quot;&gt;LR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#4                   ; 栈判定
-&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;TST&lt;/span&gt;     &lt;span class=&quot;no&quot;&gt;LR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#4                   ; 栈判定&lt;/span&gt;
 &lt;span class=&quot;no&quot;&gt;MRSNE&lt;/span&gt;   &lt;span class=&quot;no&quot;&gt;R12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;PSP&lt;/span&gt;                 &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;PSP&lt;/span&gt;
 &lt;span class=&quot;no&quot;&gt;MOVEQ&lt;/span&gt;   &lt;span class=&quot;no&quot;&gt;R12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;SP&lt;/span&gt;                  &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MSP&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;LDR&lt;/span&gt;     &lt;span class=&quot;no&quot;&gt;R12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,[&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;R12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#24]           ; 读取PC
-&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;LDRH&lt;/span&gt;    &lt;span class=&quot;no&quot;&gt;R12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,[&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;R12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#-2]           ; 读取半字
-&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;LDR&lt;/span&gt;     &lt;span class=&quot;no&quot;&gt;R12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;R12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#24]           ; 读取PC&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;LDRH&lt;/span&gt;    &lt;span class=&quot;no&quot;&gt;R12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;R12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#-2]           ; 读取半字&lt;/span&gt;
 &lt;span class=&quot;no&quot;&gt;BICS&lt;/span&gt;    &lt;span class=&quot;no&quot;&gt;R12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;R12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#0xFF00         ; 获得调用参数&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;当然，也可以携带参数，通过R0-R3间接传递，也是提取栈帧的数据；返回参数使用R0。&lt;/p&gt;
@@ -576,40 +568,42 @@ SVC全称[supervisor call]，俗称系统调用，常用来间接调用内核函
     
       <item>
         <title>C99 Guidelines</title>
-        <description>&lt;p&gt;###概述
-在嵌入式开发中，编译器已经支持C99，本文简要介绍C99的实用功能。要说明的是，很多编译器在标准化前，自行实现了部分，这并不矛盾。		
+        <description>&lt;h2 id=&quot;section&quot;&gt;概述&lt;/h2&gt;
+&lt;p&gt;在嵌入式开发中，编译器已经支持C99，本文简要介绍C99的实用功能。要说明的是，很多编译器在标准化前，自行实现了部分，这并不矛盾。		
 版本：ISO/IEC 9899:1999.The 1999 International Standard for C.&lt;/p&gt;
 
-&lt;p&gt;###新特性
-- 一些来自GNU在C90提供的扩展
-- 一些来自C++特性
-- 一些新的特性，如复数、初始化等
-- 一些已有C90语法扩展&lt;/p&gt;
+&lt;h2 id=&quot;section-1&quot;&gt;新特性&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;一些来自GNU在C90提供的扩展&lt;/li&gt;
+  &lt;li&gt;一些来自C++特性&lt;/li&gt;
+  &lt;li&gt;一些新的特性，如复数、初始化等&lt;/li&gt;
+  &lt;li&gt;一些已有C90语法扩展&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;###其他
-由于新特性的引入，C99与C++不再完全兼容。&lt;/p&gt;
+&lt;h2 id=&quot;section-2&quot;&gt;其他&lt;/h2&gt;
+&lt;p&gt;由于新特性的引入，C99与C++不再完全兼容。&lt;/p&gt;
 
-&lt;p&gt;###举例&lt;/p&gt;
+&lt;h2 id=&quot;section-3&quot;&gt;举例&lt;/h2&gt;
+&lt;p&gt;注释
+————————————&lt;/p&gt;
 
-&lt;p&gt;####注释&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Hello&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;World&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/ b
-    - c;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Hello&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;World&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;ul&gt;
   &lt;li&gt;C90: x = a / b - c;&lt;/li&gt;
   &lt;li&gt;C99: x = a - c;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;####复合表达式&lt;/p&gt;
+&lt;h2 id=&quot;section-4&quot;&gt;复合表达式&lt;/h2&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pint&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]){&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;T&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pint&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
    &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
    &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;t2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;43&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;world&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;n&quot;&gt;t2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;43&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;world&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;####指定初始化&lt;/p&gt;
 
@@ -618,26 +612,26 @@ SVC全称[supervisor call]，俗称系统调用，常用来间接调用内核函
     &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;rank&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vars&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;foo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rank&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;bar&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rank&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;baz&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
-                  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;gazonk&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vars&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;foo&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rank&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;bar&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rank&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;baz&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+                  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;gazonk&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;注：未指定初始化的成员默认初始化为0。&lt;/p&gt;
 
-&lt;p&gt;####16进制浮点数&lt;/p&gt;
+&lt;h2 id=&quot;section-5&quot;&gt;16进制浮点数&lt;/h2&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;mh&quot;&gt;0x1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;fp3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;fp3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9375&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;55&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;mh&quot;&gt;0x1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fp3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fp3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9375&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;55&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;注：可使用printf()以”%a”或”%A”输出该格式。&lt;/p&gt;
 
-&lt;p&gt;####可变长度数组成员&lt;/p&gt;
+&lt;h2 id=&quot;section-6&quot;&gt;可变长度数组成员&lt;/h2&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;extern&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;typedef&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;struct&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -647,17 +641,17 @@ SVC全称[supervisor call]，俗称系统调用，常用来间接调用内核函
 
 &lt;p&gt;注：当结构体包含可变数组成员，结构体是不完整类型，慎用sizeof()。&lt;/p&gt;
 
-&lt;p&gt;####预定义标示符 __func__&lt;/p&gt;
+&lt;h2 id=&quot;func&quot;&gt;预定义标示符 __func__&lt;/h2&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;This function is called &#39;%s&#39;.&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__func__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;This function is called &amp;#39;%s&amp;#39;.&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__func__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;输出：This function is called ‘foo’.&lt;/p&gt;
 
-&lt;p&gt;####内联函数
-关键字：inline&lt;/p&gt;
+&lt;h2 id=&quot;section-7&quot;&gt;内联函数&lt;/h2&gt;
+&lt;p&gt;关键字：inline&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;inline&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -666,8 +660,8 @@ SVC全称[supervisor call]，俗称系统调用，常用来间接调用内核函
 
 &lt;p&gt;注：inline是内联函数的必要条件，C90中使用__inline，与C++中含义不同。&lt;/p&gt;
 
-&lt;p&gt;####长整形
-关键字：long long&lt;/p&gt;
+&lt;h2 id=&quot;section-8&quot;&gt;长整形&lt;/h2&gt;
+&lt;p&gt;关键字：long long&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;25902068371200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;                &lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;light&lt;/span&gt;
                                                  &lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;day&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;meters&lt;/span&gt;
@@ -676,15 +670,15 @@ SVC全称[supervisor call]，俗称系统调用，常用来间接调用内核函
 
 &lt;p&gt;注：64bits，C90不启用选项[–strict]时也支持，__int64与long long是等价的。&lt;/p&gt;
 
-&lt;p&gt;####宏定义允许不定长参数&lt;/p&gt;
+&lt;h2 id=&quot;section-9&quot;&gt;宏定义允许不定长参数&lt;/h2&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#define debug(format, ...) fprintf (stderr, format, __VA_ARGS__)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Variadic_Macros_0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;debug&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;a test string is printed out along with %x %x %x&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;14&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;debug&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;a test string is printed out along with %x %x %x&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;14&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;####不限定变量定义的位置&lt;/p&gt;
+&lt;h2 id=&quot;section-10&quot;&gt;不限定变量定义的位置&lt;/h2&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -701,30 +695,30 @@ SVC全称[supervisor call]，俗称系统调用，常用来间接调用内核函
     &lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;loop&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;####预处理操作符：__Pragma&lt;/p&gt;
+&lt;h2 id=&quot;pragma&quot;&gt;预处理操作符：__Pragma&lt;/h2&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#define RWDATA(X) PRAGMA(arm section rwdata=#X)&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#define PRAGMA(X) _Pragma(#X)&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;RWDATA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/ same as #pragma arm section rwdata=&quot;foo&quot;
-int y = 1;   /&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;placed&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;section&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;foo&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;no&quot;&gt;RWDATA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;same&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#pragma arm section rwdata=&amp;quot;foo&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;   &lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;placed&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;section&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;foo&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;注：它在C90未启用选项[–strict]时是可用的。&lt;/p&gt;
 
-&lt;p&gt;####复数&lt;/p&gt;
+&lt;h2 id=&quot;section-11&quot;&gt;复数&lt;/h2&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#include &amp;lt;stdio.h&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#include &amp;lt;complex.h&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;complex&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;64&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;64&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;I&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;z = %f + %fI&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;creal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cimag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;complex&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;64&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;64&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;I&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;z = %f + %fI&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;creal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cimag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;注：支持以下类型：float complex/double complex/long double complex&lt;/p&gt;
 
-&lt;p&gt;####[restrict]指针
-关键字：restrict&lt;/p&gt;
+&lt;h2 id=&quot;restrict&quot;&gt;[restrict]指针&lt;/h2&gt;
+&lt;p&gt;关键字：restrict&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;copy_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;restrict&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;restrict&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -733,7 +727,7 @@ int y = 1;   /&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;sp
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;extern&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;extern&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;copy_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;    &lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;valid&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;copy_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;     &lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;undefined&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;behavior&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
@@ -741,20 +735,22 @@ int y = 1;   /&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;sp
 &lt;p&gt;注：表示指针仅本函数访问，这允许编译器更好地优化代码。 C90/C++均支持该选项。
 &amp;lt;!&amp;gt;对于2个独有指针，不要试图传入同一参数。&lt;/p&gt;
 
-&lt;p&gt;####库函数
-- 一些UNIX标准库中C90的扩展，如snprintf()
-- 一些新的库功能，如&amp;lt;fenv.h&amp;gt;提供的标准化浮点数运行环境
-- 一些C90已有的功能、宏定义与函数定义	&lt;br /&gt;
-注：由于有些功能已存在于C90/C++，必要时使用[USE_C99_ALL]和[USE_C99_MATH]指定调用。&lt;/p&gt;
+&lt;h2 id=&quot;section-12&quot;&gt;库函数&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;一些UNIX标准库中C90的扩展，如snprintf()&lt;/li&gt;
+  &lt;li&gt;一些新的库功能，如&amp;lt;fenv.h&amp;gt;提供的标准化浮点数运行环境&lt;/li&gt;
+  &lt;li&gt;一些C90已有的功能、宏定义与函数定义	&lt;br /&gt;
+注：由于有些功能已存在于C90/C++，必要时使用[USE_C99_ALL]和[USE_C99_MATH]指定调用。&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;###个人体会
-入行初期，我并不知道什么版本，就纳闷：变量定义怎么只能紧跟着大括号？
+&lt;h2 id=&quot;section-13&quot;&gt;个人体会&lt;/h2&gt;
+&lt;p&gt;入行初期，我并不知道什么版本，就纳闷：变量定义怎么只能紧跟着大括号？
 就去读标准文档，先是国标、C99等，厘清了编译器与标准的关系。
 想想和教育背景有关联，没老师提标准文件，学校充斥着VC6.0，多数情况只是拿结果逆推语言。
 我们了解根源，可以在骨子里建立自信，也得到了自由。	&lt;br /&gt;
 另，C++近期在新标准的推动下，表现强劲，大家也可以了解下，不过注意部分编译器还不完整支持C++11.&lt;/p&gt;
 
-&lt;p&gt;####声明&lt;/p&gt;
+&lt;h2 id=&quot;section-14&quot;&gt;声明&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -788,8 +784,7 @@ int y = 1;   /&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;sp
     
       <item>
         <title>离开学校爱上读书</title>
-        <description>&lt;p&gt;###当我离开了，明白了为什么读书，从来没有这样痛苦的领悟。&lt;/p&gt;
-
+        <description>&lt;h2 id=&quot;section&quot;&gt;当我离开了，明白了为什么读书，从来没有这样痛苦的领悟。&lt;/h2&gt;
 &lt;p&gt;情况多是这样，在80-90年代，多数长辈们对这个时代的变化的了解很有限，似乎他们的共识就是，读书是最有效的路径。我想说那些年，一群对世界所知甚少的人们，积极地指导着晚辈们的方向。这样的现象在90/00后的就没有那么明显了，他们变得没有那样全身心的压力吧。&lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#097;&amp;#100;&amp;#109;&amp;#105;&amp;#110;&amp;#064;&amp;#115;&amp;#116;&amp;#114;&amp;#105;&amp;#118;&amp;#101;&amp;#114;&amp;#098;&amp;#097;&amp;#114;&amp;#046;&amp;#099;&amp;#111;&amp;#109;&quot;&gt;admin#striverbar.com&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;而且，年轻人总这样，越是周围期待的事情，越容易适得其反。但大家成功地将观念统一了，比如“到大学就可以享受自由自在了”，“女生不适合理科”。我不知道自己算不算努力，并没有多少感觉，更多地觉得是当时是认真的，毕竟是全职的学生。因此我领会了一点，学习不差才能有时间玩，到现在也还适用吧。&lt;/p&gt;
@@ -818,8 +813,7 @@ int y = 1;   /&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;sp
     
       <item>
         <title>Hello, We are the Microstar group.</title>
-        <description>&lt;p&gt;###开始新的旅程，希望通过它分享一些动态、见闻。&lt;/p&gt;
-
+        <description>&lt;h2 id=&quot;section&quot;&gt;开始新的旅程，希望通过它分享一些动态、见闻。&lt;/h2&gt;
 &lt;p&gt;我们从11年毕业至今，近4年，世界给了你我很多挫折和惊喜，保持好奇心，开心地将旅行进行到底。欢迎大家跟我们沟通、分享，或推荐博文。我们邮箱是:&lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#097;&amp;#100;&amp;#109;&amp;#105;&amp;#110;&amp;#064;&amp;#115;&amp;#116;&amp;#114;&amp;#105;&amp;#118;&amp;#101;&amp;#114;&amp;#098;&amp;#097;&amp;#114;&amp;#046;&amp;#099;&amp;#111;&amp;#109;&quot;&gt;admin#striverbar.com&lt;/a&gt;。&lt;/p&gt;
 
 &lt;p&gt;就这样，开始吧。世界那么大，欢迎来看看！&lt;/p&gt;
@@ -830,12 +824,11 @@ int y = 1;   /&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;sp
 
 &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hello World.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Hello World.&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;    
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;###Whether you think you can or think you can’t.——You are right. (Henry Ford)&lt;/p&gt;
-
+&lt;h2 id=&quot;whether-you-think-you-can-or-think-you-cantyou-are-right-henry-ford&quot;&gt;Whether you think you can or think you can’t.——You are right. (Henry Ford)&lt;/h2&gt;
 &lt;p&gt;学习就像选家具，去宜家还是从种树开始？
 也许最初拥有的只是梦想和毫无根据的自信，但一切都是都这里开始的。
 正确的方向、清晰的思路、持续的坚持 、永恒的梦想。&lt;/p&gt;

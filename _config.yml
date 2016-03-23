@@ -8,12 +8,19 @@ url: "http://www.striverbar.com" # the base hostname & protocol for your site
 site_root: "../../../../../"    # 相对于网页的相对地址
 twitter_username: TensionWang
 github_username:  MicrostarGrp
+highlighter: pygments
+future: true
 
 # Build settings
 markdown: kramdown
 timezone: Asia/Hong_Kong
-encoding:     "utf-8"
+encoding: "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
+kramdown:
+  input: GFM
 
 gems:
   - jekyll-sitemap
+gems:
+    [jekyll-paginate]

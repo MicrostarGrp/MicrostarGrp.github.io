@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
   <title>Diving into Scatter file</title>
-  <meta name="description" content="#深入浅出分散加载描述文件">
+  <meta name="description" content="深入浅出分散加载描述文件概述————分散加载文件，即[scatter-loading description file]，用来配置链接工具实现镜像的存储分布，镜像由区和输出段组成，区包含不同的加载和执行地址。  镜像的存储结构组成：">
   
   <meta name="keywords" content="Diving,Scatter,file,分散,加载" />
   
@@ -84,9 +84,9 @@
   </header>
 
   <article class="post-content">
-    <p>#深入浅出分散加载描述文件</p>
-
-<p>##概述
+    <h1 id="section">深入浅出分散加载描述文件</h1>
+<p>概述
+————
 分散加载文件，即[scatter-loading description file]，用来配置链接工具实现镜像的存储分布，镜像由区和输出段组成，区包含不同的加载和执行地址。  <br />
 镜像的存储结构组成：</p>
 
@@ -98,17 +98,18 @@
 <p>当链接器通过调用分散文件创建镜像文件，它根据代码的应用建立特定的区域代号。 <br />
 注：本文基于ARM Compiler V5.06</p>
 
-<p>##适用场景
-1. 复杂的存储分配：代码和数据需要置于多个独立的存储区域
-2. 多样的存储类型：如SRAM、ROM、SDRAM、Flash等，他们的具有不同的性能及特征
-3. 外设地址映射：以指定地址的方式映射外设存储空间
-4. 函数固定地址：将函数指定在同一位置即使其余的代码被修改或重新编译
-5. 堆栈标识：建立堆栈标示符，从而指定它们的位置</p>
+<h2 id="section-1">适用场景</h2>
+<ol>
+  <li>复杂的存储分配：代码和数据需要置于多个独立的存储区域</li>
+  <li>多样的存储类型：如SRAM、ROM、SDRAM、Flash等，他们的具有不同的性能及特征</li>
+  <li>外设地址映射：以指定地址的方式映射外设存储空间</li>
+  <li>函数固定地址：将函数指定在同一位置即使其余的代码被修改或重新编译</li>
+  <li>堆栈标识：建立堆栈标示符，从而指定它们的位置</li>
+</ol>
 
-<p>##详细内容</p>
+<h2 id="section-2">详细内容</h2>
 
-<p>###范式标记</p>
-
+<h1 id="section-3">范式标记</h1>
 <ul>
   <li>“，引号表示使用字符的字面值，不记入语法，如：B”+”C只等价于B+C</li>
   <li>A ::= B，定义B用A表示，如A::=B”+” | C，表示A等于B+或C</li>
@@ -119,19 +120,18 @@
   <li>(A B)，与逻辑，两个均包含</li>
 </ul>
 
-<p>###语法
-分散加载文件可以包含一个及以上的加载区，加载区可包含一个及以上的执行区。</p>
+<h1 id="section-4">语法</h1>
+<p>分散加载文件可以包含一个及以上的加载区，加载区可包含一个及以上的执行区。</p>
 
-<p>####加载区
-成员：名称、地址/偏移地址、属性、最大长度</p>
+<h2 id="section-5">加载区</h2>
+<p>成员：名称、地址/偏移地址、属性、最大长度</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>load_region_description ::=
+<pre><code>load_region_description ::=
   load_region_name (base_address | ("+" offset)) [attribute_list] [max_size]
        "{"
           execution_region_description+ 
        "}"
 </code></pre>
-</div>
 
 <ol>
   <li>名称区分大小写</li>
@@ -140,16 +140,15 @@
   <li>属性选项：ABSOLUTE/ALIGN alignment/NOCOMPRESS/OVERLAY/PI/PROTECTED/RELOC</li>
 </ol>
 
-<p>####执行区
-成员：名称、地址、属性、最大长度</p>
+<h2 id="section-6">执行区</h2>
+<p>成员：名称、地址、属性、最大长度</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>execution_region_description ::= 
+<pre><code>execution_region_description ::= 
   exec_region_name (base_address | "+" offset) [attribute_list] [max_size | length]
         "{" 
             input_section_description* 
         "}"
 </code></pre>
-</div>
 
 <ol>
   <li>执行区对齐属性，加载区和执行区地址都应满足</li>
@@ -159,7 +158,7 @@
 
 <p>例：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>LOAD_ROM 0x0000     ; 加载区
+<pre><code>LOAD_ROM 0x0000     ; 加载区
 {
     EXEC_ROM        ; 执行区
     {
@@ -171,17 +170,15 @@
     }
 }
 </code></pre>
-</div>
 
-<p>####输入段
-成员：目标文件、段选择、标示符名</p>
+<h2 id="section-7">输入段</h2>
+<p>成员：目标文件、段选择、标示符名</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>input_section_description ::= 
+<pre><code>input_section_description ::= 
   module_select_pattern 
         [ "(" input_section_selector ( "," input_section_selector )* ")" ]  input_section_selector ::= 
         ("+" input_section_attr | input_section_pattern | input_symbol_pattern | section_properties)
 </code></pre>
-</div>
 
 <ol>
   <li>*表示任意字符，?表示任意单字符，如*.o表示所有目标文件</li>
@@ -211,7 +208,7 @@
 
 <p>例1：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>LoadRegion 0x8000
+<pre><code>LoadRegion 0x8000
 {
     ExecReg1 +0
     {
@@ -221,7 +218,6 @@
         ; 其他加载描述内容
 }
 </code></pre>
-</div>
 
 <p>伪属性</p>
 
@@ -240,40 +236,38 @@
   <li>*arm*匹配包含arm的文件</li>
 </ul>
 
-<p>####表达式
-分散加载文件包含的数值，它可以是具体的值，也可以是表达式的值。暂不提及，自行了解。</p>
+<h2 id="section-8">表达式</h2>
+<p>分散加载文件包含的数值，它可以是具体的值，也可以是表达式的值。暂不提及，自行了解。</p>
 
-<p>####对齐方式</p>
+<h1 id="section-9">对齐方式</h1>
 
-<p>####源文件
-通过关键字__align(n)关键字限定对齐方式</p>
+<h2 id="section-10">源文件</h2>
+<p>通过关键字__align(n)关键字限定对齐方式</p>
 
-<p>####分散加载
-使用ALIGNALL/OVERALIGN指定对齐方式  <br />
+<h2 id="section-11">分散加载</h2>
+<p>使用ALIGNALL/OVERALIGN指定对齐方式  <br />
 例1：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ER_DATA … ALIGNALL 8
+<pre><code>ER_DATA … ALIGNALL 8
 {
    …
 }
 </code></pre>
-</div>
 
 <p>例2</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ER_DATA …
+<pre><code>ER_DATA …
 {
    *.o(.bar, OVERALIGN 8)
    …
 }
 </code></pre>
-</div>
 
-<p>####引导执行区
-镜像的初始入口必须位于引导区，否则链接器会给出错误信息。  <br />
+<h2 id="section-12">引导执行区</h2>
+<p>镜像的初始入口必须位于引导区，否则链接器会给出错误信息。  <br />
 例1：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>LR_1 0x040000          ; 加载区开始地址 0x40000
+<pre><code>LR_1 0x040000          ; 加载区开始地址 0x40000
 {                      ; 执行区描述起始
     ER_RO 0x040000     ; 地址相等
     {
@@ -282,11 +276,10 @@
     …                  ; 其余分散加载信息
 }
 </code></pre>
-</div>
 
 <p>例2：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>LR_1 0x040000
+<pre><code>LR_1 0x040000
 {
     ER_RO 0x040000
     {
@@ -299,10 +292,9 @@
     …
 }
 </code></pre>
-</div>
 
-<p>####函数与数据
-将函数或数据置于指定的地址有以下途径：</p>
+<h2 id="section-13">函数与数据</h2>
+<p>将函数或数据置于指定的地址有以下途径：</p>
 
 <ul>
   <li>使用__attribute__((at(address)))指定变量于指定的地址</li>
@@ -314,13 +306,12 @@
 <p>例：  <br />
 源代码：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>int variable __attribute__((section("foo"))) = 10;
+<pre><code>int variable __attribute__((section("foo"))) = 10;
 </code></pre>
-</div>
 
 <p>分散加载文件：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>FLASH 0x24000000 0x4000000
+<pre><code>FLASH 0x24000000 0x4000000
 {
     …                                ; 其他分配信息
     ADDER 0x08000000
@@ -329,13 +320,12 @@
     }
 }
 </code></pre>
-</div>
 
-<p>####空区
-设置无内容的存储块，保留指定区域另有用途，如堆/栈，使用EMPTY标示符。
+<h2 id="section-14">空区</h2>
+<p>设置无内容的存储块，保留指定区域另有用途，如堆/栈，使用EMPTY标示符。
 例：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>LR_1 0x80000   
+<pre><code>LR_1 0x80000   
 {
     STACK 0x800000 EMPTY -0x10000   ; 结束于0x800000，长度0x10000
     {
@@ -348,25 +338,23 @@
     …
 }
 </code></pre>
-</div>
 
 <p>注：EMPTY执行区的ZI区将不会被运行库初始化为零。</p>
 
-<p>####自定义堆栈
-定义2个EMPTY执行区，名为ARM_LIB_HEAP、ARM_LIB_STACK，这时运行库会调用__user_setup_stackheap()选择非默认的实现而使用以下标识符：</p>
+<h2 id="section-15">自定义堆栈</h2>
+<p>定义2个EMPTY执行区，名为ARM_LIB_HEAP、ARM_LIB_STACK，这时运行库会调用__user_setup_stackheap()选择非默认的实现而使用以下标识符：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Image$$ARM\_LIB\_STACK$$Base
+<pre><code>Image$$ARM\_LIB\_STACK$$Base
 Image$$ARM\_LIB\_STACK$$Limit
 Image$$ARM\_LIB\_HEAP$$Base
 Image$$ARM\_LIB\_HEAP$$Limit
 </code></pre>
-</div>
 
 <p>当然，我们可以重定义该函数，覆盖运行库的实现。</p>
 
-<p>####缺省未定义的标识符</p>
+<h2 id="section-16">缺省未定义的标识符</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Image$$RO$$Base
+<pre><code>Image$$RO$$Base
 Image$$RO$$Limit
 Image$$RW$$Base
 Image$$RW$$Limit
@@ -375,7 +363,6 @@ Image$$XO$$Limit
 Image$$ZI$$Base
 Image$$ZI$$Limit
 </code></pre>
-</div>
 
   </article>
 

@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
   <title>ARM Cortex-M栈的使用概述</title>
-  <meta name="description" content="##概要面向Cortex-M核，通过阅读代码，理解栈的操作。##详细内容###预备知识了解复位后的启动时序，了解uC/OS的使用，汇编指令基础。###栈的简介以Cortex-M3为例，M3处理器使用递减的栈，栈指针指向最后压栈的对象，当处理器执行压栈操作时，SP指针减小，然后写入要压栈的对象值至新的栈内存，M3处...">
+  <meta name="description" content="概要面向Cortex-M核，通过阅读代码，理解栈的操作。详细内容预备知识————了解复位后的启动时序，了解uC/OS的使用，汇编指令基础。栈的简介以Cortex-M3为例，M3处理器使用递减的栈，栈指针指向最后压栈的对象，当处理器执行压栈操作时，SP指针减小，然后写入要压栈的对象值至新的栈内存，M3处理器有2个栈...">
   
   <meta name="keywords" content="ARM,Cortex,栈,使用,SVC" />
   
@@ -84,19 +84,19 @@
   </header>
 
   <article class="post-content">
-    <p>##概要
-面向Cortex-M核，通过阅读代码，理解栈的操作。</p>
+    <h2 id="section">概要</h2>
+<p>面向Cortex-M核，通过阅读代码，理解栈的操作。</p>
 
-<p>##详细内容</p>
-
-<p>###预备知识
+<h1 id="section-1">详细内容</h1>
+<p>预备知识
+————
 了解复位后的启动时序，了解uC/OS的使用，汇编指令基础。</p>
 
-<p>###栈的简介
-以Cortex-M3为例，M3处理器使用递减的栈，栈指针指向最后压栈的对象，当处理器执行压栈操作时，SP指针减小，然后写入要压栈的对象值至新的栈内存，M3处理器有2个栈，MSP/PSP。</p>
+<h2 id="section-2">栈的简介</h2>
+<p>以Cortex-M3为例，M3处理器使用递减的栈，栈指针指向最后压栈的对象，当处理器执行压栈操作时，SP指针减小，然后写入要压栈的对象值至新的栈内存，M3处理器有2个栈，MSP/PSP。</p>
 
-<p>###启动代码对栈的操作
-由代码可见，假定分配为[0x20000000 - 0x2000031F]的内存范围，可知复位后MSP的值为0x20000320，事实的CPU栈顶指针。</p>
+<h1 id="section-3">启动代码对栈的操作</h1>
+<p>由代码可见，假定分配为[0x20000000 - 0x2000031F]的内存范围，可知复位后MSP的值为0x20000320，事实的CPU栈顶指针。</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Stack_Size</span>      <span class="no">EQU</span>     <span class="mh">0x00000320</span>
                 <span class="no">AREA</span>    <span class="no">STACK</span><span class="p">,</span> <span class="no">NOINIT</span><span class="p">,</span> <span class="no">READWRITE</span><span class="p">,</span> <span class="no">ALIGN</span><span class="o">=</span><span class="mi">3</span>
@@ -105,51 +105,48 @@
 
 <span class="n">__Vectors</span>       <span class="no">DCD</span>     <span class="n">__initial_sp</span>     <span class="p">;</span> <span class="no">Top</span> <span class="n">of</span> <span class="no">Stack</span></code></pre></figure>
 
-<p>###uC/OS-II对栈的操作
-OSTaskCreate()创建任务时，传入栈地址（准确地说，末尾32bits的低地址）：</p>
+<h1 id="ucos-ii">uC/OS-II对栈的操作</h1>
+<p>OSTaskCreate()创建任务时，传入栈地址（准确地说，末尾32bits的低地址）：</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">__align</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="no">OS_STK</span> <span class="no">RS485TaskStack</span><span class="p">[</span><span class="mi">200</span><span class="p">];</span>
-<span class="no">OSTaskCreate</span><span class="p">(</span><span class="o">&amp;</span><span class="no">RS485Task</span><span class="p">,</span> <span class="p">(</span><span class="n">void</span><span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">,</span> <span class="o">&amp;</span><span class="no">RS485TaskStack</span><span class="p">[</span><span class="mi">199</span><span class="p">],</span> <span class="no">RS485Task_PRIO</span><span class="p">);</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">__align</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="no">OS_STK</span> <span class="no">RS485TaskStack</span><span class="o">[</span><span class="mi">200</span><span class="o">]</span><span class="p">;</span>
+<span class="no">OSTaskCreate</span><span class="p">(</span><span class="o">&amp;</span><span class="no">RS485Task</span><span class="p">,</span> <span class="p">(</span><span class="n">void</span><span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">,</span> <span class="o">&amp;</span><span class="no">RS485TaskStack</span><span class="o">[</span><span class="mi">199</span><span class="o">]</span><span class="p">,</span> <span class="no">RS485Task_PRIO</span><span class="p">);</span></code></pre></figure>
 
 <p>那么传入OSTaskCreate()的地址为0x2000031C，该值似乎不是预期的值，实际上它内部调用OSTaskStkInit()，进行了以下操作：</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="sr">/* Registers stacked as if auto-saved on exception   */</span>
-<span class="o">*</span><span class="p">(</span><span class="n">stk</span><span class="p">)</span>    <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="mh">0x01000000</span><span class="no">L</span><span class="p">;</span> <span class="sr">/* xPSR          */</span>
+<span class="o">*</span><span class="p">(</span><span class="n">stk</span><span class="p">)</span>    <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="mh">0x01000000</span><span class="n">L</span><span class="p">;</span> <span class="sr">/* xPSR          */</span>
 <span class="o">*</span><span class="p">(</span><span class="o">--</span><span class="n">stk</span><span class="p">)</span>  <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="n">task</span><span class="p">;</span>        <span class="sr">/* Entry Point   */</span>
-<span class="o">*</span><span class="p">(</span><span class="o">--</span><span class="n">stk</span><span class="p">)</span>  <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="mh">0xFFFFFFFE</span><span class="no">L</span><span class="p">;</span> <span class="sr">/* R14 (LR) (init value will cause fault if ever used)*/</span>
-<span class="o">*</span><span class="p">(</span><span class="o">--</span><span class="n">stk</span><span class="p">)</span>  <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="mh">0x12121212</span><span class="no">L</span><span class="p">;</span> <span class="sr">/* R12           */</span>
-<span class="o">*</span><span class="p">(</span><span class="o">--</span><span class="n">stk</span><span class="p">)</span>  <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="mh">0x03030303</span><span class="no">L</span><span class="p">;</span> <span class="sr">/* R3            */</span>
-<span class="o">*</span><span class="p">(</span><span class="o">--</span><span class="n">stk</span><span class="p">)</span>  <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="mh">0x02020202</span><span class="no">L</span><span class="p">;</span> <span class="sr">/* R2            */</span>
-<span class="o">*</span><span class="p">(</span><span class="o">--</span><span class="n">stk</span><span class="p">)</span>  <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="mh">0x01010101</span><span class="no">L</span><span class="p">;</span> <span class="sr">/* R1            */</span>
+<span class="o">*</span><span class="p">(</span><span class="o">--</span><span class="n">stk</span><span class="p">)</span>  <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="mh">0xFFFFFFFE</span><span class="n">L</span><span class="p">;</span> <span class="sr">/* R14 (LR) (init value will cause fault if ever used)*/</span>
+<span class="o">*</span><span class="p">(</span><span class="o">--</span><span class="n">stk</span><span class="p">)</span>  <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="mh">0x12121212</span><span class="n">L</span><span class="p">;</span> <span class="sr">/* R12           */</span>
+<span class="o">*</span><span class="p">(</span><span class="o">--</span><span class="n">stk</span><span class="p">)</span>  <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="mh">0x03030303</span><span class="n">L</span><span class="p">;</span> <span class="sr">/* R3            */</span>
+<span class="o">*</span><span class="p">(</span><span class="o">--</span><span class="n">stk</span><span class="p">)</span>  <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="mh">0x02020202</span><span class="n">L</span><span class="p">;</span> <span class="sr">/* R2            */</span>
+<span class="o">*</span><span class="p">(</span><span class="o">--</span><span class="n">stk</span><span class="p">)</span>  <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="mh">0x01010101</span><span class="n">L</span><span class="p">;</span> <span class="sr">/* R1            */</span>
 <span class="o">*</span><span class="p">(</span><span class="o">--</span><span class="n">stk</span><span class="p">)</span>  <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="n">p_arg</span><span class="p">;</span>       <span class="sr">/* R0 : argument */</span>
 
 <span class="sr">/* Remaining registers saved on process stack */</span>
-<span class="o">*</span><span class="p">(</span><span class="o">--</span><span class="n">stk</span><span class="p">)</span>  <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="mh">0x11111111</span><span class="no">L</span><span class="p">;</span>    <span class="sr">/* R11 */</span>
-<span class="o">*</span><span class="p">(</span><span class="o">--</span><span class="n">stk</span><span class="p">)</span>  <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="mh">0x10101010</span><span class="no">L</span><span class="p">;</span>    <span class="sr">/* R10 */</span>
-<span class="o">*</span><span class="p">(</span><span class="o">--</span><span class="n">stk</span><span class="p">)</span>  <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="mh">0x09090909</span><span class="no">L</span><span class="p">;</span>    <span class="sr">/* R9  */</span>
-<span class="o">*</span><span class="p">(</span><span class="o">--</span><span class="n">stk</span><span class="p">)</span>  <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="mh">0x08080808</span><span class="no">L</span><span class="p">;</span>    <span class="sr">/* R8  */</span>
-<span class="o">*</span><span class="p">(</span><span class="o">--</span><span class="n">stk</span><span class="p">)</span>  <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="mh">0x07070707</span><span class="no">L</span><span class="p">;</span>    <span class="sr">/* R7  */</span>
-<span class="o">*</span><span class="p">(</span><span class="o">--</span><span class="n">stk</span><span class="p">)</span>  <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="mh">0x06060606</span><span class="no">L</span><span class="p">;</span>    <span class="sr">/* R6  */</span>
-<span class="o">*</span><span class="p">(</span><span class="o">--</span><span class="n">stk</span><span class="p">)</span>  <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="mh">0x05050505</span><span class="no">L</span><span class="p">;</span>    <span class="sr">/* R5  */</span>
-<span class="o">*</span><span class="p">(</span><span class="o">--</span><span class="n">stk</span><span class="p">)</span>  <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="mh">0x04040404</span><span class="no">L</span><span class="p">;</span>    <span class="sr">/* R4  */</span></code></pre></figure>
+<span class="o">*</span><span class="p">(</span><span class="o">--</span><span class="n">stk</span><span class="p">)</span>  <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="mh">0x11111111</span><span class="n">L</span><span class="p">;</span>    <span class="sr">/* R11 */</span>
+<span class="o">*</span><span class="p">(</span><span class="o">--</span><span class="n">stk</span><span class="p">)</span>  <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="mh">0x10101010</span><span class="n">L</span><span class="p">;</span>    <span class="sr">/* R10 */</span>
+<span class="o">*</span><span class="p">(</span><span class="o">--</span><span class="n">stk</span><span class="p">)</span>  <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="mh">0x09090909</span><span class="n">L</span><span class="p">;</span>    <span class="sr">/* R9  */</span>
+<span class="o">*</span><span class="p">(</span><span class="o">--</span><span class="n">stk</span><span class="p">)</span>  <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="mh">0x08080808</span><span class="n">L</span><span class="p">;</span>    <span class="sr">/* R8  */</span>
+<span class="o">*</span><span class="p">(</span><span class="o">--</span><span class="n">stk</span><span class="p">)</span>  <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="mh">0x07070707</span><span class="n">L</span><span class="p">;</span>    <span class="sr">/* R7  */</span>
+<span class="o">*</span><span class="p">(</span><span class="o">--</span><span class="n">stk</span><span class="p">)</span>  <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="mh">0x06060606</span><span class="n">L</span><span class="p">;</span>    <span class="sr">/* R6  */</span>
+<span class="o">*</span><span class="p">(</span><span class="o">--</span><span class="n">stk</span><span class="p">)</span>  <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="mh">0x05050505</span><span class="n">L</span><span class="p">;</span>    <span class="sr">/* R5  */</span>
+<span class="o">*</span><span class="p">(</span><span class="o">--</span><span class="n">stk</span><span class="p">)</span>  <span class="o">=</span> <span class="p">(</span><span class="no">INT32U</span><span class="p">)</span><span class="mh">0x04040404</span><span class="n">L</span><span class="p">;</span>    <span class="sr">/* R4  */</span></code></pre></figure>
 
 <p>可以看出来，它心中的“栈顶”也是0x20000320，它需要的是直接可用的内存，而栈顶是不属于分配的内存范围的。希望大家细细揣摩下其中的区别。</p>
 
-<p>###使用SVC时对栈的操作
-SVC全称[supervisor call]，俗称系统调用，常用来间接调用内核函数或者驱动代码。SVC中断优先级是可配置的，它属于系统中断。指令格式：</p>
+<h1 id="svc">使用SVC时对栈的操作</h1>
+<p>SVC全称[supervisor call]，俗称系统调用，常用来间接调用内核函数或者驱动代码。SVC中断优先级是可配置的，它属于系统中断。指令格式：</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">SVC</span><span class="p">{</span><span class="n">cond</span><span class="p">}</span> <span class="c1">#imm	; 'cond'为可选的条件码 'imm'为范围为0-255的整数</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">SVC</span><span class="p">{</span><span class="n">cond</span><span class="p">}</span> <span class="c1">#imm	; &#39;cond&#39;为可选的条件码 &#39;imm&#39;为范围为0-255的整数</span></code></pre></figure>
 
 <p>调用它所传递的数值是被处理器忽略的，通过被压栈的PC（即二进制码）取得SVC调用时的参数。</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">TST</span>     <span class="no">LR</span><span class="p">,</span><span class="c1">#4                   ; 栈判定
-</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">TST</span>     <span class="no">LR</span><span class="p">,</span><span class="c1">#4                   ; 栈判定</span>
 <span class="no">MRSNE</span>   <span class="no">R12</span><span class="p">,</span><span class="no">PSP</span>                 <span class="p">;</span> <span class="no">PSP</span>
 <span class="no">MOVEQ</span>   <span class="no">R12</span><span class="p">,</span><span class="no">SP</span>                  <span class="p">;</span> <span class="no">MSP</span>
-<span class="no">LDR</span>     <span class="no">R12</span><span class="p">,[</span><span class="no">R12</span><span class="p">,</span><span class="c1">#24]           ; 读取PC
-</span>
-<span class="no">LDRH</span>    <span class="no">R12</span><span class="p">,[</span><span class="no">R12</span><span class="p">,</span><span class="c1">#-2]           ; 读取半字
-</span>
+<span class="no">LDR</span>     <span class="no">R12</span><span class="p">,</span><span class="o">[</span><span class="no">R12</span><span class="p">,</span><span class="c1">#24]           ; 读取PC</span>
+<span class="no">LDRH</span>    <span class="no">R12</span><span class="p">,</span><span class="o">[</span><span class="no">R12</span><span class="p">,</span><span class="c1">#-2]           ; 读取半字</span>
 <span class="no">BICS</span>    <span class="no">R12</span><span class="p">,</span><span class="no">R12</span><span class="p">,</span><span class="c1">#0xFF00         ; 获得调用参数</span></code></pre></figure>
 
 <p>当然，也可以携带参数，通过R0-R3间接传递，也是提取栈帧的数据；返回参数使用R0。</p>
