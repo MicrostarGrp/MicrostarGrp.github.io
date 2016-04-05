@@ -9,6 +9,10 @@ layout: default
 
   <article class="post-content">
     {{ content }}
+{% if page.custom_js %}
+    {% for js_file in page.custom_js %}
+    <script src='/javascripts/{{ js_file }}.js' type="text/javascript"></script>
+    {% endfor %}
+{% endif %}
   </article>
-
 </div>
